@@ -1,0 +1,828 @@
+<!--<%@ MASTERPAGE="{THEME}/ISYS.LAYOUT" %> -->
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>ISYS 9 Search Results for Bill 1</title>
+<style>
+  <!--
+  p, td, dl {
+    font-family: "Arial"
+  }
+  -->
+</style>
+ </head>
+
+
+  
+<LINK href="https://www.assembly.ab.ca/net/css/ISYSStyles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body style="background-repeat: repeat-y" bgcolor="#FFFFFF" text="#000000" link="#006600" vlink="#003399" alink="#009900" background="https://www.assembly.ab.ca/graphics/pagegraphics/bg2.gif" >
+
+<img src="https://www.assembly.ab.ca/graphics/pagegraphics/topbar.gif" width="590" height="21" alt="Legislative Assembly of Alberta"> 
+
+<table width="600" border="0" cellpadding="0" cellspacing="0">
+  <tr valign=top> 
+    <td height="18" width="50" valign="top" rowspan="4">&nbsp;</td>
+    <td>
+		<a target="_parent" href="https://www.assembly.ab.ca/default.htm"><Font style="FONT-WEIGHT: bold; FONT-SIZE: 7pt; COLOR: #004437; FONT-FAMILY: 'Microsoft Sans Serif'">HOME</font></a>
+		<Font style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #004437; FONT-FAMILY: 'Verdana'">  &gt; </font>
+       <a target="_parent" href="https://www.assembly.ab.ca/net/index.aspx?p=bills_status&selectbill=001&legl=30&session=1"><Font style="FONT-WEIGHT: bold; FONT-SIZE: 7pt; COLOR: #004437; FONT-FAMILY: 'Microsoft Sans Serif'">RETURN TO PREVIOUS PAGE<br>
+        </FONT></a>
+    </td>
+
+    <td align="right">
+      <a target="_parent" href="https://www.assembly.ab.ca/pro/s-help0.htm"><b>Help</b></a>&nbsp;
+    </td>        
+	</tr>
+
+  </font>
+
+</font>
+
+	<tr valign=top>
+    <td>
+      <br><br><b>DOCUMENT VIEW </b>
+    </td>
+    
+    <td align="right">
+      &nbsp;
+    </td>        	
+  
+</table>
+
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr>
+	<td style="padding-left:50px;" height="18"; width="1"; valign="top">&nbsp;</td>
+    <td width="*">
+	
+		<table bgcolor="black" cellpadding="0" cellspacing="0" border="0" width="100%">
+		  <tr>
+		    <td align="center">
+		      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1 solid #808080">
+		        <tr align="center" bgcolor="#efefef">
+		          <td valign="middle"><a  href="#hit1"><img src="https://www.assembly.ab.ca/net/images/Isys_images/isys_firsthit.gif" border =0 align="center" width="16" height="17">First Hit</a></td>
+		          <td valign="middle"><a href="#" disabled="disabled"><img src="https://www.assembly.ab.ca/net/images/Isys_images/isys_previous.gif" border =0 align="center" width="16" height="17">Back</a></td>
+			  <td valign="middle"><a href="/Documents/isysquery/0b24aeb4-4082-4331-8934-302c92e0950b/2/doc/">Next<img src="https://www.assembly.ab.ca/net/images/Isys_images/isys_next.gif" border =0 align="center" width="16" height="17"></a></td>
+			  <td valign="middle"><img border="0" src="https://www.assembly.ab.ca/net/images/Isys_images/isys_document.gif" align="center" width="20" height="12"><a target="_blank" href="/Documents/isysquery/0b24aeb4-4082-4331-8934-302c92e0950b/1/doc/20190522_1500_01_han.pdf#xml=https://www.assembly.ab.ca/Documents/isysquery/0b24aeb4-4082-4331-8934-302c92e0950b/1/hilite/">Download</a></td>
+		          <td valign="middle"><a target="_parent" href="/Documents/isysquery/0B24AEB4-4082-4331-8934-302C92E0950B/1-10/list/"><img src="https://www.assembly.ab.ca/net/images/Isys_images/isys_result.gif" border =0 align="center" width="13" height="17">Search Results</a></td>
+		          <td valign="middle"><a target="_parent" href="https://www.assembly.ab.ca/net/index.aspx?p=bills_status&selectbill=001&legl=30&session=1"><img src="https://www.assembly.ab.ca/net/images/Isys_images/isys_search.gif" border =0 align="center" width="14" height="17">New Search</a></td>
+		        </tr>
+		      </table>
+		    </td>
+		  </tr>
+		</table>
+
+	</td>
+  </tr>
+</table>
+
+<br>
+
+
+<table width="100%" border="0" cellpadding="0">
+<tr>
+<td style="padding-left:50px;" width="1"></td>
+<td width="*">
+
+<br />
+Province of Alberta<br />
+<br />
+The 30th Legislature<br />
+First Session<br />
+Alberta Hansard<br />
+<br />
+Wednesday afternoon, May 22, 2019<br />
+<br />
+Day 1<br />
+<br />
+The Honourable Nathan Cooper, Speaker<br />
+<br />
+<br />
+Legislative Assembly of Alberta<br />
+The 30th Legislature<br />
+First Session<br />
+Cooper, Hon. Nathan, Olds-Didsbury-Three Hills (UCP), Speaker<br />
+Pitt, Angela D., Airdrie-East (UCP), Deputy Speaker and Chair of <br />
+Committees<br />
+Milliken, Nicholas, Calgary-Currie (UCP), Deputy Chair of Committees<br />
+<br />
+Aheer, Hon. Leela Sharon, Chestermere-Strathmore (UCP)<br />
+Allard, Tracy L., Grande Prairie (UCP)<br />
+Amery, Mickey K., Calgary-Cross (UCP)<br />
+Armstrong-Homeniuk, Jackie,<br />
+Fort Saskatchewan-Vegreville (UCP)<br />
+Barnes, Drew, Cypress-Medicine Hat (UCP)<br />
+Bilous, Deron, Edmonton-Beverly-Clareview (NDP),<br />
+Official Opposition House Leader<br />
+Carson, Jonathon, Edmonton-West Henday (NDP)<br />
+Ceci, Joe, Calgary-Buffalo (NDP)<br />
+Copping, Hon. Jason C., Calgary-Varsity (UCP)<br />
+Dach, Lorne, Edmonton-McClung (NDP)<br />
+Dang, Thomas, Edmonton-South (NDP)<br />
+Deol, Jasvir, Edmonton-Meadows (NDP)<br />
+Dreeshen, Hon. Devin, Innisfail-Sylvan Lake (UCP)<br />
+Eggen, David, Edmonton-North West (NDP),<br />
+Official Opposition Whip<br />
+Ellis, Mike, Calgary-West (UCP),<br />
+Government Whip<br />
+Feehan, Richard, Edmonton-Rutherford (NDP)<br />
+Fir, Hon. Tanya, Calgary-Peigan (UCP)<br />
+Ganley, Kathleen T., Calgary-Mountain View (NDP)<br />
+Getson, Shane C., Lac Ste. Anne-Parkland (UCP)<br />
+Glasgo, Michaela L., Brooks-Medicine Hat (UCP)<br />
+Glubish, Hon. Nate, Strathcona-Sherwood Park (UCP)<br />
+Goehring, Nicole, Edmonton-Castle Downs (NDP)<br />
+Goodridge, Laila, Fort McMurray-Lac La Biche (UCP)<br />
+Gotfried, Richard, Calgary-Fish Creek (UCP)<br />
+Gray, Christina, Edmonton-Mill Woods (NDP)<br />
+Guthrie, Peter F., Airdrie-Cochrane (UCP)<br />
+Hanson, David B., Bonnyville-Cold Lake-St. Paul (UCP)<br />
+Hoffman, Sarah, Edmonton-Glenora (NDP)<br />
+Horner, Nate S., Drumheller-Stettler (UCP)<br />
+Hunter, Hon. Grant R., Taber-Warner (UCP)<br />
+Irwin, Janis, Edmonton-Highlands-Norwood (NDP),<br />
+Official Opposition Deputy Whip<br />
+Issik, Whitney, Calgary-Glenmore (UCP)<br />
+Jones, Matt, Calgary-South East (UCP)<br />
+Kenney, Hon. Jason, PC, Calgary-Lougheed (UCP),<br />
+Premier<br />
+LaGrange, Hon. Adriana, Red Deer-North (UCP)<br />
+Loewen, Todd, Central Peace-Notley (UCP)<br />
+Long, Martin M., West Yellowhead (UCP)<br />
+Lovely, Jacqueline, Camrose (UCP)<br />
+Loyola, Rod, Edmonton-Ellerslie (NDP)<br />
+Luan, Hon. Jason, Calgary-Foothills (UCP)<br />
+Madu, Hon. Kaycee, Edmonton-South West (UCP)<br />
+McIver, Hon. Ric, Calgary-Hays (UCP),<br />
+Deputy Government House Leader Nally, Hon. Dale, Morinville-St. Albert (<br />
+UCP)<br />
+Neudorf, Nathan T., Lethbridge-East (UCP)<br />
+Nicolaides, Hon. Demetrios, Calgary-Bow (UCP)<br />
+Nielsen, Christian E., Edmonton-Decore (NDP)<br />
+Nixon, Hon. Jason, Rimbey-Rocky Mountain House-Sundre<br />
+(UCP), Government House Leader<br />
+Nixon, Jeremy P., Calgary-Klein (UCP)<br />
+Notley, Rachel, Edmonton-Strathcona (NDP),<br />
+Leader of the Official Opposition<br />
+Orr, Ronald, Lacombe-Ponoka (UCP)<br />
+Pancholi, Rakhi, Edmonton-Whitemud (NDP)<br />
+Panda, Hon. Prasad, Calgary-Edgemont (UCP)<br />
+Phillips, Shannon, Lethbridge-West (NDP)<br />
+Pon, Hon. Josephine, Calgary-Beddington (UCP)<br />
+Rehn, Pat, Lesser Slave Lake (UCP)<br />
+Reid, Roger W., Livingstone-Macleod (UCP)<br />
+Renaud, Marie F., St. Albert (NDP)<br />
+Rosin, Miranda D., Banff-Kananaskis (UCP)<br />
+Rowswell, Garth, Vermilion-Lloydminster-Wainwright (UCP)<br />
+Rutherford, Brad, Leduc-Beaumont (UCP)<br />
+Sabir, Irfan, Calgary-McCall (NDP)<br />
+Savage, Hon. Sonya, Calgary-North West (UCP),<br />
+Deputy Government House Leader<br />
+Sawhney, Hon. Rajan, Calgary-North East (UCP)<br />
+Schmidt, Marlin, Edmonton-Gold Bar (NDP)<br />
+Schow, Joseph R., Cardston-Siksika (UCP),<br />
+Deputy Government Whip<br />
+Schulz, Hon. Rebecca, Calgary-Shaw (UCP)<br />
+Schweitzer, Hon. Doug, Calgary-Elbow (UCP),<br />
+Deputy Government House Leader<br />
+Shandro, Hon. Tyler, Calgary-Acadia (UCP)<br />
+Shepherd, David, Edmonton-City Centre (NDP)<br />
+Sigurdson, Lori, Edmonton-Riverview (NDP)<br />
+Sigurdson, R.J., Highwood (UCP)<br />
+Singh, Peter, Calgary-East (UCP)<br />
+Smith, Mark W., Drayton Valley-Devon (UCP)<br />
+Stephan, Jason, Red Deer-South (UCP)<br />
+Sweet, Heather, Edmonton-Manning (NDP),<br />
+Official Opposition Deputy House Leader<br />
+Toews, Hon. Travis, Grande Prairie-Wapiti (UCP)<br />
+Toor, Devinder, Calgary-Falconridge (UCP)<br />
+Turton, Searle, Spruce Grove-Stony Plain (UCP)<br />
+van Dijken, Glenn, Athabasca-Barrhead-Westlock (UCP)<br />
+Walker, Jordan, Sherwood Park (UCP)<br />
+Williams, Dan D.A., Peace River (UCP)<br />
+Wilson, Hon. Rick D., Maskwacis-Wetaskiwin (UCP)<br />
+Yao, Tany, Fort McMurray-Wood Buffalo (UCP)<br />
+Yaseen, Muhammad, Calgary-North (UCP)<br />
+<br />
+Party standings: United Conservative: 63 New Democrat: 24<br />
+<br />
+Officers and Officials of the Legislative Assembly<br />
+<br />
+Merwan N. Saher, Clerk<br />
+Shannon Dean, Law Clerk and Executive<br />
+Director of House Services<br />
+Stephanie LeBlanc, Senior Parliamentary<br />
+Counsel<br />
+Trafton Koenig, Parliamentary Counsel Philip Massolin, Manager of Research <br />
+and<br />
+Committee Services<br />
+Nancy Robert, Research Officer<br />
+Janet Schwegel, Managing Editor of<br />
+Alberta Hansard Brian G. Hodgson, Sergeant-at-Arms<br />
+Chris Caughell, Deputy Sergeant-at-Arms<br />
+Tom Bell, Assistant Sergeant-at-Arms<br />
+Paul Link, Assistant Sergeant-at-Arms<br />
+<br />
+<br />
+Executive Council<br />
+<br />
+Jason Kenney Premier, President of Executive Council,<br />
+Minister of Intergovernmental Relations<br />
+<br />
+Leela Aheer Minister of Culture, Multiculturalism and Status of Women<br />
+<br />
+Jason Copping Minister of Labour and Immigration<br />
+<br />
+Devin Dreeshen Minister of Agriculture and Forestry<br />
+<br />
+Tanya Fir Minister of Economic Development, Trade and Tourism<br />
+<br />
+Nate Glubish Minister of Service Alberta<br />
+<br />
+Grant Hunter Associate Minister of Red Tape Reduction<br />
+<br />
+Adriana LaGrange Minister of Education<br />
+<br />
+Jason Luan Associate Minister of Mental Health and Addictions<br />
+<br />
+Kaycee Madu Minister of Municipal Affairs<br />
+<br />
+Ric McIver Minister of Transportation<br />
+<br />
+Dale Nally Associate Minister of Natural Gas<br />
+<br />
+Demetrios Nicolaides Minister of Advanced Education<br />
+<br />
+Jason Nixon Minister of Environment and Parks<br />
+<br />
+Prasad Panda Minister of Infrastructure<br />
+<br />
+Josephine Pon Minister of Seniors and Housing<br />
+<br />
+Sonya Savage Minister of Energy<br />
+<br />
+Rajan Sawhney Minister of Community and Social Services<br />
+<br />
+Rebecca Schulz Minister of Children's Services<br />
+<br />
+Doug Schweitzer Minister of Justice and Solicitor General<br />
+<br />
+Tyler Shandro Minister of Health<br />
+<br />
+Travis Toews President of Treasury Board and Minister of Finance<br />
+<br />
+Rick Wilson Minister of Indigenous Relations<br />
+<br />
+Parliamentary Secretary<br />
+<br />
+Muhammad Yaseen Parliamentary Secretary of Immigration<br />
+<br />
+<br />
+<br />
+<br />
+May 22, 2019 Alberta Hansard 5<br />
+<br />
+Legislative Assembly of Alberta<br />
+Title: Wednesday, May 22, 2019 3:00 p.m.<br />
+3 p.m. Wednesday, May 22, 2019<br />
+<br />
+The Sergeant-at-Arms: Order! Order! Mr. Speaker.<br />
+<br />
+[Preceded by the Sergeant-at-Arms, the Speaker, accompanied by<br />
+the officers of the Assembly, entered the Chamber and took the<br />
+chair]<br />
+<br />
+head: Prayers<br />
+<br />
+The Speaker: Let us pray. Almighty God, author of wisdom,<br />
+knowledge, and understanding, we ask your blessing on all here<br />
+present. We ask your guidance in order that the truth and justice<br />
+may prevail in all our judgments for the benefit of all Albertans.<br />
+Amen.Ladies and gentlemen, I would now invite you to join Cara<br />
+McLeod, accompanied by the Royal Canadian Artillery Band,<br />
+leading us in the singing of our national anthem. Please join us in<br />
+the language of your choice.<br />
+<br />
+Hon. Members and Guests:O Canada, our home and native land!<br />
+True patriot love in all of us command.<br />
+Car ton bras sait porter l'épée,<br />
+Il sait porter la croix!<br />
+Ton histoire est une épopée<br />
+Des plus brillants exploits.<br />
+God keep our land glorious and free!<br />
+O Canada, we stand on guard for thee.<br />
+O Canada, we stand on guard for thee.<br />
+<br />
+The Speaker: Thank you. Please be seated.<br />
+<br />
+head: Entrance of the Lieutenant Governor<br />
+<br />
+[The Premier, the Clerk, and the Sergeant-at-Arms left the Chamber<br />
+to attend the Lieutenant Governor]<br />
+<br />
+[The Mace was draped]<br />
+<br />
+The Speaker: Ladies and gentlemen, welcome. It's so nice to see<br />
+all of you. Holy cannoli. Hon. members, the RCA Band will now<br />
+play a brief musical interlude. The piece to be performed is entitled<br />
+Canzon Septimi Toni No. 2. It is the sprightliest of Giovanni<br />
+Gabrieli's larger works.<br />
+The RCA Band is Canada's oldest regular army band. It was<br />
+formed in Quebec City in 1879. It was subsequently stationed in<br />
+Montreal and Halifax and was reconstituted in Edmonton in 1997.<br />
+It has been in service in both world wars and in Korea, and it has<br />
+travelled across Canada and beyond our borders.<br />
+Please enjoy the performance by the Royal Canadian Artillery<br />
+Band brass choir.<br />
+<br />
+[The Sergeant-at-Arms knocked on the main doors of the Chamber<br />
+three times. The Assistant Sergeant-at-Arms opened the doors, and<br />
+the Sergeant-at-Arms entered]<br />
+<br />
+The Sergeant-at-Arms: Ladies and gentlemen, all rise, please.<br />
+Mr. Speaker, Her Honour the Honourable the Lieutenant<br />
+Governor awaits.<br />
+<br />
+The Speaker: Sergeant-at-Arms, admit Her Honour the Honourable<br />
+the Lieutenant Governor.<br />
+<br />
+[A fanfare of trumpets sounded] [Preceded by the Sergeant-at-Arms, Her <br />
+Honour the Lieutenant<br />
+Governor of Alberta, Lois Mitchell, CM, AOE, LLD, and Honorary<br />
+Colonel Douglas Mitchell, their party, the Premier, and the Clerk<br />
+entered the Chamber. Her Honour took her place upon the throne]<br />
+<br />
+The Speaker: May it please Your Honour, the Legislative<br />
+Assembly has elected me their Speaker, though I am but little able<br />
+to fulfill the important duties thus assigned to me. If in the<br />
+performance of those duties I should at any time fall into error, I<br />
+pray that the fault may be imputed to me and not to the Assembly,<br />
+whose servant I am and who through me, the better to enable them<br />
+to discharge their duty to their Queen and province, humbly claim<br />
+all their undoubted rights and privileges, especially that they may<br />
+have freedom of speech in their debates, access to Your Honour's<br />
+person at all seasonable times, and that their proceedings may<br />
+receive from Your Honour the most favourable construction.<br />
+<br />
+Mr. Schweitzer (Provincial Secretary): Mr. Speaker, I am<br />
+commanded by Her Honour the Honourable the Lieutenant Governor<br />
+to declare to you that she freely confides in the duty and attachment<br />
+of this Assembly to Her Majesty's person and government, and not<br />
+doubting that their proceedings will be conducted with wisdom,<br />
+temper, and prudence, she grants and upon all occasions will<br />
+recognize and allow their constitutional privileges.<br />
+I am commanded also to assure you that the Assembly shall have<br />
+ready access to Her Honour upon all seasonable occasions and that<br />
+their proceedings as well as your words and actions will constantly<br />
+receive from her the most favourable construction.<br />
+<br />
+Her Honour: Please, all, be seated.<br />
+<br />
+head: Speech from the Throne<br />
+<br />
+Her Honour: Mr. Speaker, ladies and gentlemen of the Legislative<br />
+Assembly, fellow Albertans:<br />
+I speak to you as the province of Alberta's vice-regal representative<br />
+of Her Majesty Elizabeth II, Queen of Canada.<br />
+This province honours its enduring ties to the Royal Family and<br />
+our democratic tradition of constitutional monarchy. One hundred<br />
+and fifty years ago this year the Hudson's Bay Company sold<br />
+Rupert's Land, including much of the territory that became the<br />
+province of Alberta, to the Dominion of Canada, bringing all of<br />
+these lands under the Canadian Crown. The same Crown enjoined<br />
+us in treaties with First Nations to respect the rights, privileges, and<br />
+traditions of indigenous communities, a duty which we are bound<br />
+to honour. Last year we renewed our ties to the Crown when we<br />
+were honoured by the visit of Anne, the Princess Royal. I had the<br />
+privilege of joining with her to announce Edmonton's Commonwealth<br />
+walkway.As Her Majesty's representative it is my honour and duty to open<br />
+the First Session of the 30th Legislature with the presentation of the<br />
+legislative program of Her Majesty's government.<br />
+Spring is the season of renewal. For all the people blessed to call<br />
+Alberta home, from the First Peoples who have built vital<br />
+communities on these lands for millennia to recent newcomers from<br />
+across Canada and around the world, spring arrives with an<br />
+explosion of nature's irrepressible energy. Every spring we<br />
+experience the breathtaking vitality of nature's rush to renewal and<br />
+are invigorated by it. So it is with our democracy. Once again, this<br />
+spring Albertans participated in the great democratic ritual of a free<br />
+election bequeathed to us by the Westminster parliamentary<br />
+tradition, and they voted decisively for democratic and economic<br />
+renewal through a change in government.<br />
+<br />
+<br />
+6 Alberta Hansard May 22, 2019<br />
+<br />
+Recognizing that our province is beset by severe external<br />
+political and economic constraints and consequently saddled with<br />
+serious internal fiscal challenges requiring urgent action, my<br />
+government will bring in a legislative program focused on three<br />
+main priorities. First, a relentless focus on policies designed to<br />
+create jobs, growth, and economic diversification: Alberta must<br />
+show the world that we are open for business to restore investor<br />
+confidence while carefully restoring balance to our province's<br />
+finances. Second, standing up for our province's right to control and<br />
+develop our natural resources and compete freely and fairly in the<br />
+national and international economies: this requires securing<br />
+pipeline access for Alberta oil and gas to world markets. And third,<br />
+making life better for all Albertans by ensuring the quality and<br />
+effectiveness of our public services, especially in health care and<br />
+education, and by supporting the most vulnerable in our society.<br />
+<a class="isys" name="hit1"></a><a class="isys" name="term0_1"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="#hit2"><img src="/Documents/images/nexthit.gif" alt="Next Hit" border="0" align="absmiddle"></a>, as promised, will be the Carbon Tax Repeal Act. In<br />
+providing $1.4 billion in tax relief, it will make everything more<br />
+affordable for Albertans. If needed, my ministers will take legal<br />
+action to protect Albertans from a federal carbon tax and to support<br />
+other provinces doing the same.<br />
+Bill 2 will be the Open for Business Act. It will strengthen the<br />
+rights of Alberta workers within unions, promote job creation for<br />
+young Albertans, and retain recent advancements in compassionate<br />
+leave. This will be followed in the autumn by further labour reforms<br />
+to protect workers and help employers create more jobs.<br />
+This spring my government will also introduce Bill 3, the Job<br />
+Creation Tax Cut Act. It will lower the tax burden on employers by<br />
+one-third, from 12 per cent to 8 per cent. This will give Alberta<br />
+businesses the lowest tax rate in Canada and among the lowest rates<br />
+in North America, renewing Alberta as a magnet for job-creating<br />
+investment. Economists estimate that this reduction will generate<br />
+55,000 new full-time jobs and increase the size of our economy by<br />
+$12.7 billion.<br />
+My government will bring forward Bill 4, the Red Tape<br />
+Reduction Act. This will provide the means to lower the regulatory<br />
+burden on Alberta's economy by one-third, reducing costs,<br />
+speeding up approvals, and freeing job creators to get more<br />
+Albertans back to work.<br />
+Estimates for the interim supply of public services will be<br />
+presented in an Appropriation Act, to be followed by a full budget<br />
+this fall. That budget will be informed by the report of the fiscal<br />
+review panel chaired by former Saskatchewan Finance minister<br />
+Janice MacKinnon, which will make recommendations on how to<br />
+restore balance to our province's finances so that we stop<br />
+encumbering future generations with debt. My government will<br />
+also engage in widespread public consultations on how best to end<br />
+deficit spending while protecting front-line public services.<br />
+My government will also present a Tax Statutes Amendment Act.<br />
+My government will propose amendments to the Municipal<br />
+Government Act. These will enable municipalities to use property<br />
+tax incentives to attract investment and create jobs.<br />
+My government will table a Royalties Guarantee Act. Part of a<br />
+plan to restore the competitiveness of the Alberta energy sector and<br />
+win back the confidence of investors, this legislation will provide<br />
+certainty that the royalty structure in place when a well is drilled<br />
+remains in place for the life of the well.<br />
+My government will introduce the Fair Access to Regulated<br />
+Professions and Trades Act. This legislation will renew and<br />
+reinforce Alberta's historic role as a place of economic opportunity<br />
+by making it easier and fairer for newcomers to be credentialed in<br />
+their professions, work at their skill level, and contribute to our<br />
+shared prosperity.<br />
+Her Majesty's government, on the very day it was sworn in,<br />
+proclaimed the Preserving Canada's Economic Prosperity Act. It will be <br />
+used as necessary to ensure the value of Alberta's energy<br />
+products is maximized.<br />
+Also, in the spring session my government will present<br />
+amendments to the Education Act. These will include implementing<br />
+the will of the Legislature as expressed in legislation passed in 2012<br />
+so that these well-considered reforms are in place for the start of the<br />
+new school year in September of this year. They will also include a<br />
+commitment to curriculum reform based on proven pedagogy that<br />
+teaches essential knowledge needed to achieve foundational<br />
+competences and to prepare young Albertans to succeed in the<br />
+future.My ministers will also undertake important nonlegislative actions<br />
+this spring. These include standing up for Alberta's interests within<br />
+the Canadian federation by seeking the Legislature's support for a<br />
+motion calling for the complete rejection of federal Bill C-48,<br />
+which seeks to block access for Alberta's bitumen resources to<br />
+British Columbia's northwest coast. A motion will also be proposed<br />
+rejecting in its current form federal Bill C-69, the proposed Impact<br />
+Assessment Act, which threatens Alberta's exclusive jurisdiction<br />
+over nonrenewable natural resources and is damaging investor<br />
+confidence. In bringing forward these and other initiatives, we will<br />
+seek unity amongst Alberta's political parties, wherever possible,<br />
+to speak with one voice.<br />
+In a world where the demand for energy will continue to rise,<br />
+Alberta can, should, and will be one of the largest suppliers. That is<br />
+why my government will create an agency mandated to proactively<br />
+tell the truth about how we produce energy with the highest<br />
+environmental, labour, and human rights standards on earth. My<br />
+government will also challenge those who have for too long<br />
+misrepresented these facts. In part this will be done by launching a<br />
+public inquiry into the foreign sources of funds responsible for the<br />
+campaign to land-lock Alberta's energy.<br />
+This year Her Majesty's government will also create the<br />
+indigenous opportunities corporation. Alberta's First Peoples have<br />
+played a crucial role in the development of this province,<br />
+symbolized by Siksika Chief Crowfoot, who as leader of the<br />
+Blackfoot peoples 150 years ago led his people into peaceful cooperation<br />
+with the Crown, including the signing of Treaty 7. But<br />
+while Alberta's natural resource wealth has been greatly developed<br />
+since then, indigenous peoples have not fully participated in that<br />
+prosperity. The indigenous opportunities corporation will support<br />
+First Nations' and other indigenous groups' financial participation<br />
+in natural resource development and infrastructure projects here<br />
+and in other parts of Canada. We have a moral obligation to<br />
+empower First Nations to be full partners in the development of the<br />
+resources that lie below the lands which their ancestors first<br />
+inhabited and to become partners in prosperity.<br />
+In the fall session my government will bring forward several<br />
+other important bills. These include the Farm Freedom and Safety<br />
+Act, which will reduce the tax and regulatory burden on farmers,<br />
+strengthen their property rights and competitiveness, and restore<br />
+balance, fairness, and common sense to regulation of Alberta's<br />
+agricultural sector.<br />
+My government will further improve Alberta's education system<br />
+by presenting the Choice in Education Act. It will renew the Alberta<br />
+advantage in education by restoring and expanding the choices<br />
+available to parents and children.<br />
+My government will take action to address climate change by<br />
+introducing legislation to replace the carbon competitiveness<br />
+incentive regulation with a technology innovation and emissions<br />
+reduction fund. This will be a balanced, environmentally<br />
+responsible, and economically efficient approach to reducing<br />
+greenhouse gas emissions in Alberta through regulation at the<br />
+<br />
+<br />
+May 22, 2019 Alberta Hansard 7<br />
+<br />
+primary source, large industrial emitters. Further, it will ensure<br />
+investment in new emissions-reducing technologies which can be<br />
+exported around the world.<br />
+To help protect vulnerable Albertans, my government will<br />
+introduce the Saving the Girl Next Door Act and table legislation<br />
+to give effect to Clare's law. The former will introduce protections<br />
+for victims of human trafficking, and the latter will expand<br />
+protections for victims of domestic violence. My government will<br />
+implement a strategy to combat the wave of crime that has<br />
+victimized too many Albertans, in part by hiring more Crown<br />
+prosecutors and providing additional resources to police to respond<br />
+to such terrible crimes as the exploitation of children.<br />
+And in order to improve decorum in this Assembly and civility<br />
+in our politics, my government will propose amendments to the<br />
+standing orders.<br />
+Members of the Legislative Assembly, this summarizes my<br />
+government's legislative program for the spring and fall sessions.<br />
+Further legislation anticipated for 2020 will address matters related<br />
+to democratic reform, economic growth and environmental<br />
+protection, public infrastructure, charitable giving, municipal<br />
+governance, the economic rights of artists, conservation and<br />
+outdoor recreation, and family law.<br />
+Renewal is the animating theme of my government's immediate<br />
+legislative priorities. It is the appropriate and necessary response to<br />
+the fiscal and economic setbacks Albertans have experienced in<br />
+recent years, and it is only fitting to look to our history, the<br />
+magnificent endowment of our natural resources and environment,<br />
+and above all the values and character of our people to inspire and<br />
+achieve this renewal.<br />
+The scale and pace of social and economic progress in Alberta<br />
+over the last 114 years exceeds that of virtually any other polity on<br />
+earth. We should always be grateful for those who have gone before<br />
+us, who have been stewards of a great tradition of ordered liberty.<br />
+Albertans have consistently applied the principles of free enterprise,<br />
+free markets, equality of opportunity, and prudent stewardship to<br />
+optimize our God-given gifts. No economic hardship has ever<br />
+ruined us. No political enmity has ever defeated us. No natural<br />
+disaster has ever stopped us. Our success, our resiliency, and our<br />
+yet-untapped potential is a powerful magnet that continues to attract<br />
+ambitious and talented newcomers from across Canada and the<br />
+world.The political forces standing in the way of this inevitable destiny<br />
+today are external and temporary. Her Majesty's government has a<br />
+strong mandate to stand up for Alberta against those forces,<br />
+powered by the unstoppable will, energy, and talent of Albertans.<br />
+Few places on earth provide such freedom of opportunity to achieve<br />
+so much upward social and economic mobility. This in turn fuels<br />
+our economic growth and generates wealth that spills far beyond<br />
+our borders and secures the prosperity and welfare of<br />
+Confederation. It is our duty and our destiny to renew Alberta's role<br />
+as an economic and political leader within Canada.<br />
+Members of the Legislative Assembly, if you would indulge my<br />
+passion for Alberta history, I will leave you with the closing words<br />
+of our province's very first Speech from the Throne, on March 15,<br />
+1906, delivered by His Honour Lieutenant Governor George<br />
+Hedley Vicars Bulyea:<br />
+To the several matters herein referred to and to all others that may<br />
+be brought before you, I invite your careful attention, with the<br />
+fullest confidence that the result of your deliberations will be<br />
+beneficial to the Province and to the Dominion as a whole.<br />
+May the blessings of Almighty God rest upon your counsels as<br />
+you work to renew an Alberta that is, in the words of our province's<br />
+official motto, strong and free. The Sergeant-at-Arms: Order! All rise, <br />
+please.<br />
+<br />
+The Speaker: Ladies and gentlemen, I would now invite you to<br />
+join Cara McLeod, accompanied by the Royal Canadian Artillery<br />
+Band, leading us in the singing of God Save the Queen. Please<br />
+remain standing at the conclusion.<br />
+<br />
+Hon. Members and Guests:God save our gracious Queen,<br />
+Long live our noble Queen,<br />
+God save the Queen!<br />
+Send her victorious,<br />
+Happy and glorious,<br />
+Long to reign over us,<br />
+God save the Queen!<br />
+<br />
+The Sergeant-at-Arms: Order!<br />
+<br />
+[Preceded by the Sergeant-at-Arms, Their Honours, their party, and<br />
+the Premier left the Chamber as a fanfare of trumpets sounded]<br />
+<br />
+The Speaker: Please be seated.<br />
+<br />
+[The Mace was uncovered]<br />
+<br />
+The Speaker: Well, ladies and gentlemen, former Premiers,<br />
+Members, family, friends, MPs, thank you all for joining us today<br />
+so, so very much on this very exciting occasion for all of us here<br />
+today and, in fact, all of us in this province. On April 16, 2019, over<br />
+1.894 million votes were cast in 87 constituencies throughout the<br />
+province of Alberta. As a result, 46 new members have joined a<br />
+very select group of individuals to serve in this storied Chamber.<br />
+Since 1905 a grand total of only 954 members have been elected to<br />
+serve in this venerable Chamber here at the Legislative Assembly<br />
+of Alberta.<br />
+It's important that we let Albertans know just a little bit more<br />
+about the 61 men and the 26 women who are serving here as MLAs.<br />
+In addition to the 46 new members, 35 members are serving their<br />
+second term in office, four members are serving their third term,<br />
+and two members are serving their fourth term in office. I think they<br />
+call that long suffering. Based on the information available to us,<br />
+the average age at the time of the general election was<br />
+approximately 46 years, which is unchanged from the 29th<br />
+Legislature. As of April 16, 2019, there were four members in their<br />
+20s; 18 members in their 30s, a very esteemed group of individuals;<br />
+24 members in their 40s; 25 members in their 50s; and eight<br />
+members – they happen to by my favourite – in their 60s.<br />
+Alberta is a dynamic province that welcomes people from other<br />
+cultures and countries. The majority of members were born here in<br />
+Alberta. However, there are members who were born in other<br />
+Canadian provinces as well as Brazil, Chile, China, Hong Kong,<br />
+Fiji, India, Nigeria, and Pakistan. In addition to English, members<br />
+also communicate in the languages of French, Arabic, Cantonese,<br />
+Mandarin, Cree, German, Greek, Hindi, Italian, Japanese, Punjabi,<br />
+Spanish, and, with apologies to the Filipinos, Tagalog.<br />
+Diversity is also reflected in members' previous work<br />
+experience. The occupational backgrounds of members vary from<br />
+musicians to economists, engineers to hairstylists, investment<br />
+bankers to hydrologists. To be more specific, there are 35<br />
+entrepreneurs or businesspeople; 11 lawyers – that's probably<br />
+enough – 11 teachers and postsecondary instructors; eight ranchers<br />
+and farmers; and six social workers. One member was formerly a<br />
+Member of Parliament. Seven members previously held positions<br />
+in local government as councillors or school board trustees.<br />
+<br />
+<br />
+8 Alberta Hansard May 22, 2019<br />
+<br />
+From an educational standpoint members collectively hold 66<br />
+bachelor's degrees, 25 master's, one doctorate, and 57 other<br />
+diplomas or certificates and professional designations.<br />
+Members of the 30th Legislature notably have some interesting<br />
+family ties. There are, for the first time in history, in the Legislative<br />
+Assembly of Alberta two brothers serving at the same time, one of<br />
+them slightly taller than the other. In fact, we're currently doing<br />
+some research to determine whether or not we are the tallest<br />
+Legislative Assembly of all time. There are two members whose<br />
+fathers have previously served in this Assembly. One member's<br />
+great-grandfather served in the 1930s. There are three members<br />
+whose great-uncles or great-uncles-in-law served in our Assembly.<br />
+Finally, we have three members who have cousins who have also<br />
+served as MLAs.<br />
+To conclude, the members of the 30th Legislature are a diverse<br />
+and capable group whose knowledge and experience will assist us<br />
+in carrying out our responsibilities as parliamentarians and elected<br />
+representatives in the service of this great province of Alberta.<br />
+<br />
+[The Premier returned to the Chamber]<br />
+<br />
+head: Tablings<br />
+<br />
+The Speaker: I have the honour to table a copy of the speech<br />
+graciously given by Her Honour the Honourable the Lieutenant<br />
+Governor.<br />
+<br />
+head: Introduction of Bills<br />
+<br />
+The Speaker: The hon. Premier.<br />
+<br />
+<a class="isys" name="hit2"></a><a class="isys" href="#hit1"><img src="/Documents/images/prevhit.gif" alt="Previous Hit" border="0" align="absmiddle"></a><a class="isys" name="term0_2"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="#hit3"><img src="/Documents/images/nexthit.gif" alt="Next Hit" border="0" align="absmiddle"></a><br />
+An Act to Repeal the Carbon Tax<br />
+<br />
+Mr. Kenney: Thank you, Mr. Speaker. Congratulations on your<br />
+election. I request leave to introduce <a class="isys" name="hit3"></a><a class="isys" href="#hit2"><img src="/Documents/images/prevhit.gif" alt="Previous Hit" border="0" align="absmiddle"></a><a class="isys" name="term0_3"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="#hit4"><img src="/Documents/images/nexthit.gif" alt="Next Hit" border="0" align="absmiddle"></a>, An Act to Repeal the<br />
+Carbon Tax.<br />
+Mr. Speaker, our government is taking action to deliver on the<br />
+commitment that we made to Albertans to repeal this tax grab,<br />
+which is all economic pain and no environmental gain. This<br />
+measure, if adopted, will lift a burden of $1.4 billion off the Alberta<br />
+economy, will save families as much as $1,150 per year, will save small <br />
+businesses on average $4,500 per year, and will, according to<br />
+economists, lead to the creation of at least 6,000 new full-time jobs.<br />
+Mr. Speaker, a recent study indicates that Albertans have been<br />
+paying the second-highest carbon tax in Canada, far more than our<br />
+fellow Canadians, and this has not secured for us so-called social<br />
+licence or market access for our world-class energy. We therefore<br />
+propose in this measure to provide important tax relief to Albertans.<br />
+Albertans have been waiting for this relief, which is why<br />
+consistently two-thirds of Albertans have expressed opposition to<br />
+the tax that will be repealed by <a class="isys" name="hit4"></a><a class="isys" href="#hit3"><img src="/Documents/images/prevhit.gif" alt="Previous Hit" border="0" align="absmiddle"></a><a class="isys" name="term0_4"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="#hit5"><img src="/Documents/images/nexthit.gif" alt="Next Hit" border="0" align="absmiddle"></a>. Promise made, promise kept.<br />
+This being a money bill, Her Honour the Honourable the<br />
+Lieutenant Governor, having been informed of the contents of the<br />
+bill, recommends the same to the Assembly.<br />
+With that, I move first reading of <a class="isys" name="hit5"></a><a class="isys" href="#hit4"><img src="/Documents/images/prevhit.gif" alt="Previous Hit" border="0" align="absmiddle"></a><a class="isys" name="term0_5"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="#hit6"><img src="/Documents/images/nexthit.gif" alt="Next Hit" border="0" align="absmiddle"></a>.<br />
+<br />
+[Motion carried; <a class="isys" name="hit6"></a><a class="isys" href="#hit5"><img src="/Documents/images/prevhit.gif" alt="Previous Hit" border="0" align="absmiddle"></a><a class="isys" name="term0_6"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="#hit7"><img src="/Documents/images/nexthit.gif" alt="Next Hit" border="0" align="absmiddle"></a> read a first time]<br />
+<br />
+head: Certificates of Election<br />
+<br />
+The Clerk: Mr. Speaker, I have received from the Chief Electoral<br />
+Officer of Alberta pursuant to the Election Act a report containing<br />
+the results of the general election conducted on the 16th day of<br />
+April, 2019, which states that an election was conducted in the<br />
+following electoral divisions, and the said report further shows that<br />
+the following members were duly elected.<br />
+<br />
+[The Clerk read the election returns]<br />
+<br />
+head: Motions<br />
+<br />
+The Speaker: The hon. Premier.<br />
+<br />
+Mr. Kenney: Thank you, Mr. Speaker. I move that the speech of<br />
+Her Honour the Honourable the Lieutenant Governor to this<br />
+Assembly be taken into consideration the week of May 27.<br />
+<br />
+[Motion carried]<br />
+<br />
+The Speaker: The hon. Government House Leader.<br />
+<br />
+Mr. Jason Nixon: Thank you, Mr. Speaker. I move that the<br />
+Assembly stand adjourned until Thursday, May 23, at 9 a.m.<br />
+<br />
+[Motion carried; the Assembly adjourned at 3:46 p.m.]<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Table of Contents<br />
+<br />
+Prayers<br />
+ .........................................................................<br />
+5<br />
+<br />
+Entrance of the Lieutenant Governor<br />
+..........................................................................<br />
+5<br />
+<br />
+Speech from the Throne<br />
+ .........................................................................<br />
+5<br />
+<br />
+Tablings<br />
+..........................................................................<br />
+8<br />
+<br />
+Introduction of Bills<br />
+<a class="isys" name="hit7"></a><a class="isys" href="#hit6"><img src="/Documents/images/prevhit.gif" alt="Previous Hit" border="0" align="absmiddle"></a><a class="isys" name="term0_7"></a><span color="#000000" style="background-color:#FFFF66"><b>Bill 1</b></span><a class="isys" href="/Documents/isysquery/0b24aeb4-4082-4331-8934-302c92e0950b/2/doc/"><img src="/Documents/images/nextdoc.gif" alt="Next Document" border="0" align="absmiddle"></a> An Act to Repeal the Carbon Tax<br />
+ .........................................................................<br />
+8<br />
+<br />
+Certificates of Election<br />
+ .........................................................................<br />
+8<br />
+<br />
+Motions<br />
+..........................................................................<br />
+8<br />
+<br />
+<br />
+Alberta Hansard is available online at <A href="http://www.assembly.ab.ca/">www.assembly.ab.ca</A><br />
+For inquiries contact:<br />
+Managing Editor<br />
+Alberta Hansard<br />
+3rd Floor, 9820 – 107 St<br />
+EDMONTON, AB T5K 1E7<br />
+Telephone: 780.427.1875<br />
+<br />
+Published under the Authority of the Speaker<br />
+of the Legislative Assembly of Alberta ISSN 0383-3623<br />
+<br />
+
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
