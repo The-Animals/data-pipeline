@@ -19,13 +19,16 @@ class SpeechParser:
             May not be needed in actual implementation (done in another object maybe??)
 
         """
+
         try:
             r = requests.get(url)
-            if r.status_code != 200:
-                raise ValueError("Invalid URL, received status code {0}".format(r.status_code))
-            self.source = r.content
         except:
-            raise ValueError("Invalid URL, could not submit request")
+            raise ValueError("Invalid URL {0} used, could not submit request".format(url))
+            return
+
+        if r.status_code != 200:
+            raise ValueError("Invalid URL {0} used, received status code {1}".format(url, r.status_code))
+        self.source = r.content
 
 
     def getSourceHTML(self):
@@ -42,3 +45,10 @@ class SpeechParser:
         """
 
         return self.source
+
+# s = SpeechParser("https://www.assembly.ab.ca/Documents/isysquery/0b24aeb4-4082-4331-8934-302c92e0950b/1/doc/")
+#
+# with open("test.txt", "w") as f:
+#     source = s.getSourceHTML()
+#     for l in source:
+#         f.write(l)

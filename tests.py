@@ -4,19 +4,21 @@ import unittest
 class TestSpeechParser(unittest.TestCase):
 
     def setUp(self):
-        self.url = "https://www.assembly.ab.ca/Documents/isysquery/0b24aeb4-4082-4331-8934-302c92e0950b/1/doc/"
-        self.parser = SpeechParser(self.url)
+        with open("urls.txt", "r") as f:
+            self.urls = f.read().splitlines()
 
-    def test_bad_url(self):
+    def test_bad_urls(self):
         ''' Tests invalid urls and ensures value error is raised'''
-        self.assertRaises(ValueError, self.parser.setSourceHTML, 'The Animals')
-        self.assertRaises(ValueError, self.parser.setSourceHTML, 2)
-        self.assertRaises(ValueError, self.parser.setSourceHTML, True)
-        self.assertRaises(ValueError, self.parser.setSourceHTML, None)
+        self.assertRaises(ValueError, SpeechParser, 'The Animals')
+        self.assertRaises(ValueError, SpeechParser, 2)
+        self.assertRaises(ValueError, SpeechParser, True)
+        self.assertRaises(ValueError, SpeechParser, None)
 
-    def test_good_url(self):
-        ''' Tests invalid urls and ensures value error is raised'''
-        self.assertTrue(type(self.parser.getSourceHTML()) == str)
+    def test_good_urls(self):
+        ''' Tests valid urls and ensures value error is raised'''
+        for url in self.urls:
+            s = SpeechParser(url)
+            self.assertTrue(type(s.getSourceHTML()) == str)
 
     def tearDown(self):
         pass
