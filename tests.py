@@ -33,7 +33,6 @@ class TestSpeechParser(unittest.TestCase):
             self.assertTrue(2010 < int(metadata['date']['year']) < 2021)
             self.assertTrue(0 < int(metadata['date']['day']) < 32)
 
-
     def tearDown(self):
         pass
 
