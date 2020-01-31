@@ -199,9 +199,9 @@ class SpeechParser:
 
         return self.info
 
-with open("urls.txt", "r") as f:
-    urls = f.read().splitlines()
-
-for url in urls:
-    s = SpeechParser(url)
-    print(s.getInfo())
+# with open("urls.txt", "r") as f:
+#     urls = f.read().splitlines()
+#
+# for url in urls:
+#     s = SpeechParser(url)
+#     print(s.getInfo())
