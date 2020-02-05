@@ -230,8 +230,8 @@ class SpeechParser:
                     speech = section.split(speaker)[1][2:] # add beginning of speech after colon (2 spaces after name ends)
                     speech = speech.replace('\n', ' ') # removes line breaks in speech
                     if speaker not in speakers:
-                        speakers[speaker] = {'speaches': []}
-                    speakers[speaker]['speaches'] += [speech]
+                        speakers[speaker] = {'speech': []}
+                    speakers[speaker]['speech'] += [speech]
                 except:
                     raise ValueError("Failed to extract data for speaker. Please ensure URL points to a Hansard document.")
 
