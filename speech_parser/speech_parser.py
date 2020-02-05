@@ -236,11 +236,3 @@ class SpeechParser:
                     raise ValueError("Failed to extract data for speaker. Please ensure URL points to a Hansard document.")
 
         self.info['speakers'] = speakers
-
-with open("urls.txt", "r") as f:
-    urls = f.read().splitlines()
-
-for url in urls:
-    s = SpeechParser(url)
-    info = s.getInfo()
-    print(info)
