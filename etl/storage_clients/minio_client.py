@@ -15,14 +15,3 @@ class MinioClient(Minio):
             secret_key=config['minio']['secret_key'],
             secure=False
         )
-
-    def setup(self):
-        try:
-            super().make_bucket("speeches")
-        except (BucketAlreadyOwnedByYou, BucketAlreadyExists):
-            print("Bucket Already Exists: speeches")
-
-        try:
-            super().make_bucket("images")
-        except (BucketAlreadyOwnedByYou, BucketAlreadyExists):
-            print("Bucket Already Exists: images")
