@@ -1,7 +1,8 @@
 -- To run: mysql db -h 162.246.157.124 -u admin -p --local-infile < ImportMLAs.sql
 DROP TABLE mlas;
 
-CREATE TABLE mlas (
+CREATE TABLE mlas
+(
     RidingNumber INT NOT NULL,
     RidingName VARCHAR(100) NOT NULL,
     MLATitle VARCHAR(8) NOT NULL,
@@ -14,9 +15,9 @@ CREATE TABLE mlas (
     PRIMARY KEY (RidingNumber)
 );
 
-LOAD DATA LOCAL INFILE '../data/MLAs.csv' 
+LOAD DATA LOCAL INFILE '../raw_data/MLAs.csv' 
 INTO TABLE mlas
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
-LINES TERMINATED BY '\n'    
+LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;

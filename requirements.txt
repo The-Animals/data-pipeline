@@ -1,2 +1,4 @@
 minio
 configparser
+mysqlclient
+pandas
