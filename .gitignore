@@ -1,5 +1,5 @@
 # Project specific
-secrets.conf
+config.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
