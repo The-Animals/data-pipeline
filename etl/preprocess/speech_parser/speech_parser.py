@@ -1,5 +1,6 @@
 import requests
 import re
+from html import unescape
 
 class SpeechParser:
 
@@ -10,7 +11,6 @@ class SpeechParser:
         self.info = {}
 
         self.setSourceHTML(url)
-        self.parseData()
 
     def getAssembly(self):
         """Grabs legislative assembly metadata from natural text stored in object text variable. HTMLToText must be invoked successfully in order for this function to work valid.
@@ -131,13 +131,15 @@ class SpeechParser:
         text = text.replace('\n', '') # remove all new line as HTML new line does not represent text new line
         text = text.replace('<br />', '\n') # replace all HTML breaks with new line (needed to remove HTML data)
 
-        text = re.sub(r'<[ \v\t\S]*>', '', text) # remove all left over HTML context
+        text = re.sub(r'<[\/ \v\t\S]+?>', '', text) # remove all left over HTML context
+
         text = text[text.find('\n') + 1:] # TODO: Implementation leaves one line of HTML context at the beginning. Could not figure out how to work around it
 
         text = text.replace('\n', '') # remove new line needed for HTML removal
         text = text.replace('\r', '\n') # change all returns to new line
 
         self.text = text
+        print(self.text)
         self.lines = self.text.splitlines()
 
     def parseData(self):
@@ -193,7 +195,7 @@ class SpeechParser:
 
         if r.status_code != 200:
             raise ValueError("Invalid URL {0} used, received status code {1}".format(url, r.status_code))
-        self.source = r.content
+        self.source = r.content.decode('iso-8859-1')
 
     def setSpeeches(self):
         """Sets speaker and speach information in object info dictionary by parsing through raw text. HTMLTOText must be invoked successfully with a standard Hansard document matching the regex rules found in order for this to work properly.
@@ -236,11 +238,3 @@ class SpeechParser:
                     raise ValueError("Failed to extract data for speaker. Please ensure URL points to a Hansard document.")
 
         self.info['speakers'] = speakers
-
-with open("urls.txt", "r") as f:
-    urls = f.read().splitlines()
-
-for url in urls:
-    s = SpeechParser(url)
-    info = s.getInfo()
-    print(info)

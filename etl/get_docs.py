@@ -1,6 +1,6 @@
 from sys import argv
 from os.path import abspath
-from utils import get_urls, overwrite_urls
+from preprocess.webscraping import get_urls, overwrite_urls
 
 
 HANSARD_SESSION_URL ='https://www.assembly.ab.ca/net/index.aspx?p=han&section=doc&fid=1'

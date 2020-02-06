@@ -1,8 +1,9 @@
-from etl import get_config
 from io import StringIO
 from minio import Minio
 from minio.error import (BucketAlreadyOwnedByYou,
                          BucketAlreadyExists)
+
+from .utils import get_config
 
 
 class MinioClient(Minio):

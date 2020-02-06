@@ -1,6 +1,7 @@
-from etl import get_config
 from mysql import connector 
 from pandas import DataFrame
+
+from .utils import get_config
 
 class MySqlClient(object): 
 

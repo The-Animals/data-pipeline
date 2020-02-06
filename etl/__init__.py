@@ -1,1 +1,1 @@
-from etl.utils import get_config
+from __future__ import absolute_import
