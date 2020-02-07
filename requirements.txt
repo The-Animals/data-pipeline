@@ -1,4 +1,4 @@
 minio
 configparser
-mysql
+mysql-connector-python
 pandas
