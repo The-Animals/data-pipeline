@@ -4,11 +4,12 @@ from html import unescape
 
 class SpeechParser:
 
-    def __init__(self, url):
+    def __init__(self, url, names):
         self.source = None
         self.text = None
         self.lines = None
         self.info = {}
+        self.names = set(names)
 
         self.setSourceHTML(url)
 
@@ -138,8 +139,9 @@ class SpeechParser:
         text = text.replace('\n', '') # remove new line needed for HTML removal
         text = text.replace('\r', '\n') # change all returns to new line
 
+        text = re.sub(r'[\x96]', '-', text) # python cannot decode \x96 in iso-8859-1
+
         self.text = text
-        print(self.text)
         self.lines = self.text.splitlines()
 
     def parseData(self):
@@ -225,15 +227,19 @@ class SpeechParser:
 
         # Split each speech into it's own portion. Each will be seperated by \n\n at this point
         for section in speechText.split('\n\n'):
-            # If the start of someone speaking (there may still be some stray lines in here that aren't speaches (times, headings, and information))
+            # If the start of someone speaking (there may still be some stray lines in here that aren't speeches (times, headings, and information))
             if re.match(r'^[A-Za-z\.\-() ]+:', section):
-                try:
-                    speaker = section.split(':')[0] # remove colon at end of speaker name, now stores name
+                
+                speaker = section.split(':')[0] # remove colon at end of speaker name, now stores name
+                last_name = speaker.split(' ')[-1]
+                if last_name not in self.names:
+                    continue
+                try: 
                     speech = section.split(speaker)[1][2:] # add beginning of speech after colon (2 spaces after name ends)
                     speech = speech.replace('\n', ' ') # removes line breaks in speech
-                    if speaker not in speakers:
-                        speakers[speaker] = {'speaches': []}
-                    speakers[speaker]['speaches'] += [speech]
+                    if last_name not in speakers:
+                        speakers[last_name] = list()
+                    speakers[last_name].append(speech)
                 except:
                     raise ValueError("Failed to extract data for speaker. Please ensure URL points to a Hansard document.")
 
