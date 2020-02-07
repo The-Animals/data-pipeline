@@ -12,4 +12,5 @@ if __name__ == '__main__':
         HANSARD_SESSION_URL = argv[1]
 
     df = get_urls(HANSARD_SESSION_URL)
-    df.to_sql('documents', connection=connection, if_exists='replace')
+    db_conn = mysql_client.get_connection()
+    df.to_sql('documents', connection=db_conn, if_exists='replace')
