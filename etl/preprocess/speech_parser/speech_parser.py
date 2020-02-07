@@ -215,7 +215,7 @@ class SpeechParser:
 
         # Define portion of text to search
         try:
-            beginning = re.search(r'Title: \w+, \w+ \d+, \d+ \d+:\d+ (a|p).m.\n\d+(:\d+)? (a|p).m. \w+, \w+ \d+, \d+', self.text).group(0) # Right before speeches
+            beginning = re.search(r'\s+Title: \w+, \w+ \d+, \d+ \d+:\d+ (a|p)\.m\.', self.text).group(0) # Right before speeches
             end = re.search(r'Table of Contents\n', self.text).group(0) # Right after speeches
             speechText = self.text.split(beginning)[1].split(end)[0]
         except:

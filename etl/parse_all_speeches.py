@@ -22,6 +22,7 @@ def parse_all_speeches():
             data = ' '.join(speeches)
             bytes_data = BytesIO(data.encode('utf-8'))
             length = len(data)
+            minio_client.remove_object("speeches", f'{speaker}/{date_code}')
             minio_client.put_object("speeches", f'{speaker}/{date_code}', bytes_data, length)
 
 
