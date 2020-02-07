@@ -14,6 +14,9 @@ class MySqlClient(object):
             database=config['mysql']['db'],
         )
 
+    def get_connection(self):
+        return self._cnx
+
     def execute_query(self, query): 
         """
         Execute the query string and return a dataframe containing the queried table
@@ -23,5 +26,3 @@ class MySqlClient(object):
         df = DataFrame(cursor.fetchall())
         df.columns = [d[0] for d in cursor.description]
         return df
-
-

@@ -1,7 +1,7 @@
-from selenium_driver import driver
 from selenium.webdriver.common.by import By
 from pandas import DataFrame
 from datetime import datetime
+from .selenium_driver import driver
 
 
 time_of_day = { 
