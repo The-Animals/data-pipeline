@@ -4,3 +4,5 @@ from __future__ import absolute_import
 from __future__ import division, print_function, unicode_literals
 
 from .parser import DocumentParser
+from .html import HtmlParser
+from .plaintext import PlaintextParser

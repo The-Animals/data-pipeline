@@ -8,10 +8,17 @@ minio_client = MinioClient()
 mysql_client = MySqlClient()
 
 def load_all_speeches():
-    mlas = mysql_client.execute_query("SELECT * FROM mlas")
-
+    #mlas = mysql_client.execute_query("SELECT MLALastName FROM mlas")
+    #print(type(minio_client.list_objects('speeches')))
+    mlas = minio_client.list_objects('speeches')
     for mla in mlas:
-        print("{0}:\n\n{1}".format(mlas['MLALastName'], list_objects(mlas['MLALastName'])))
+        speaker = mla.object_name
+        print("Speaker is {0}:\n".format(speaker))
+        hearings = minio_client.list_objects('speeches', prefix=speaker, recursive=True)
+        for hearing in hearings:
+            file = hearing.object_name
+            print(file)
+        print('\n-----------------------------')
 
 if __name__ == '__main__':
     load_all_speeches()

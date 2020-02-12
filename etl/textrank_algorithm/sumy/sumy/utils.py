@@ -10,7 +10,7 @@ import pkgutil
 from functools import wraps
 from contextlib import closing
 from os.path import dirname, abspath, join, exists
-from . import __version__
+#from . import __version__
 from ._compat import to_string, to_unicode, string_types
 
 from pycountry import languages
