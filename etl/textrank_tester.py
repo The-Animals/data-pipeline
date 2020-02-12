@@ -4,7 +4,7 @@ from __future__ import division, print_function, unicode_literals
 from textrank_algorithm import HtmlParser
 from textrank_algorithm import PlaintextParser
 from textrank_algorithm import Tokenizer
-from textrank_algorithm import LsaSummarizer as Summarizer
+from textrank_algorithm import TextRankSummarizer as Summarizer
 from textrank_algorithm import Stemmer
 from textrank_algorithm import get_stop_words
 
@@ -23,7 +23,6 @@ if __name__ == "__main__":
 
     summarizer = Summarizer(stemmer)
     summarizer.stop_words = get_stop_words(LANGUAGE)
-    print(parser.document.sentences)
 
     for sentence in summarizer(parser.document, SENTENCES_COUNT):
         print(sentence)
