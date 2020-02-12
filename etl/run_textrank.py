@@ -10,13 +10,13 @@ minio_client = MinioClient()
 mysql_client = MySqlClient()
 
 bucketName = 'speeches'
-validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.']
+validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
 
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
 
     for mla in mlas:
-        print("MLA Name is {0}".format(mla.getName()))
+        print("\n\nMLA Name is {0}".format(mla.getName()))
         for session in mla.getSessions():
             print("\n  Session datecode is {0}".format(session.getDateCode()))
             for sentence in session.getSentences():
@@ -47,7 +47,7 @@ def load_from_minio():
                 print("Error on file {0}".format(file))
                 continue
 
-            speech = speech.replace('\n', '') # remove trailing \n
+            speech = speech.replace('\n', ' ') # remove trailing \n
 
             for s in sentence_split(speech):
                 sentence = Sentence(s.strip()) # create a new Sentence class
@@ -56,7 +56,6 @@ def load_from_minio():
             mla.addSession(session) # add session to active mla class
 
         mlas += [mla] # add mla data to list
-
     return mlas
 
 
