@@ -15,9 +15,10 @@ def load_all_speeches():
         speaker = mla.object_name
         print("Speaker is {0}:\n".format(speaker))
         hearings = minio_client.list_objects('speeches', prefix=speaker, recursive=True)
+        sentences = ""
         for hearing in hearings:
             file = hearing.object_name
-            print(file)
+
         print('\n-----------------------------')
 
 if __name__ == '__main__':
