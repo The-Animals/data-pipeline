@@ -1,13 +1,13 @@
 class MLA:
     def __init__(self, name):
         self.name = name
-        self.session = []
+        self.sessions = []
 
     def getName(self):
         return self.name
 
     def addSession(self, session):
-        self.session += [session]
+        self.sessions += [session]
 
-    def getSessions(self, session):
+    def getSessions(self):
         return self.sessions
