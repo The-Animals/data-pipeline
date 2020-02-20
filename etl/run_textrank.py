@@ -13,8 +13,6 @@ from textrank_algorithm import MLA, Session, Sentence
 
 from textrank_algorithm import Tokenizer
 from textrank_algorithm import TextRankSummarizer as Summarizer
-from textrank_algorithm import Stemmer
-#from textrank_algorithm import to_unicode
 
 minio_client = MinioClient()
 mysql_client = MySqlClient()
@@ -22,11 +20,8 @@ mysql_client = MySqlClient()
 bucketName = 'speeches'
 validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
 
-def get_stop_words(language):
-    try:
-        stopwords_data = pkgutil.get_data("sumy", "data/stopwords/%s.txt" % language)
-    except IOError as e:
-        raise LookupError("Stop-words are not available for language %s." % language)
+def get_stop_words():
+    stopwords_data = pkgutil.get_data("sumy", "data/stopwords/english.txt")
     return frozenset(w.rstrip() for w in str(stopwords_data).splitlines() if w)
 
 def run_textrank():
@@ -36,13 +31,8 @@ def run_textrank():
     LANGUAGE = "english"
     SENTENCES_COUNT = 10
 
-    stemmer = Stemmer(LANGUAGE)
-
-    summarizer = Summarizer(stemmer)
+    summarizer = Summarizer()
     summarizer.stop_words = get_stop_words(LANGUAGE)
-
-    # for sentence in summarizer(parser.document, SENTENCES_COUNT):
-    #     print(sentence)
 
     for sentence in summarizer(mla, SENTENCES_COUNT):
         print(sentence.sentence)

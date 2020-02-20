@@ -6,7 +6,7 @@ from __future__ import division, print_function, unicode_literals
 
 from collections import namedtuple
 from operator import attrgetter
-#from .._compat import string_types
+from nltk.stem.snowball import EnglishStemmer
 
 SentenceInfo = namedtuple("SentenceInfo", ("sentence", "order", "rating",))
 
@@ -33,11 +33,8 @@ class ItemsCount(object):
         return "<ItemsCount: {0}>".format(self._value)
 
 class AbstractSummarizer(object):
-    def __init__(self, stemmer):
-        if not callable(stemmer):
-            raise ValueError("Stemmer has to be a callable object")
-
-        self._stemmer = stemmer
+    def __init__(self):
+        self._stemmer = EnglishStemmer().stem
 
     def __call__(self, document, sentences_count):
         raise NotImplementedError("This method should be overriden in subclass")
