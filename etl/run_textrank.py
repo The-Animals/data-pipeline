@@ -9,8 +9,10 @@ import pkgutil
 from storage_clients import MinioClient
 from storage_clients import MySqlClient
 from preprocess.speech_parser import SpeechParser
-from textrank_algorithm import MLA, Session, Sentence
 
+from nltk.corpus import stopwords
+
+from textrank_algorithm import MLA, Session, Sentence
 from textrank_algorithm import Tokenizer
 from textrank_algorithm import TextRankSummarizer as Summarizer
 
@@ -20,9 +22,9 @@ mysql_client = MySqlClient()
 bucketName = 'speeches'
 validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
 
-def get_stop_words():
-    stopwords_data = pkgutil.get_data("sumy", "data/stopwords/english.txt")
-    return frozenset(w.rstrip() for w in str(stopwords_data).splitlines() if w)
+# def get_stop_words():
+#     stopwords_data = pkgutil.get_data("sumy", "data/stopwords/english.txt")
+#     return frozenset(w.rstrip() for w in str(stopwords_data).splitlines() if w)
 
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
@@ -32,7 +34,7 @@ def run_textrank():
     SENTENCES_COUNT = 10
 
     summarizer = Summarizer()
-    summarizer.stop_words = get_stop_words(LANGUAGE)
+    summarizer.stop_words = set(stopwords.words('english'))#get_stop_words(LANGUAGE)
 
     for sentence in summarizer(mla, SENTENCES_COUNT):
         print(sentence.sentence)
