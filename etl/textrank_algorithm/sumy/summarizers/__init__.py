@@ -4,4 +4,4 @@ from __future__ import absolute_import
 from __future__ import division, print_function, unicode_literals
 
 from ._summarizer import AbstractSummarizer
-from .text_rank import TextRankSummarizer
+from .modified_text_rank import TextRankSummarizer

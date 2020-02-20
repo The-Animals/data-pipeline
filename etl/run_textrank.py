@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from __future__ import division, print_function, unicode_literals
+
 from io import BytesIO
 import re
 
@@ -5,6 +8,11 @@ from storage_clients import MinioClient
 from storage_clients import MySqlClient
 from preprocess.speech_parser import SpeechParser
 from textrank_algorithm import MLA, Session, Sentence
+
+from textrank_algorithm import Tokenizer
+from textrank_algorithm import TextRankSummarizer as Summarizer
+from textrank_algorithm import Stemmer
+from textrank_algorithm import get_stop_words
 
 minio_client = MinioClient()
 mysql_client = MySqlClient()
@@ -14,13 +22,22 @@ validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
 
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
+    mla = mlas[0]
 
-    for mla in mlas:
-        print("\n\nMLA Name is {0}".format(mla.getName()))
-        for session in mla.getSessions():
-            print("\n  Session datecode is {0}".format(session.getDateCode()))
-            for sentence in session.getSentences():
-                print("    {0}".format(sentence.getSentence()))
+    LANGUAGE = "english"
+    SENTENCES_COUNT = 10
+
+    stemmer = Stemmer(LANGUAGE)
+
+    summarizer = Summarizer(stemmer)
+    summarizer.stop_words = get_stop_words(LANGUAGE)
+
+    # for sentence in summarizer(parser.document, SENTENCES_COUNT):
+    #     print(sentence)
+
+    for sentence in summarizer(mla, SENTENCES_COUNT):
+        print(sentence.sentence)
+
 
 
 def load_from_minio():
@@ -30,7 +47,7 @@ def load_from_minio():
     for bucket in buckets:
         bucket = bucket.object_name # replace class with name
         mla = MLA(bucket[:-1]) # create a new MLA class (-1 to remove folder /)
-        files = minio_client.list_objects(bucketName, prefix=mla.getName()+'/', recursive=True) # get sessions contained in files
+        files = minio_client.list_objects(bucketName, prefix=mla.name+'/', recursive=True) # get sessions contained in files
 
         for file in files:
             file = file.object_name # get the file
@@ -56,6 +73,7 @@ def load_from_minio():
             mla.addSession(session) # add session to active mla class
 
         mlas += [mla] # add mla data to list
+        break
     return mlas
 
 
@@ -68,5 +86,9 @@ def sentence_split(sentences):
 
     return re.split(regexString, sentences)
 
-if __name__ == '__main__':
+
+
+
+
+if __name__ == "__main__":
     run_textrank()

@@ -1,4 +1,4 @@
 from .sumy import *
-from .mla_object import *
-from .session_object import *
-from .sentence_object import *
+from .mla import *
+from .session import *
+from .sentence import *

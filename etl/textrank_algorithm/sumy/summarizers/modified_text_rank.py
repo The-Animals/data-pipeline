@@ -32,25 +32,25 @@ class TextRankSummarizer(AbstractSummarizer):
     def stop_words(self, words):
         self._stop_words = frozenset(map(self.normalize_word, words))
 
-    def __call__(self, document, sentences_count):
+    def __call__(self, mla, sentences_count):
         self._ensure_dependencies_installed()
-        if not document.sentences:
+        if not mla.sentences:
             return ()
 
-        ratings = self.rate_sentences(document)
-        return self._get_best_sentences(document.sentences, sentences_count, ratings)
+        ratings = self.rate_sentences(mla)
+        return self._get_best_sentences(mla.sentences, sentences_count, ratings)
 
     @staticmethod
     def _ensure_dependencies_installed():
         if numpy is None:
             raise ValueError("LexRank summarizer requires NumPy. Please, install it by command 'pip install numpy'.")
 
-    def rate_sentences(self, document):
-        matrix = self._create_matrix(document)
+    def rate_sentences(self, mla):
+        matrix = self._create_matrix(mla)
         ranks = self.power_method(matrix, self.epsilon)
-        return {sent: rank for sent, rank in zip(document.sentences, ranks)}
+        return {sent: rank for sent, rank in zip(mla.sentences, ranks)}
 
-    def _create_matrix(self, document):
+    def _create_matrix(self, mla):
         """Create a stochastic matrix for TextRank.
 
         Element at row i and column j of the matrix corresponds to the similarity of sentence i
@@ -60,7 +60,7 @@ class TextRankSummarizer(AbstractSummarizer):
         uses PageRank algorithm with damping, so a damping factor is incorporated as explained in
         TextRank's paper. The resulting matrix is a stochastic matrix ready for power method.
         """
-        sentences_as_words = [self._to_words_set(sent) for sent in document.sentences]
+        sentences_as_words = [self._to_words_set(sent) for sent in mla.sentences]
         sentences_count = len(sentences_as_words)
         weights = numpy.zeros((sentences_count, sentences_count))
 
@@ -79,7 +79,7 @@ class TextRankSummarizer(AbstractSummarizer):
             + self.damping * weights
 
     def _to_words_set(self, sentence):
-        words = map(self.normalize_word, sentence.words)
+        words = map(self.normalize_word, sentence.getWords())
         return [self.stem_word(w) for w in words if w not in self._stop_words]
 
     @staticmethod
