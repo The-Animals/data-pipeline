@@ -3,6 +3,8 @@ from __future__ import division, print_function, unicode_literals
 
 from io import BytesIO
 import re
+import pkgutil
+
 
 from storage_clients import MinioClient
 from storage_clients import MySqlClient
@@ -12,13 +14,20 @@ from textrank_algorithm import MLA, Session, Sentence
 from textrank_algorithm import Tokenizer
 from textrank_algorithm import TextRankSummarizer as Summarizer
 from textrank_algorithm import Stemmer
-from textrank_algorithm import get_stop_words
+#from textrank_algorithm import to_unicode
 
 minio_client = MinioClient()
 mysql_client = MySqlClient()
 
 bucketName = 'speeches'
 validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
+
+def get_stop_words(language):
+    try:
+        stopwords_data = pkgutil.get_data("sumy", "data/stopwords/%s.txt" % language)
+    except IOError as e:
+        raise LookupError("Stop-words are not available for language %s." % language)
+    return frozenset(w.rstrip() for w in str(stopwords_data).splitlines() if w)
 
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes

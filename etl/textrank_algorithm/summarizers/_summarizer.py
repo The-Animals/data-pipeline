@@ -6,16 +6,34 @@ from __future__ import division, print_function, unicode_literals
 
 from collections import namedtuple
 from operator import attrgetter
-from ..utils import ItemsCount
-from .._compat import to_unicode
-from ..nlp.stemmers import null_stemmer
-
+#from .._compat import string_types
 
 SentenceInfo = namedtuple("SentenceInfo", ("sentence", "order", "rating",))
 
+class ItemsCount(object):
+    def __init__(self, value):
+        self._value = value
+
+    def __call__(self, sequence):
+        if type(self._value) == str:
+            if self._value.endswith("%"):
+                total_count = len(sequence)
+                percentage = int(self._value[:-1])
+                # at least one sentence should be chosen
+                count = max(1, total_count*percentage // 100)
+                return sequence[:count]
+            else:
+                return sequence[:int(self._value)]
+        elif isinstance(self._value, (int, float)):
+            return sequence[:int(self._value)]
+        else:
+            ValueError("Unsuported value of items count '%s'." % self._value)
+
+    def __repr__(self):
+        return "<ItemsCount: {0}>".format(self._value)
 
 class AbstractSummarizer(object):
-    def __init__(self, stemmer=null_stemmer):
+    def __init__(self, stemmer):
         if not callable(stemmer):
             raise ValueError("Stemmer has to be a callable object")
 
@@ -29,7 +47,7 @@ class AbstractSummarizer(object):
 
     @staticmethod
     def normalize_word(word):
-        return to_unicode(word).lower()
+        return word.lower()
 
     @staticmethod
     def _get_best_sentences(sentences, count, rating, *args, **kwargs):
