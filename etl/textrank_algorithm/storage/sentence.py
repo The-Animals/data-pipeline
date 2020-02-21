@@ -1,10 +1,15 @@
-from textrank_algorithm import Tokenizer
+import nltk
+import re
 
 class Sentence:
 
     def __init__(self, sentence):
         self.sentence = sentence
-        self.tokenizer = Tokenizer("english")
 
     def getWords(self):
-        return self.tokenizer.to_words(self.sentence)
+        words = nltk.word_tokenize(self.sentence)
+        validWords = ()
+        for word in words:
+            if re.search(r"^[^\W\d_]+$", word):
+                validWords += (word,)
+        return validWords

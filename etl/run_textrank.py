@@ -13,7 +13,6 @@ from preprocess.speech_parser import SpeechParser
 from nltk.corpus import stopwords
 
 from textrank_algorithm import MLA, Session, Sentence
-from textrank_algorithm import Tokenizer
 from textrank_algorithm import TextRankSummarizer as Summarizer
 
 minio_client = MinioClient()
@@ -34,7 +33,7 @@ def run_textrank():
     SENTENCES_COUNT = 10
 
     summarizer = Summarizer()
-    summarizer.stop_words = set(stopwords.words('english'))#get_stop_words(LANGUAGE)
+    summarizer.stop_words = frozenset(stopwords.words('english'))#get_stop_words(LANGUAGE)
 
     for sentence in summarizer(mla, SENTENCES_COUNT):
         print(sentence.sentence)
