@@ -1,19 +1,10 @@
-from __future__ import absolute_import
-from __future__ import division, print_function, unicode_literals
-
-from io import BytesIO
 import re
-import pkgutil
-
 
 from storage_clients import MinioClient
 from storage_clients import MySqlClient
 from preprocess.speech_parser import SpeechParser
 
-from nltk.corpus import stopwords
-
-from textrank_algorithm import MLA, Session, Sentence
-from textrank_algorithm import TextRankSummarizer as Summarizer
+from textrank import MLA, Session, Sentence, Summarizer
 
 minio_client = MinioClient()
 mysql_client = MySqlClient()
@@ -21,22 +12,31 @@ mysql_client = MySqlClient()
 bucketName = 'speeches'
 validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
 
-# def get_stop_words():
-#     stopwords_data = pkgutil.get_data("sumy", "data/stopwords/english.txt")
-#     return frozenset(w.rstrip() for w in str(stopwords_data).splitlines() if w)
-
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
-    mla = mlas[0]
 
-    LANGUAGE = "english"
-    SENTENCES_COUNT = 10
+    for mla in mlas:
+        print('---------------------------------------------------------------------------------------------------------------')
+        try:
+            summarizer = Summarizer(mla)
+        except:
+            print("Failed on summarizer for {0}".format(mla.name))
+        try:
+            print_top_sentences(mla, 10)
+        except:
+            print("Failed on print for {0}".format(mla.name))
 
-    summarizer = Summarizer()
-    summarizer.stop_words = frozenset(stopwords.words('english'))#get_stop_words(LANGUAGE)
 
-    for sentence in summarizer(mla, SENTENCES_COUNT):
-        print(sentence.sentence)
+def print_top_sentences(mla, sentences):
+    ranks = []
+    for sentence in mla.sentences:
+        ranks += [(sentence.getRank(), sentence.getString())]
+    ranks.sort(reverse=True)
+
+    print("MLA: {0}".format(mla.name))
+    print()
+    for i in range(0, sentences):
+        print("{0}: {1}\n".format(i + 1, ranks[i][1]))
 
 
 
@@ -73,7 +73,6 @@ def load_from_minio():
             mla.addSession(session) # add session to active mla class
 
         mlas += [mla] # add mla data to list
-        break
     return mlas
 
 
