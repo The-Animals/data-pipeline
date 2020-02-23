@@ -17,14 +17,8 @@ def run_textrank():
 
     for mla in mlas:
         print('---------------------------------------------------------------------------------------------------------------')
-        try:
-            summarizer = Summarizer(mla)
-        except:
-            print("Failed on summarizer for {0}".format(mla.name))
-        try:
-            print_top_sentences(mla, 10)
-        except:
-            print("Failed on print for {0}".format(mla.name))
+        summarizer = Summarizer(mla)
+        print_top_sentences(mla, 10)
 
 
 def print_top_sentences(mla, sentences):
@@ -37,7 +31,6 @@ def print_top_sentences(mla, sentences):
     print()
     for i in range(0, sentences):
         print("{0}: {1}\n".format(i + 1, ranks[i][1]))
-
 
 
 def load_from_minio():
@@ -73,6 +66,7 @@ def load_from_minio():
             mla.addSession(session) # add session to active mla class
 
         mlas += [mla] # add mla data to list
+        break
     return mlas
 
 

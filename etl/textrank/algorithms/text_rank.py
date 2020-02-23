@@ -10,9 +10,6 @@ class Summarizer():
         self.mla = mla
         self.ratings = self.rateSentences()
 
-    def getBestSentences(self, sentences_count):
-        return self._get_best_sentences(self.mla.sentences, sentences_count, self.ratings)
-
     def rateSentences(self):
         self.matrix = self.createMatrix()
         ranks = self.powerMethod()
@@ -20,10 +17,8 @@ class Summarizer():
         for sentence, rank in zip(self.mla.sentences, ranks):
             sentence.setRank(rank)
 
-        return {sent: rank for sent, rank in zip(self.mla.sentences, ranks)}
-
     def createMatrix(self):
-        numberOfSentences = self.mla.getNumberOfSentences()
+        numberOfSentences = self.mla.numberOfSentences
         weights = numpy.zeros((numberOfSentences, numberOfSentences))
         sentences = self.mla.sentences
 

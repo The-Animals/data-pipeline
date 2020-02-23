@@ -1,24 +1,40 @@
 class MLA:
+
     def __init__(self, name):
-        self.name = name
-        self.sessions = []
-        self.numberOfSessions = 0
-        self.numberOfSentences = 0
+        self._name = name
+        self._sessions = []
+        self._sentences = []
+        self._numberOfSessions = 0
+        self._numberOfSentences = 0
+
+    @property
+    def name(self):
+        return self._name
 
     @property
     def sentences(self):
         sentences = []
-        for s in self.sessions:
+        for s in self._sessions:
             sentences += s.sentences
         return sentences
 
+    @property
+    def sessions(self):
+        return self._sessions
+
+    @property
+    def numberOfSessions(self):
+        return self._numberOfSessions
+
+    @property
+    def numberOfSentences(self):
+        return self._numberOfSentences
+
+    @name.setter
+    def name(self, name):
+        self._name = name
+
     def addSession(self, session):
-        self.sessions += [session]
-        self.numberOfSessions += 1
-        self.numberOfSentences += session.getNumberOfSentences()
-
-    def getNumberOfSessions(self):
-        return self.numberOfSessions
-
-    def getNumberOfSentences(self):
-        return self.numberOfSentences
+        self._sessions += [session]
+        self._numberOfSessions += 1
+        self._numberOfSentences += session.getNumberOfSentences()
