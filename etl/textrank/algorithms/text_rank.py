@@ -7,20 +7,17 @@ class Summarizer():
     _delta = 1e-7
 
     def __init__(self, mla):
-        self.mla = mla
-        self.ratings = self.rateSentences()
+        self._mla = mla
+        self._matrix = self.createMatrix()
+        self._ranks = self.powerMethod()
 
-    def rateSentences(self):
-        self.matrix = self.createMatrix()
-        ranks = self.powerMethod()
-
-        for sentence, rank in zip(self.mla.sentences, ranks):
+        for sentence, rank in zip(self._mla.sentences, self._ranks):
             sentence.rank = rank
 
     def createMatrix(self):
-        numberOfSentences = self.mla.numberOfSentences
+        numberOfSentences = self._mla.numberOfSentences
         weights = numpy.zeros((numberOfSentences, numberOfSentences))
-        sentences = self.mla.sentences
+        sentences = self._mla.sentences
 
         for i, sentence_i in enumerate(sentences):
             for j, sentence_j in enumerate(sentences):
@@ -56,8 +53,8 @@ class Summarizer():
             return rank / norm
 
     def powerMethod(self):
-        transposed_matrix = self.matrix.T
-        sentences_count = len(self.matrix)
+        transposed_matrix = self._matrix.T
+        sentences_count = len(self._matrix)
         p_vector = numpy.array([1.0 / sentences_count] * sentences_count)
         lambda_val = 1.0
 
