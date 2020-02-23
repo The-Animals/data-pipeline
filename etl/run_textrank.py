@@ -3,6 +3,7 @@ import re
 from storage_clients import MinioClient
 from storage_clients import MySqlClient
 from preprocess.speech_parser import SpeechParser
+from nltk.tokenize import sent_tokenize
 
 from textrank import MLA, Session, Sentence, Summarizer
 
@@ -10,7 +11,6 @@ minio_client = MinioClient()
 mysql_client = MySqlClient()
 
 bucketName = 'speeches'
-validPeriods = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'B.C.']
 
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
@@ -30,7 +30,10 @@ def print_top_sentences(mla, sentences):
     print("\nMLA: {0}".format(mla.name))
     print()
     for i in range(0, sentences):
-        print("{0}: {1}\n".format(i + 1, ranks[i][1]))
+        try:
+            print("{0}: {1}\n".format(i + 1, ranks[i][1]))
+        except:
+            break
 
 
 def load_from_minio():
@@ -61,27 +64,12 @@ def load_from_minio():
 
             speech = speech.replace('\n', ' ') # remove trailing \n
 
-            for s in sentence_split(speech):
+            for s in sent_tokenize(speech):
                 sentence = Sentence(s.strip(), session) # create a new Sentence class
 
         mlas += [mla] # add mla data to list
-        break
     print("Finished load from Minio client...")
     return mlas
-
-
-def sentence_split(sentences):
-    regexString = r'' # starting regex string
-
-    for v in validPeriods:
-        regexString += "(?<!{0})".format(v) # will ignore anything in validPeriods on split
-    regexString += '(?<=[\.!?]) ' # add sentence splitter at the end
-
-    return re.split(regexString, sentences)
-
-
-
-
 
 if __name__ == "__main__":
     run_textrank()
