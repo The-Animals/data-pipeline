@@ -15,7 +15,7 @@ class Summarizer():
         ranks = self.powerMethod()
 
         for sentence, rank in zip(self.mla.sentences, ranks):
-            sentence.setRank(rank)
+            sentence.rank = rank
 
     def createMatrix(self):
         numberOfSentences = self.mla.numberOfSentences
@@ -36,16 +36,16 @@ class Summarizer():
 
     def compareSentences(self, s1, s2):
         rank = 0.0
-        for w1 in s1.getTokens():
-            for w2 in s2.getTokens():
+        for w1 in s1.tokens:
+            for w2 in s2.tokens:
                 if w1 == w2:
                     rank += 1.0
 
         if rank == 0.0:
             return 0.0
 
-        s1Length = s1.getLength()
-        s2Length = s2.getLength()
+        s1Length = s1.length
+        s2Length = s2.length
 
         norm = math.log(s1Length) + math.log(s2Length)
         if s1Length == s2Length == 1:

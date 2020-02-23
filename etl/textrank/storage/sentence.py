@@ -11,36 +11,41 @@ import re
 
 class Sentence:
 
-    def __init__(self, sentence):
-        self.sentence = sentence
-        self.stopwords = frozenset(stopwords.words('english'))
+    def __init__(self, text):
+        self._text = text
+        self._stopwords = frozenset(stopwords.words('english'))
         #self.stopwords = get_stop_words()
-        self.stemmer = EnglishStemmer()
-        self.tokens = self.tokenize()
-        self.length = len(self.tokens)
-        self.rank = 0.0
+        self._stemmer = EnglishStemmer()
+        self._tokens = self.tokenize()
+        self._length = len(self.tokens)
+        self._rank = 0.0
+
+    @property
+    def text(self):
+        return self._text
+
+    @property
+    def tokens(self):
+        return self._tokens
+
+    @property
+    def length(self):
+        return self._length
+
+    @property
+    def rank(self):
+        return self._rank
+
+    @rank.setter
+    def rank(self, rank):
+        self._rank = rank
 
     def tokenize(self):
-        words = nltk.word_tokenize(self.sentence)
+        words = nltk.word_tokenize(self._text)
         validWords = []
         for word in words:
             word = word.lower()
-            if word not in self.stopwords and re.search(r"^[^\W\d_]+$", word):
-                word = self.stemmer.stem(word)
+            if word not in self._stopwords and re.search(r"^[^\W\d_]+$", word):
+                word = self._stemmer.stem(word)
                 validWords += [word]
         return validWords
-
-    def getString(self):
-        return self.sentence
-
-    def getTokens(self):
-        return self.tokens
-
-    def getLength(self):
-        return self.length
-
-    def setRank(self, rank):
-        self.rank = rank
-
-    def getRank(self):
-        return self.rank

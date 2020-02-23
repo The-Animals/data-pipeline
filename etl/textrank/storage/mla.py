@@ -30,11 +30,23 @@ class MLA:
     def numberOfSentences(self):
         return self._numberOfSentences
 
-    @name.setter
-    def name(self, name):
-        self._name = name
+    def getSession(self, dateCode):
+        for s in self._sessions:
+            if s.dateCode == dateCode:
+                return s
+        return None
+
+    def getSentence(self, sentence):
+        for s in self.sentences:
+            if s.text == sentence:
+                return
+        return None
 
     def addSession(self, session):
         self._sessions += [session]
         self._numberOfSessions += 1
-        self._numberOfSentences += session.getNumberOfSentences()
+        self._numberOfSentences += session.numberOfSentences
+
+    def addSentence(self, dateCode, sentence):
+        session = getSession(dateCode)
+        session.addSentence(sentence)

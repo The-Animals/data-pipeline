@@ -24,7 +24,7 @@ def run_textrank():
 def print_top_sentences(mla, sentences):
     ranks = []
     for sentence in mla.sentences:
-        ranks += [(sentence.getRank(), sentence.getString())]
+        ranks += [(sentence.rank, sentence.text)]
     ranks.sort(reverse=True)
 
     print("MLA: {0}".format(mla.name))
