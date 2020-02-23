@@ -1,10 +1,11 @@
 import math
 import numpy
+from ..settings import config
 
 class Summarizer():
-    epsilon = 1e-4
-    damping = 0.85
-    _delta = 1e-7
+    epsilon = config.epsilon
+    damping = config.damping
+    _delta = config.delta
 
     def __init__(self, mla):
         self._mla = mla
