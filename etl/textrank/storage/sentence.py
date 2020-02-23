@@ -1,20 +1,13 @@
 import nltk
 from nltk.stem.snowball import EnglishStemmer
-from nltk.corpus import stopwords
-import pkgutil
-
+from ..settings import config
 import re
-
-# def get_stop_words():
-#     stopwords_data = pkgutil.get_data("sumy", "data/stopwords/english.txt")
-#     return frozenset(w.rstrip() for w in str(stopwords_data).splitlines() if w)
 
 class Sentence:
 
     def __init__(self, text, session):
         self._text = text
-        self._stopwords = frozenset(stopwords.words('english'))
-        #self.stopwords = get_stop_words()
+        self._stopwords = config.stopwords
         self._stemmer = EnglishStemmer()
         self._tokens = self.tokenize()
         self._length = len(self.tokens)

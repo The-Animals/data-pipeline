@@ -61,7 +61,6 @@ def load_from_minio():
 
             for s in sentence_split(speech):
                 sentence = Sentence(s.strip(), session) # create a new Sentence class
-                #session.addSentence(sentence) # add sentence to active session class
 
         mlas += [mla] # add mla data to list
         break
