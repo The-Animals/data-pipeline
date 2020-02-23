@@ -57,7 +57,7 @@ def load_from_minio():
                 speech += s
 
             try:
-                speech = speech.decode('iso-8859-1') # decode from bytecode
+                speech = speech.decode('utf-8') # decode from bytecode
             except:
                 print("Error on file {0}".format(file))
                 continue
