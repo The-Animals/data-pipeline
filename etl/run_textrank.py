@@ -44,7 +44,7 @@ def load_from_minio():
 
         for file in files:
             file = file.object_name # get the file
-            session = Session(file.split('/')[1]) # create a new Session class (split is because file name contains bucket name)
+            session = Session(file.split('/')[1], mla) # create a new Session class (split is because file name contains bucket name)
             sentences = minio_client.get_object(bucketName, file) # open HTTP stream to file containing sentences
             speech = b'' # will hold entire byte stream
 
@@ -60,10 +60,8 @@ def load_from_minio():
             speech = speech.replace('\n', ' ') # remove trailing \n
 
             for s in sentence_split(speech):
-                sentence = Sentence(s.strip()) # create a new Sentence class
-                session.addSentence(sentence) # add sentence to active session class
-
-            mla.addSession(session) # add session to active mla class
+                sentence = Sentence(s.strip(), session) # create a new Sentence class
+                #session.addSentence(sentence) # add sentence to active session class
 
         mlas += [mla] # add mla data to list
         break

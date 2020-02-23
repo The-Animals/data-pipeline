@@ -11,7 +11,7 @@ import re
 
 class Sentence:
 
-    def __init__(self, text):
+    def __init__(self, text, session):
         self._text = text
         self._stopwords = frozenset(stopwords.words('english'))
         #self.stopwords = get_stop_words()
@@ -19,6 +19,10 @@ class Sentence:
         self._tokens = self.tokenize()
         self._length = len(self.tokens)
         self._rank = 0.0
+
+        self._session = session
+        self._mla = session.mla
+        session.addSentence(self)
 
     @property
     def text(self):
@@ -35,6 +39,14 @@ class Sentence:
     @property
     def rank(self):
         return self._rank
+
+    @property
+    def session(self):
+        return self._session
+
+    @property
+    def mla(self):
+        return self._mla
 
     @rank.setter
     def rank(self, rank):

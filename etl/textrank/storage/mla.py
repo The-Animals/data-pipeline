@@ -30,6 +30,10 @@ class MLA:
     def numberOfSentences(self):
         return self._numberOfSentences
 
+    @numberOfSentences.setter
+    def numberOfSentences(self, number):
+        self._numberOfSentences = number
+
     def getSession(self, dateCode):
         for s in self._sessions:
             if s.dateCode == dateCode:
