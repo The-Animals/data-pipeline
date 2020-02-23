@@ -1,6 +1,6 @@
-import nltk
 from ..settings import config
 import re
+import nltk
 
 class Sentence:
 
@@ -8,6 +8,7 @@ class Sentence:
         self._text = text
         self._stopwords = config.stopwords
         self._stemmer = config.stemmer
+        self._wordPattern = config.wordPattern
         self._tokens = self.tokenize()
         self._length = len(self.tokens)
         self._rank = 0.0
@@ -49,7 +50,7 @@ class Sentence:
         validWords = []
         for word in words:
             word = word.lower()
-            if word not in self._stopwords and re.search(r"^[^\W\d_]+$", word):
+            if word not in self._stopwords and re.search(r"{0}".format(self._wordPattern), word):
                 word = self._stemmer.stem(word)
                 validWords += [word]
         return validWords

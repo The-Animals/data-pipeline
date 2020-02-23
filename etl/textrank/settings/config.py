@@ -3,8 +3,9 @@ from nltk.stem.snowball import EnglishStemmer
 
 # Variables
 # ---------------------------------------------------------------------------------------------
-stopwordsFile = 'nltk.txt'
-stemmer = EnglishStemmer()
+stopwordsFile = 'nltk.txt' # file to grab stopwords from (in stopwords folder)
+stemmer = EnglishStemmer() # stemmer class
+wordPattern = "^[^\W\d_]+$" # regex pattern to match a word
 # ---------------------------------------------------------------------------------------------
 
 
