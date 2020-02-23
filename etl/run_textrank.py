@@ -16,7 +16,7 @@ def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
 
     for mla in mlas:
-        print('---------------------------------------------------------------------------------------------------------------')
+        print('Running summarizer for {0}...'.format(mla.name))
         summarizer = Summarizer(mla)
         print_top_sentences(mla, 10)
 
@@ -27,7 +27,7 @@ def print_top_sentences(mla, sentences):
         ranks += [(sentence.rank, sentence.text)]
     ranks.sort(reverse=True)
 
-    print("MLA: {0}".format(mla.name))
+    print("\nMLA: {0}".format(mla.name))
     print()
     for i in range(0, sentences):
         print("{0}: {1}\n".format(i + 1, ranks[i][1]))
@@ -37,10 +37,12 @@ def load_from_minio():
     mlas = []
     buckets = minio_client.list_objects(bucketName) # gets buckets (named after MLAs)
 
+    print("Starting load from Minio client...")
     for bucket in buckets:
         bucket = bucket.object_name # replace class with name
         mla = MLA(bucket[:-1]) # create a new MLA class (-1 to remove folder /)
         files = minio_client.list_objects(bucketName, prefix=mla.name+'/', recursive=True) # get sessions contained in files
+        print("Loading MLA data for {0} from Minio...".format(mla.name))
 
         for file in files:
             file = file.object_name # get the file
@@ -64,6 +66,7 @@ def load_from_minio():
 
         mlas += [mla] # add mla data to list
         break
+    print("Finished load from Minio client...")
     return mlas
 
 
