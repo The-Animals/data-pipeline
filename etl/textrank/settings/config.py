@@ -1,10 +1,10 @@
 import os
-
-
+from nltk.stem.snowball import EnglishStemmer
 
 # Variables
 # ---------------------------------------------------------------------------------------------
-stopwordsFile = 'test.txt'
+stopwordsFile = 'nltk.txt'
+stemmer = EnglishStemmer()
 # ---------------------------------------------------------------------------------------------
 
 

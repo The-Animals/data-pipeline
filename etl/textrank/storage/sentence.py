@@ -1,5 +1,4 @@
 import nltk
-from nltk.stem.snowball import EnglishStemmer
 from ..settings import config
 import re
 
@@ -8,7 +7,7 @@ class Sentence:
     def __init__(self, text, session):
         self._text = text
         self._stopwords = config.stopwords
-        self._stemmer = EnglishStemmer()
+        self._stemmer = config.stemmer
         self._tokens = self.tokenize()
         self._length = len(self.tokens)
         self._rank = 0.0
