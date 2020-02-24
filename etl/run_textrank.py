@@ -6,6 +6,7 @@ from preprocess.speech_parser import SpeechParser
 from nltk.tokenize import sent_tokenize
 
 from textrank import MLA, Session, Sentence, Summarizer
+from pandas import DataFrame
 
 minio_client = MinioClient()
 mysql_client = MySqlClient()
@@ -13,19 +14,42 @@ mysql_client = MySqlClient()
 bucketName = 'speeches'
 
 def run_textrank():
+    sentenceId = 1
+
     mlas = load_from_minio() # loads information from minio to list of MLA classes
 
     for mla in mlas:
         print('Running summarizer for {0}...'.format(mla.name))
         summarizer = Summarizer(mla)
-        print_top_sentences(mla, 10)
+
+        print('Uploading summary results to SQL for {0}...'.format(mla.name))
+        summaryInfo = []
+        mlaId = mla.id
+        for session in mla.sessions:
+            sessionId = session.id
+            for sentence in session.sentences:
+                summaryInfo.append({
+                    'MLAId': mlaId,
+                    'SessionId': sessionId,
+                    'Sentence': sentence.text.encode('utf-8'),
+                    'Rank': sentence.rank,
+                    'Id': sentenceId
+                })
+                sentenceId += 1
+
+        conn = mysql_client.get_connection_v2()
+        df = DataFrame(summaryInfo)
+        try:
+            df.to_sql('ranks', con=conn, if_exists='replace')
+        except:
+            print('Failed to upload summary results to SQL for {0}...'.format(mla.name))
 
 
 def print_top_sentences(mla, sentences):
     ranks = []
     for sentence in mla.sentences:
         ranks += [(sentence.rank, sentence.text)]
-    ranks.sort(reverse=True)
+    ranks.sort()
 
     print("\nMLA: {0}".format(mla.name))
     print()

@@ -1,5 +1,6 @@
 import math
 import numpy
+from operator import itemgetter
 from ..settings import config
 
 class Summarizer():
@@ -9,16 +10,29 @@ class Summarizer():
 
     def __init__(self, mla):
         self._mla = mla
-        self._matrix = self.createMatrix()
+        self._sentences = self._mla.sentences
+        self._numberOfSentences = self._mla.numberOfSentences
+        self._matrix = self.createMatrix(self._sentences, self._numberOfSentences)
         self._ranks = self.powerMethod()
+        self.saveRanks(self._sentences, self._ranks)
 
-        for sentence, rank in zip(self._mla.sentences, self._ranks):
-            sentence.rank = rank
+        # for sentence, rank in zip(self._mla.sentences, self._ranks):
+        #     sentence.rank = rank
 
-    def createMatrix(self):
-        numberOfSentences = self._mla.numberOfSentences
+    def saveRanks(self, sentences, ranks):
+        sortedSentences = []
+        for s, r in zip(sentences, ranks):
+            sortedSentences += [{'sentence': s, 'rank': r}]
+
+        sortedSentences = sorted(sortedSentences, reverse=True, key=itemgetter('rank'))
+
+        rank = 1
+        for pair in sortedSentences:
+            pair['sentence'].rank = rank
+            rank += 1
+
+    def createMatrix(self, sentences, numberOfSentences):
         weights = numpy.zeros((numberOfSentences, numberOfSentences))
-        sentences = self._mla.sentences
 
         for i, sentence_i in enumerate(sentences):
             for j, sentence_j in enumerate(sentences):
