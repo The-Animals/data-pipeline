@@ -4,14 +4,15 @@ import nltk
 
 class Sentence:
 
-    def __init__(self, text, session):
+    def __init__(self, text, session, id=None):
         self._text = text
+        self._id = id
         self._stopwords = config.stopwords
         self._stemmer = config.stemmer
         self._wordPattern = config.wordPattern
         self._tokens = self.tokenize()
         self._length = len(self.tokens)
-        self._rank = 0.0
+        self._rank = 0
 
         self._session = session
         self._mla = session.mla
@@ -20,6 +21,10 @@ class Sentence:
     @property
     def text(self):
         return self._text
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def tokens(self):

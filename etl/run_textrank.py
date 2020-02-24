@@ -43,13 +43,27 @@ def load_from_minio():
     print("Starting load from Minio client...")
     for bucket in buckets:
         bucket = bucket.object_name # replace class with name
-        mla = MLA(bucket[:-1]) # create a new MLA class (-1 to remove folder /)
-        files = minio_client.list_objects(bucketName, prefix=mla.name+'/', recursive=True) # get sessions contained in files
-        print("Loading MLA data for {0} from Minio...".format(mla.name))
+        name = bucket[:-1] # mla name
+        print("Loading MLA data for {0} from Minio...".format(name))
+        try:
+            mlaId = mysql_client.execute_query("SELECT RidingNumber FROM mlas WHERE MLALastName = \"{0}\"".format(name))['RidingNumber'][0] # get id from table
+        except:
+            print("Failed to fetch SQL data for MLA {0}. Please ensure the MLA is in the table and try again.".format(name))
+            continue
+
+        mla = MLA(bucket[:-1], mlaId) # create a new MLA class
+        files = minio_client.list_objects(bucketName, prefix=name+'/', recursive=True) # get sessions contained in files
 
         for file in files:
             file = file.object_name # get the file
-            session = Session(file.split('/')[1], mla) # create a new Session class (split is because file name contains bucket name)
+            sessionName = file.split('/')[1]
+            try:
+                sessionId = mysql_client.execute_query("SELECT Id from documents WHERE DateCode = \"{0}\"".format(sessionName))['Id'][0] # get id from table
+            except:
+                print("Failed to fetch SQL data for document {0} of MLA {1}. Please ensure the MLA is in the table and try again.".format(sessionName, name))
+                continue
+
+            session = Session(sessionName, mla, sessionId) # create a new Session class (split is because file name contains bucket name)
             sentences = minio_client.get_object(bucketName, file) # open HTTP stream to file containing sentences
             speech = b'' # will hold entire byte stream
 

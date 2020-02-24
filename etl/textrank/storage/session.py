@@ -1,7 +1,8 @@
 class Session:
 
-    def __init__(self, dateCode, mla):
+    def __init__(self, dateCode, mla, id):
         self._dateCode = dateCode
+        self._id = id
         self._sentences = []
         self._numberOfSentences = 0
 
@@ -11,6 +12,10 @@ class Session:
     @property
     def dateCode(self):
         return self._dateCode
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def sentences(self):
