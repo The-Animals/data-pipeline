@@ -1,28 +1,31 @@
-from mysql import connector 
-from pandas import DataFrame
-
+from pandas import read_sql, DataFrame
+from sqlalchemy import create_engine
+import pdb
 from .utils import get_config
 
 class MySqlClient(object): 
 
     def __init__(self): 
         config = get_config()
-        self._cnx = connector.connect(
-            user=config['mysql']['user'],
-            password=config['mysql']['password'],
-            host=config['mysql']['host'],
-            database=config['mysql']['db'],
-        )
+        user=config['mysql']['user']
+        password=config['mysql']['password']
+        host=config['mysql']['host']
+        database=config['mysql']['db']
+        self._cnx = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{database}')
 
     def get_connection(self):
         return self._cnx
 
-    def execute_query(self, query): 
+    def read_data(self, query: str): 
         """
         Execute the query string and return a dataframe containing the queried table
         """
-        cursor = self._cnx.cursor()
-        cursor.execute(query)
-        df = DataFrame(cursor.fetchall())
-        df.columns = [d[0] for d in cursor.description]
-        return df
+        return read_sql(query, self._cnx)
+        
+    def write_data(self, table_name: str, data: DataFrame, schema=None, if_exists='replace'):
+        """
+        Write the given dataframe to the database. By default, replace the table 
+        if it exists. 
+        """
+        data.to_sql(table_name, self._cnx, schema=schema, if_exists=if_exists)
+    
