@@ -6,7 +6,7 @@ from nltk.stem.snowball import EnglishStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 
 
-top_n_sentences = 1000
+top_n_sentences = 2000
 stopwords = {word.strip() for word in open('data/topic_stopwords.txt', 'r')}
 
 """

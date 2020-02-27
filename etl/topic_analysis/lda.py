@@ -13,7 +13,8 @@ https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extractio
 class TopicAnalyzer:
 
     N_FEATURES = 2000
-    N_COMPONENTS = 15
+    N_COMPONENTS = 10
+    N_WORDS_PER_TOPIC = 20
 
     def __init__(self, corpus: list, stopwords: set):
         self.corpus = corpus
@@ -63,7 +64,7 @@ class TopicAnalyzer:
                                              random_state=0)
         self.lda.fit(tf)
 
-    def get_topics(self, n_words_per_topic=20):
+    def get_topics(self, n_words_per_topic=N_WORDS_PER_TOPIC):
         topics = []
         for topic in self.lda.components_:
             topics.append(" ".join([self.feature_names[i]
