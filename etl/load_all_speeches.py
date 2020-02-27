@@ -9,8 +9,8 @@ mysql_client = MySqlClient()
 
 
 def parse_all_speeches(): 
-    documents = mysql_client.execute_query("SELECT * FROM documents")
-    mlas = mysql_client.execute_query("SELECT * FROM mlas")
+    documents = mysql_client.read_data("SELECT * FROM documents")
+    mlas = mysql_client.read_data("SELECT * FROM mlas")
 
     for date_code, url in zip(documents['DateCode'], documents['URL']):
         print(f'parsing: {date_code}, {url}')
