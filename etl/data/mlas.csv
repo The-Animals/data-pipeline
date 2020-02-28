@@ -1,4 +1,4 @@
-RidingNumber,RidingName,MLATitle,MLAFirstName,MLALastName,Caucus,LegislativePhoneNumber,RidingPhoneNumber,Email
+RidingNumber,RidingName,Title,FirstName,LastName,Caucus,LegislativePhoneNumber,RidingPhoneNumber,Email
 47,Airdrie-Cochrane,Mr.,Pete,Guthrie,UCP,780.638.3018,587.493.2050,Airdrie.Cochrane@assembly.ab.ca
 48,Airdrie-East,Mrs.,Angela,Pitt,UCP,780.644.7121,403.948.8741,Airdrie.East@assembly.ab.ca
 49,Athabasca-Barrhead-Westlock,Mr.,Glenn,van Dijken,UCP,780.644.7152,780.674.3225,Athabasca.Barrhead.Westlock@assembly.ab.ca
