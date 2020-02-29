@@ -32,3 +32,10 @@ class DbSchema:
         Column('DocumentId', Integer, ForeignKey("documents.Id")),
         Column('MLAId', Integer, ForeignKey("mlas.Id"))
     )
+
+    topics = Table('topics', _metadata, 
+        Column('Id', Integer, primary_key=True, autoincrement=True), 
+        Column('MLAId', Integer, ForeignKey('mlas.Id')),
+        Column('TopicRank', Integer), 
+        Column('Topic', Text)
+    )
