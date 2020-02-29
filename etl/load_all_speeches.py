@@ -13,7 +13,7 @@ def parse_all_speeches():
         documents = mysql_client.read_data("SELECT * FROM documents")
         mlas = mysql_client.read_data("SELECT * FROM mlas")
 
-    for date_code, url in zip(documents['DateCode'], documents['URL']):
+    for date_code, url in zip(documents['DateCode'], documents['Url']):
         print(f'parsing: {date_code}, {url}')
         sp = SpeechParser(url, mlas['MLALastName'])
         sp.parseData()

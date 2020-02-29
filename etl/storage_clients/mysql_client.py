@@ -1,10 +1,8 @@
-
 from pandas import read_sql, DataFrame
 from sqlalchemy import create_engine, Table
 from sshtunnel import SSHTunnelForwarder
 from .utils import get_config
 from pathlib import Path
-import pdb
 
 
 class MySqlClient(object):
@@ -26,7 +24,7 @@ class MySqlClient(object):
         self._ssh_tunnel = SSHTunnelForwarder(
             (self._ssh_host,  self._ssh_port),
             ssh_username=self._ssh_user,
-            ssh_pkey=self._ssh_pkey,
+            ssh_pkey=str(self._ssh_pkey),
             remote_bind_address=(self._sql_host, self._sql_port)
         )
         self._ssh_tunnel.start()
@@ -48,7 +46,7 @@ class MySqlClient(object):
     def execute(self, query: str):
         self._engine.execute(query)
 
-    def append_data(self, table: Table , data: DataFrame, ):
+    def append_data(self, table: Table , data: DataFrame):
         self._write_data(table.name, data)
 
     def drop_table(self, table: Table):
