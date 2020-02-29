@@ -1,7 +1,10 @@
+
 from pandas import read_sql, DataFrame
 from sqlalchemy import create_engine, Table
 from sshtunnel import SSHTunnelForwarder
 from .utils import get_config
+from pathlib import Path
+import pdb
 
 
 class MySqlClient(object):
@@ -16,7 +19,7 @@ class MySqlClient(object):
 
         self._ssh_host = config['ssh']['host']
         self._ssh_user = config['ssh']['user']
-        self._ssh_pkey = config['ssh']['pkey']
+        self._ssh_pkey = Path(config['ssh']['pkey'])
         self._ssh_port = int(config['ssh']['port'])
 
     def __enter__(self):
@@ -42,17 +45,26 @@ class MySqlClient(object):
         """
         return read_sql(query, self._engine)
 
-    def append_data(self, table: Table , data: DataFrame, ): 
+    def execute(self, query: str):
+        self._engine.execute(query)
+
+    def append_data(self, table: Table , data: DataFrame, ):
         self._write_data(table.name, data)
 
-    def overwrite_table(self, table: Table, data: DataFrame): 
+    def drop_table(self, table: Table):
+        table.drop(self._engine, checkfirst=True)
+
+    def create_table(self, table: Table):
+        table.create(self._engine, checkfirst=True)
+
+    def overwrite_table(self, table: Table, data: DataFrame):
         table.drop(self._engine, checkfirst=True)
         table.create(self._engine)
         self._write_data(table.name, data)
 
     def _write_data(self, table_name: str, data: DataFrame, if_exists='append', index=False):
         """
-        Write the given dataframe to the database. By default, append to the table 
+        Write the given dataframe to the database. By default, append to the table
         if it exists.
         """
         data.to_sql(table_name, self._engine, if_exists=if_exists, index=index)
