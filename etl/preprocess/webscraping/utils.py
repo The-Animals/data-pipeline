@@ -68,7 +68,6 @@ def get_urls(hansard_url):
     for i in range(len(html_doc_links)):
         date_string, url = extract_document_information(date_elements[i], html_doc_links[i])
         document_info.append({
-            "Id": '',
             'DateCode': get_date_code(date_string), 
             'DateString': date_string, 
             'Date': get_date(date_string), 
