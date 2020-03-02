@@ -39,11 +39,10 @@ def extract_image_information(image_element):
     Given an image selenium element containing the MLA image link, extract the MLA last name and image url
     """
     root_url = 'assembly.ab.ca'
-    name = image_element.get_attribute('alt').split()
-    last_name = ' '.join(name[1:])
+    name = image_element.get_attribute('alt')
     url = image_element.get_attribute('src').replace('..', root_url)
 
-    return (last_name, url)
+    return name, url
 
 def extract_document_information(date_element, document_element):
     """
@@ -72,16 +71,13 @@ def get_images(images_url):
     images_info = []
 
     for i in range(len(image_links)):
-        last_name, url = extract_image_information(image_links[i])
-        images_info.append({
-            'LastName': last_name,
-            'URL': url
-        })
-        print(f"'LastName': {last_name}, 'URL': {url}")
+        name, url = extract_image_information(image_links[i])
+        images_info.append((name, url))
+        print(f"'Name': {name}, 'URL': {url}")
 
     driver.stop_instance()
 
-    return DataFrame(images_info)
+    return images_info
 
 def get_urls(hansard_url):
     """
