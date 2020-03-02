@@ -72,7 +72,7 @@ def get_images(images_url):
 
     for i in range(len(image_links)):
         name, url = extract_image_information(image_links[i])
-        images_info.append((name, url))
+        images_info.append({"Name": name, "URL": url})
         print(f"'Name': {name}, 'URL': {url}")
 
     driver.stop_instance()
