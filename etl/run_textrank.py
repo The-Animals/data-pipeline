@@ -139,6 +139,7 @@ def load_from_minio():
                     sentence = Sentence(s.strip(), session) # create a new Sentence class
 
             mlas += [mla] # add mla data to list
+            break
     print("Finished load from Minio client...")
     return mlas
 
