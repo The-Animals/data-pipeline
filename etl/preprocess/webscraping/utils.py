@@ -40,6 +40,8 @@ def extract_image_information(image_element):
     """
     root_url = 'assembly.ab.ca'
     name = image_element.get_attribute('alt')
+    name = name.replace(' ', '_')
+    name = name.title()
     url = image_element.get_attribute('src').replace('..', root_url)
 
     return name, url
