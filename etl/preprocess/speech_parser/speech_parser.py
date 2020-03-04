@@ -18,7 +18,9 @@ class SpeechParser:
     speech_regex = r'(?ms)(^{0}):(.*?)(?=^(Mr\.|Ms|Mrs\.|The|head|Her|An Hon\.|Some Hon\.|Member)[\w. ()-]*?:)'
 
     postprocess_replace = [
-        (r'\n', '')
+        (r'\n',         ''),
+        (r'[\s]{2,}',   ' '),
+        (r'\. \. \.',  '<inaudible>')
     ]
 
     def __init__(self, mlas: set): 

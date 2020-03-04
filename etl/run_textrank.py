@@ -13,8 +13,9 @@ minio_client = MinioClient()
 
 bucketName = 'speeches'
 
+
 def run_textrank():
-    mlas = load_from_minio() # loads information from minio to list of MLA classes
+    mlas = load_from_minio()  # loads information from minio to list of MLA classes
     table = DbSchema.ranks
     with MySqlClient() as mysql_client:
         try:
@@ -28,13 +29,13 @@ def run_textrank():
             print("Failed to create ranks table")
 
     for mla in mlas:
-        print('Running summarizer for {0}...'.format(mla.name))
+        print('Running summarizer for {0} {1}...'.format(mla.firstname, mla.lastname))
         summarizer = Summarizer(mla)
         save_to_sql(mla, table)
 
 
 def save_to_sql(mla, table):
-    print('Uploading summary results to SQL for {0}...'.format(mla.name))
+    print('Uploading summary results to SQL for {0} {1}...'.format(mla.firstname, mla.lastname))
     summaryInfo = []
     mlaId = mla.id
     with MySqlClient() as mysql_client:
@@ -56,66 +57,79 @@ def save_to_sql(mla, table):
         df = DataFrame(summaryInfo)
         try:
             mysql_client.append_data(table, df)
-            mysql_client.execute('CREATE VIEW summaries_{0} as SELECT * FROM ranks WHERE MLAId = {0}'.format(mla.id))
+            mysql_client.execute(
+                'CREATE VIEW summaries_{0} as SELECT * FROM ranks WHERE MLAId = {0}'.format(mla.id))
         except:
-            print('Failed to upload summary results to SQL for {0}...'.format(mla.name))
+            print(
+                'Failed to upload summary results to SQL for {0}...'.format(mla.name))
 
 
 def load_from_minio():
     mlas = []
-    buckets = minio_client.list_objects(bucketName) # gets buckets (named after MLAs)
+    # gets buckets (named after MLAs)
+    buckets = minio_client.list_objects(bucketName)
 
     print("Starting load from Minio client...")
     with MySqlClient() as mysql_client:
         for bucket in buckets:
-            bucket = bucket.object_name # replace class with name
-            name = bucket.split('_')[-1][:-1] # mla name
-            print("Loading MLA data for {0} from Minio...".format(name))
+            bucket = bucket.object_name  # replace class with name
+            firstname = bucket.split('_')[0]
+            lastname = bucket.split('_')[-1][:-1]
+            print("Loading MLA data for {0} {1} from Minio...".format(
+                firstname, lastname))
 
-            try:
-                mlaId = mysql_client.read_data("SELECT RidingNumber FROM mlas WHERE LastName = \"{0}\"".format(name))['RidingNumber'][0] # get id from table
-            except:
-                print("Failed to fetch SQL data for MLA {0}. Please ensure the MLA is in the table and try again.".format(name))
-                continue
+            # try:
+            mlaId = mysql_client.read_data("SELECT Id FROM mlas WHERE FirstName = \"{0}\" and LastName = \"{1}\"".format(firstname, lastname))['Id'][0]  # get id from table
+            # except:
+                # print(
+                    # "Failed to fetch SQL data for MLA {0} {1}. Please ensure the MLA is in the table and try again.".format(firstname, lastname))
+                # continue
 
-            mla = MLA(name, mlaId) # create a new MLA class
-            files = minio_client.list_objects(bucketName, prefix=name+'/', recursive=True) # get sessions contained in files
+            mla = MLA(firstname, lastname, mlaId)  # create a new MLA class
+            # get sessions contained in files
+            files = minio_client.list_objects(
+                bucketName, prefix=f'{firstname}_{lastname}/', recursive=True)
 
             for file in files:
-                file = file.object_name # get the file
+                file = file.object_name  # get the file
                 sessionName = file.split('/')[1]
                 try:
-                    sessionId = mysql_client.read_data("SELECT Id from documents WHERE DateCode = \"{0}\"".format(sessionName))['Id'][0] # get id from table
+                    sessionId = mysql_client.read_data("SELECT Id from documents WHERE DateCode = \"{0}\"".format(
+                        sessionName))['Id'][0]  # get id from table
                 except:
-                    print("Failed to fetch SQL data for document {0} of MLA {1}. Please ensure the MLA is in the table and try again.".format(sessionName, name))
+                    print("Failed to fetch SQL data for document {0} of MLA {1} {2}. Please ensure the MLA is in the table and try again.".format(
+                        sessionName, firstname, lastname))
                     continue
 
-                session = Session(sessionName, mla, sessionId) # create a new Session class (split is because file name contains bucket name)
-                sentences = minio_client.get_object(bucketName, file) # open HTTP stream to file containing sentences
-                speech = b'' # will hold entire byte stream
+                # create a new Session class (split is because file name contains bucket name)
+                session = Session(sessionName, mla, sessionId)
+                # open HTTP stream to file containing sentences
+                sentences = minio_client.get_object(bucketName, file)
+                speech = b''  # will hold entire byte stream
 
                 for s in sentences.stream(65536):
                     speech += s
 
                 try:
-                    speech = speech.decode('utf-8') # decode from bytecode
+                    speech = speech.decode('utf-8')  # decode from bytecode
                 except:
                     print("Error on file {0}".format(file))
                     continue
 
-                speech = speech.replace('. . .', '<inaudible>')
-
                 for s in sent_tokenize(speech):
-                    sentence = Sentence(s.strip(), session) # create a new Sentence class
+                    # create a new Sentence class
+                    sentence = Sentence(s.strip(), session)
 
-            mlas += [mla] # add mla data to list
-            break
+            mlas += [mla]  # add mla data to list
+
     print("Finished load from Minio client...")
     return mlas
+
 
 def replace_chars(match):
     char = match.group(0)
     return chars[char]
+
 
 if __name__ == "__main__":
     run_textrank()
