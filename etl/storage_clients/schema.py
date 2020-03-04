@@ -34,9 +34,15 @@ class DbSchema:
         Column('MLAId', Integer, ForeignKey("mlas.Id"))
     )
 
-    topics = Table('topics', _metadata, 
-        Column('Id', Integer, primary_key=True, autoincrement=True), 
+    topics = Table('topics', _metadata,
+        Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('MLAId', Integer, ForeignKey('mlas.Id')),
-        Column('TopicRank', Integer), 
+        Column('TopicRank', Integer),
         Column('Topic', Text)
+    )
+
+    images = Table('images', _metadata,
+        Column('ID', Integer, primary_key=True, autoincrement=True),
+        Column('LastName', Text),
+        Column('URL', Text)
     )

@@ -78,7 +78,7 @@ def load_from_minio():
                 print("Failed to fetch SQL data for MLA {0}. Please ensure the MLA is in the table and try again.".format(name))
                 continue
 
-            mla = MLA(bucket[:-1], mlaId) # create a new MLA class
+            mla = MLA(name, mlaId) # create a new MLA class
             files = minio_client.list_objects(bucketName, prefix=name+'/', recursive=True) # get sessions contained in files
 
             for file in files:
@@ -103,17 +103,13 @@ def load_from_minio():
                     print("Error on file {0}".format(file))
                     continue
 
-                # TO BE REMOVED AFTER SPEECH PARSER INTEGRATION --------------------------------------------------------------------------------------
-                speech = speech.replace('\n', ' ') # remove trailing \n
                 speech = speech.replace('. . .', '<inaudible>')
-                for key, value in chars.items():
-                    speech = speech.replace(key, value)
-                # TO BE REMOVED AFTER SPEECH PARSER INTEGRATION --------------------------------------------------------------------------------------
 
                 for s in sent_tokenize(speech):
                     sentence = Sentence(s.strip(), session) # create a new Sentence class
 
             mlas += [mla] # add mla data to list
+            break
     print("Finished load from Minio client...")
     return mlas
 
