@@ -1,88 +1,88 @@
-RidingNumber,RidingName,Title,FirstName,LastName,Caucus,LegislativePhoneNumber,RidingPhoneNumber,Email
-47,Airdrie-Cochrane,Mr.,Pete,Guthrie,UCP,780.638.3018,587.493.2050,Airdrie.Cochrane@assembly.ab.ca
-48,Airdrie-East,Mrs.,Angela,Pitt,UCP,780.644.7121,403.948.8741,Airdrie.East@assembly.ab.ca
-49,Athabasca-Barrhead-Westlock,Mr.,Glenn,van Dijken,UCP,780.644.7152,780.674.3225,Athabasca.Barrhead.Westlock@assembly.ab.ca
-50,Banff-Kananaskis,Ms.,Miranda,Rosin,UCP,780.643.1027,403.609.4509,Banff.Kananaskis@assembly.ab.ca
-51,Bonnyville-Cold Lake-St. Paul,Mr.,David,Hanson,UCP,587.404.8096,780.826.5658,Bonnyville.ColdLake.StPaul@assembly.ab.ca
-52,Brooks-Medicine Hat,Ms.,Michaela,Glasgo,UCP,780.638.3022,587.270.5110,Brooks.MedicineHat@assembly.ab.ca
-1,Calgary-Acadia,Hon.,Tyler,Shandro,UCP,780.427.3665,403.640.1363,Calgary.Acadia@assembly.ab.ca
-2,Calgary-Beddington,Hon.,Josephine,Pon,UCP,780.415.9550,403.215.7710,Calgary.Beddington@assembly.ab.ca
-3,Calgary-Bow,Hon.,Demetrios,Nicolaides,UCP,780.427.5777,403.216.5400,Calgary.Bow@assembly.ab.ca
-4,Calgary-Buffalo,Mr.,Joe,Ceci,NDP,780.415.1800,403.244.7737,Calgary.Buffalo@assembly.ab.ca
-5,Calgary-Cross,Mr.,Mickey,Amery,UCP,780.638.1371,403.248.4487,Calgary.Cross@assembly.ab.ca
-6,Calgary-Currie,Mr.,Nicholas,Milliken,UCP,780.643.1040,403.246.4794,Calgary.Currie@assembly.ab.ca
-7,Calgary-East,Mr.,Peter,Singh,UCP,780.638.1399,587.496.2052,Calgary.East@assembly.ab.ca
-8,Calgary-Edgemont,Hon.,Prasad,Panda,UCP,780.427.5041,403.288.4453,Calgary.Edgemont@assembly.ab.ca
-9,Calgary-Elbow,Hon.,Doug,Schweitzer,UCP,780.427.2339,403.252.0346,Calgary.Elbow@assembly.ab.ca
-10,Calgary-Falconridge,Mr.,Devinder,Toor,UCP,780.638.3016,403.280.4022,Calgary.Falconridge@assembly.ab.ca
-11,Calgary-Fish Creek,Mr.,Richard,Gotfried,UCP,780.643.6541,403.278.4444,Calgary.FishCreek@assembly.ab.ca
-12,Calgary-Foothills,Hon.,Jason,Luan,UCP,780.427.0165,403.216.5444,Calgary.Foothills@assembly.ab.ca
-13,Calgary-Glenmore,Ms.,Whitney,Issik,UCP,780.638.2813,403.216.5421,Calgary.Glenmore@assembly.ab.ca
-14,Calgary-Hays,Hon.,Ric,McIver,UCP,780.427.2080,403.215.4380,Calgary.Hays@assembly.ab.ca
-15,Calgary-Klein,Mr.,Jeremy,Nixon,UCP,780.643.1039,403.216.5430,Calgary.Klein@assembly.ab.ca
-16,Calgary-Lougheed,Premier,Jason,Kenney,UCP,780.427.2251,403.238.1212,Calgary.Lougheed@assembly.ab.ca
-17,Calgary-McCall,Mr.,Irfan,Sabir,NDP,780.415.1800,403.216.5424,Calgary.McCall@assembly.ab.ca
-18,Calgary-Mountain View,Ms.,Kathleen,Ganley,NDP,780.415.1800,403.216.5445,Calgary.MountainView@assembly.ab.ca
-19,Calgary-North,Mr.,Muhammad,Yaseen,UCP,780.643.1026,403.274.1931,Calgary.North@assembly.ab.ca
-20,Calgary-North East,Hon.,Rajan,Sawhney,UCP,780.643.6210,587.318.2946,Calgary.NorthEast@assembly.ab.ca
-21,Calgary-North West,Hon.,Sonya,Savage,UCP,780.427.3740,403.297.7104,Calgary.Northwest@assembly.ab.ca
-22,Calgary-Peigan,Hon.,Tanya,Fir,UCP,780.644.8554,587.392.8850,Calgary.Peigan@assembly.ab.ca
-23,Calgary-Shaw,Hon.,Rebecca,Schulz,UCP,780.644.5255,403.256.8969,Calgary.Shaw@assembly.ab.ca
-24,Calgary-South East,Mr.,Matt,Jones,UCP,780.638.3020,403.215.8930,Calgary.SouthEast@assembly.ab.ca
-25,Calgary-Varsity,Hon.,Jason,Copping,UCP,780.638.9400,403.216.5436,Calgary.Varsity@assembly.ab.ca
-26,Calgary-West,Mr.,Mike,Ellis,UCP,780.644.2395,403.216.5439,Calgary.West@assembly.ab.ca
-53,Camrose,Ms.,Jackie,Lovely,UCP,780.638.1258,780.672.0000,Camrose@assembly.ab.ca
-54,Cardston-Siksika,Mr.,Joseph,Schow,UCP,780.638.1158,,
-55,Central Peace-Notley,Mr.,Todd,Loewen,UCP,780.427.5967,780.835.7211,CentralPeace.Notley@assembly.ab.ca
-56,Chestermere-Strathmore,Hon.,Leela,Aheer,UCP,780.422.3559,403.962.0126,Chestermere.Strathmore@assembly.ab.ca
-57,Cypress-Medicine Hat,Mr.,Drew,Barnes,UCP,780.427.6662,403.528.2191,Cypress.MedicineHat@assembly.ab.ca
-58,Drayton Valley-Devon,Mr.,Mark,Smith,UCP,780.644.7146,780.542.3355,DraytonValley.Devon@assembly.ab.ca
-59,Drumheller-Stettler,Mr.,Nate,Horner,UCP,780.643.2993,587.774.0306,Drumheller.Stettler@assembly.ab.ca
-27,Edmonton-Beverly-Clareview,Mr.,Deron,Bilous,NDP,780.415.1800,780.476.6467,Edmonton.BeverlyClareview@assembly.ab.ca
-28,Edmonton-Castle Downs,Ms.,Nicole,Goehring,NDP,780.415.1800,780.414.0705,Edmonton.Castledowns@assembly.ab.ca
-29,Edmonton-City Centre,Mr.,David,Shepherd,NDP,,780.414.0743,Edmonton.CityCentre@assembly.ab.ca
-30,Edmonton-Decore,Mr.,Chris,Nielsen,NDP,780.415.1800,780.414.1328,Edmonton.Decore@assembly.ab.ca
-31,Edmonton-Ellerslie,Member,Rod,Loyola,NDP,780.415.1800,780.414.2000,Edmonton.Ellerslie@assembly.ab.ca
-32,Edmonton-Glenora,Ms.,Sarah,Hoffman,NDP,780.415.1800,780.455.7979,Edmonton.Glenora@assembly.ab.ca
-33,Edmonton-Gold Bar,Mr.,Marlin,Schmidt,NDP,780.415.1800,780.414.1015,Edmonton.Goldbar@assembly.ab.ca
-34,Edmonton-Highlands-Norwood,Member,Janis,Irwin,NDP,780.415.1800,780.414.0682,Edmonton.HighlandsNorwood@assembly.ab.ca
-35,Edmonton-Manning,Ms.,Heather,Sweet,NDP,780.415.1800,780.414.0714,Edmonton.Manning@assembly.ab.ca
-36,Edmonton-McClung,Mr.,Lorne,Dach,NDP,780.415.1800,780.408.1860,Edmonton.McClung@assembly.ab.ca
-37,Edmonton-Meadows,Mr.,Jasvir,Deol,NDP,780.415.1800,780.466.3737,Edmonton.Meadows@assembly.ab.ca
-38,Edmonton-Mill Woods,Ms.,Christina,Gray,NDP,780.415.1800,780.414.1000,Edmonton.Millwoods@assembly.ab.ca
-39,Edmonton-North West,Mr.,David,Eggen,NDP,780.415.1800,780.451.2345,Edmonton.Northwest@assembly.ab.ca
-40,Edmonton-Riverview,Ms.,Lori,Sigurdson,NDP,780.415.1800,780.414.0719,Edmonton.Riverview@assembly.ab.ca
-41,Edmonton-Rutherford,Mr.,Richard,Feehan,NDP,780.415.1800,780.414.1311,Edmonton.Rutherford@assembly.ab.ca
-42,Edmonton-South,Mr.,Thomas,Dang,NDP,780.415.1800,780.643.9153,Edmonton.South@assembly.ab.ca
-43,Edmonton-South West,Hon.,Kaycee,Madu,UCP,780.427.3744,780.415.8692,Edmonton.SouthWest@assembly.ab.ca
-44,Edmonton-Strathcona,Ms.,Rachel,Notley,NDP,780.415.1800,780.414.0702,Edmonton.Strathcona@assembly.ab.ca
-45,Edmonton-West Henday,Member,Jon,Carson,NDP,780.415.1800,780.414.0711,Edmonton.WestHenday@assembly.ab.ca
-46,Edmonton-Whitemud,Ms.,Rakhi,Pancholi,NDP,780.415.1800,780.413.5970,Edmonton.Whitemud@assembly.ab.ca
-60,Fort McMurray-Lac La Biche,Ms.,Laila,Goodridge,UCP,780.643.3884,780.588.7979,FortMcMurray.LacLaBiche@assembly.ab.ca
-61,Fort McMurray-Wood Buffalo,Mr.,Tany,Yao,UCP,780.644.7129,780.790.6014,FortMcMurray.WoodBuffalo@assembly.ab.ca
-62,Fort Saskatchewan-Vegreville,Ms.,Jackie,Armstrong-Homeniuk,UCP,780.638.3157,780.632.6840,FortSaskatchewan.Vegreville@assembly.ab.ca
-63,Grande Prairie,Mrs.,Tracy,Allard,UCP,780.643.1018,780.538.1800,GrandePrairie@assembly.ab.ca
-64,Grande Prairie-Wapiti,Hon.,Travis,Toews,UCP,780.415.4855,825.412.2050,GrandePrairie.Wapiti@assembly.ab.ca
-65,Highwood,Mr.,R.J.,Sigurdson,UCP,780.638.3156,403.995.5488,Highwood@assembly.ab.ca
-66,Innisfail-Sylvan Lake,Hon.,Devin,Dreeshen,UCP,780.427.2137,403.865.7580,Innisfail.SylvanLake@assembly.ab.ca
-67,Lac Ste. Anne-Parkland,Mr.,Shane,Getson,UCP,780.638.3021,780.967.0760,LacSteAnne.Parkland@assembly.ab.ca
-68,Lacombe-Ponoka,Mr.,Ronald,Orr,UCP,780.638.3275,403.782.7725,Lacombe.Ponoka@assembly.ab.ca
-69,Leduc-Beaumont,Mr.,Brad,Rutherford,UCP,780.638.3171,780.929.3290,Leduc.Beaumont@assembly.ab.ca
-70,Lesser Slave Lake,Mr.,Pat,Rehn,UCP,780.638.2818,825.219.1000,Lesser.SlaveLake@assembly.ab.ca
-71,Lethbridge-East,Mr.,Nathan,Neudorf,UCP,780.643.1034,403.320.1011,Lethbridge.East@assembly.ab.ca
-72,Lethbridge-West,Ms.,Shannon,Phillips,NDP,780.415.1800,403.329.4644,Lethbridge.West@assembly.ab.ca
-73,Livingstone-Macleod,Mr.,Roger,Reid,UCP,780.638.1241,825.212.2000,Livingstone.Macleod@assembly.ab.ca
-74,Maskwacis-Wetaskiwin,Hon.,Rick,Wilson,UCP,780.422.4144,780.360.8003,Maskwacis.Wetaskiwin@assembly.ab.ca
-75,Morinville-St. Albert,Hon.,Dale,Nally,UCP,780.427.0265,780.572.6161,Morinville.StAlbert@assembly.ab.ca
-76,Olds-Didsbury-Three Hills,Hon.,Nathan,Cooper,UCP,780.427.2464,403.556.3132,OldsDidsbury.ThreeHills@assembly.ab.ca
-77,Peace River,Mr.,Dan,Williams,UCP,780.638.3019,780.928.5100,Peace.River@assembly.ab.ca
-78,Red Deer-North,Hon.,Adriana,LaGrange,UCP,780.427.5010,403.342.2263,RedDeer.North@assembly.ab.ca
-79,Red Deer-South,Mr.,Jason,Stephan,UCP,780.638.3176,403.340.3565,RedDeer.South@assembly.ab.ca
-80,Rimbey-Rocky Mountain House-Sundre,Hon.,Jason,Nixon,UCP,780.427.2391,403.638.5029,Rimbey.RockyMountainhouse.Sundre@assembly.ab.ca
-81,Sherwood Park,Mr.,Jordan,Walker,UCP,780.638.3017,780.417.4747,Sherwood.Park@assembly.ab.ca
-82,Spruce Grove-Stony Plain,Mr.,Searle,Turton,UCP,780.638.3144,780.962.6606,SpruceGrove.StonyPlain@assembly.ab.ca
-83,St. Albert,Ms.,Marie,Renaud,NDP,780.415.1800,780.459.9113,St.Albert@assembly.ab.ca
-84,Strathcona-Sherwood Park,Hon.,Nate,Glubish,UCP,780.422.6880,780.416.2492,Strathcona.Sherwoodpark@assembly.ab.ca
-85,Taber-Warner,Hon.,Grant,Hunter,UCP,780.427.0240,403.223.0001,Taber.Warner@assembly.ab.ca
-86,Vermilion-Lloydminster-Wainwright,Mr.,Garth,Rowswell,UCP,780.638.1398,780.842.6177,Vermilion.Lloydminster.Wainwright@assembly.ab.ca
-87,West Yellowhead,Mr.,Martin,Long,UCP,780.638.3015,780.712.7790,West.Yellowhead@assembly.ab.ca
+RidingNumber,RidingName,Title,FirstName,LastName,HansardName,Caucus,LegislativePhoneNumber,RidingPhoneNumber,Email
+47,Airdrie-Cochrane,Mr.,Pete,Guthrie,Mr. Guthrie,UCP,780.638.3018,587.493.2050,Airdrie.Cochrane@assembly.ab.ca
+48,Airdrie-East,Mrs.,Angela,Pitt,Mrs. Pitt,UCP,780.644.7121,403.948.8741,Airdrie.East@assembly.ab.ca
+49,Athabasca-Barrhead-Westlock,Mr.,Glenn,van Dijken,Mr. van Dijken,UCP,780.644.7152,780.674.3225,Athabasca.Barrhead.Westlock@assembly.ab.ca
+50,Banff-Kananaskis,Ms.,Miranda,Rosin,Ms Rosin,UCP,780.643.1027,403.609.4509,Banff.Kananaskis@assembly.ab.ca
+51,Bonnyville-Cold Lake-St. Paul,Mr.,David,Hanson,Mr. Hanson,UCP,587.404.8096,780.826.5658,Bonnyville.ColdLake.StPaul@assembly.ab.ca
+52,Brooks-Medicine Hat,Ms.,Michaela,Glasgo,Ms Glasgo,UCP,780.638.3022,587.270.5110,Brooks.MedicineHat@assembly.ab.ca
+1,Calgary-Acadia,Hon.,Tyler,Shandro,Mr. Shandro,UCP,780.427.3665,403.640.1363,Calgary.Acadia@assembly.ab.ca
+2,Calgary-Beddington,Hon.,Josephine,Pon,Ms Pon,UCP,780.415.9550,403.215.7710,Calgary.Beddington@assembly.ab.ca
+3,Calgary-Bow,Hon.,Demetrios,Nicolaides,Mr. Nicolaides,UCP,780.427.5777,403.216.5400,Calgary.Bow@assembly.ab.ca
+4,Calgary-Buffalo,Mr.,Joe,Ceci,Member Ceci,NDP,780.415.1800,403.244.7737,Calgary.Buffalo@assembly.ab.ca
+5,Calgary-Cross,Mr.,Mickey,Amery,Mr. Amery,UCP,780.638.1371,403.248.4487,Calgary.Cross@assembly.ab.ca
+6,Calgary-Currie,Mr.,Nicholas,Milliken,Mr. Milliken,UCP,780.643.1040,403.246.4794,Calgary.Currie@assembly.ab.ca
+7,Calgary-East,Mr.,Peter,Singh,Mr. Singh,UCP,780.638.1399,587.496.2052,Calgary.East@assembly.ab.ca
+8,Calgary-Edgemont,Hon.,Prasad,Panda,Mr. Panda,UCP,780.427.5041,403.288.4453,Calgary.Edgemont@assembly.ab.ca
+9,Calgary-Elbow,Hon.,Doug,Schweitzer,Mr. Schweitzer,UCP,780.427.2339,403.252.0346,Calgary.Elbow@assembly.ab.ca
+10,Calgary-Falconridge,Mr.,Devinder,Toor,Mr. Toor,UCP,780.638.3016,403.280.4022,Calgary.Falconridge@assembly.ab.ca
+11,Calgary-Fish Creek,Mr.,Richard,Gotfried,Mr. Gotfried,UCP,780.643.6541,403.278.4444,Calgary.FishCreek@assembly.ab.ca
+12,Calgary-Foothills,Hon.,Jason,Luan,Mr. Luan,UCP,780.427.0165,403.216.5444,Calgary.Foothills@assembly.ab.ca
+13,Calgary-Glenmore,Ms.,Whitney,Issik,Ms Issik,UCP,780.638.2813,403.216.5421,Calgary.Glenmore@assembly.ab.ca
+14,Calgary-Hays,Hon.,Ric,McIver,Mr. McIver,UCP,780.427.2080,403.215.4380,Calgary.Hays@assembly.ab.ca
+15,Calgary-Klein,Mr.,Jeremy,Nixon,Mr. Jeremy Nixon,UCP,780.643.1039,403.216.5430,Calgary.Klein@assembly.ab.ca
+16,Calgary-Lougheed,Premier,Jason,Kenney,Mr. Kenney,UCP,780.427.2251,403.238.1212,Calgary.Lougheed@assembly.ab.ca
+17,Calgary-McCall,Mr.,Irfan,Sabir,Mr. Sabir,NDP,780.415.1800,403.216.5424,Calgary.McCall@assembly.ab.ca
+18,Calgary-Mountain View,Ms.,Kathleen,Ganley,Ms Ganley,NDP,780.415.1800,403.216.5445,Calgary.MountainView@assembly.ab.ca
+19,Calgary-North,Mr.,Muhammad,Yaseen,Mr. Yaseen,UCP,780.643.1026,403.274.1931,Calgary.North@assembly.ab.ca
+20,Calgary-North East,Hon.,Rajan,Sawhney,Mrs. Sawhney,UCP,780.643.6210,587.318.2946,Calgary.NorthEast@assembly.ab.ca
+21,Calgary-North West,Hon.,Sonya,Savage,Mrs. Savage,UCP,780.427.3740,403.297.7104,Calgary.Northwest@assembly.ab.ca
+22,Calgary-Peigan,Hon.,Tanya,Fir,Ms Fir,UCP,780.644.8554,587.392.8850,Calgary.Peigan@assembly.ab.ca
+23,Calgary-Shaw,Hon.,Rebecca,Schulz,Ms Schulz,UCP,780.644.5255,403.256.8969,Calgary.Shaw@assembly.ab.ca
+24,Calgary-South East,Mr.,Matt,Jones,Mr. Jones,UCP,780.638.3020,403.215.8930,Calgary.SouthEast@assembly.ab.ca
+25,Calgary-Varsity,Hon.,Jason,Copping,Mr. Copping,UCP,780.638.9400,403.216.5436,Calgary.Varsity@assembly.ab.ca
+26,Calgary-West,Mr.,Mike,Ellis,Mr. Ellis,UCP,780.644.2395,403.216.5439,Calgary.West@assembly.ab.ca
+53,Camrose,Ms.,Jackie,Lovely,Ms Lovely,UCP,780.638.1258,780.672.0000,Camrose@assembly.ab.ca
+54,Cardston-Siksika,Mr.,Joseph,Schow,Mr. Schow,UCP,780.638.1158,,
+55,Central Peace-Notley,Mr.,Todd,Loewen,Mr. Loewen,UCP,780.427.5967,780.835.7211,CentralPeace.Notley@assembly.ab.ca
+56,Chestermere-Strathmore,Hon.,Leela,Aheer,Mrs. Aheer,UCP,780.422.3559,403.962.0126,Chestermere.Strathmore@assembly.ab.ca
+57,Cypress-Medicine Hat,Mr.,Drew,Barnes,Mr. Barnes,UCP,780.427.6662,403.528.2191,Cypress.MedicineHat@assembly.ab.ca
+58,Drayton Valley-Devon,Mr.,Mark,Smith,Mr. Smith,UCP,780.644.7146,780.542.3355,DraytonValley.Devon@assembly.ab.ca
+59,Drumheller-Stettler,Mr.,Nate,Horner,Mr. Horner,UCP,780.643.2993,587.774.0306,Drumheller.Stettler@assembly.ab.ca
+27,Edmonton-Beverly-Clareview,Mr.,Deron,Bilous,Mr. Bilous,NDP,780.415.1800,780.476.6467,Edmonton.BeverlyClareview@assembly.ab.ca
+28,Edmonton-Castle Downs,Ms.,Nicole,Goehring,Ms Goehring,NDP,780.415.1800,780.414.0705,Edmonton.Castledowns@assembly.ab.ca
+29,Edmonton-City Centre,Mr.,David,Shepherd,Mr. Shepherd,NDP,,780.414.0743,Edmonton.CityCentre@assembly.ab.ca
+30,Edmonton-Decore,Mr.,Chris,Nielsen,Mr. Nielsen,NDP,780.415.1800,780.414.1328,Edmonton.Decore@assembly.ab.ca
+31,Edmonton-Ellerslie,Member,Rod,Loyola,Member Loyola,NDP,780.415.1800,780.414.2000,Edmonton.Ellerslie@assembly.ab.ca
+32,Edmonton-Glenora,Ms.,Sarah,Hoffman,Ms Hoffman,NDP,780.415.1800,780.455.7979,Edmonton.Glenora@assembly.ab.ca
+33,Edmonton-Gold Bar,Mr.,Marlin,Schmidt,Mr. Schmidt,NDP,780.415.1800,780.414.1015,Edmonton.Goldbar@assembly.ab.ca
+34,Edmonton-Highlands-Norwood,Member,Janis,Irwin,Member Irwin,NDP,780.415.1800,780.414.0682,Edmonton.HighlandsNorwood@assembly.ab.ca
+35,Edmonton-Manning,Ms.,Heather,Sweet,Ms Sweet,NDP,780.415.1800,780.414.0714,Edmonton.Manning@assembly.ab.ca
+36,Edmonton-McClung,Mr.,Lorne,Dach,Mr. Dach,NDP,780.415.1800,780.408.1860,Edmonton.McClung@assembly.ab.ca
+37,Edmonton-Meadows,Mr.,Jasvir,Deol,Mr. Deol,NDP,780.415.1800,780.466.3737,Edmonton.Meadows@assembly.ab.ca
+38,Edmonton-Mill Woods,Ms.,Christina,Gray,Ms Gray,NDP,780.415.1800,780.414.1000,Edmonton.Millwoods@assembly.ab.ca
+39,Edmonton-North West,Mr.,David,Eggen,Mr. Eggen,NDP,780.415.1800,780.451.2345,Edmonton.Northwest@assembly.ab.ca
+40,Edmonton-Riverview,Ms.,Lori,Sigurdson,Ms Sigurdson,NDP,780.415.1800,780.414.0719,Edmonton.Riverview@assembly.ab.ca
+41,Edmonton-Rutherford,Mr.,Richard,Feehan,Mr. Feehan,NDP,780.415.1800,780.414.1311,Edmonton.Rutherford@assembly.ab.ca
+42,Edmonton-South,Mr.,Thomas,Dang,Mr. Dang,NDP,780.415.1800,780.643.9153,Edmonton.South@assembly.ab.ca
+43,Edmonton-South West,Hon.,Kaycee,Madu,Mr. Madu,UCP,780.427.3744,780.415.8692,Edmonton.SouthWest@assembly.ab.ca
+44,Edmonton-Strathcona,Ms.,Rachel,Notley,Ms Notley,NDP,780.415.1800,780.414.0702,Edmonton.Strathcona@assembly.ab.ca
+45,Edmonton-West Henday,Member,Jon,Carson,Mr. Carson,NDP,780.415.1800,780.414.0711,Edmonton.WestHenday@assembly.ab.ca
+46,Edmonton-Whitemud,Ms.,Rakhi,Pancholi,Ms Pancholi,NDP,780.415.1800,780.413.5970,Edmonton.Whitemud@assembly.ab.ca
+60,Fort McMurray-Lac La Biche,Ms.,Laila,Goodridge,Ms Goodridge,UCP,780.643.3884,780.588.7979,FortMcMurray.LacLaBiche@assembly.ab.ca
+61,Fort McMurray-Wood Buffalo,Mr.,Tany,Yao,Mr. Yao,UCP,780.644.7129,780.790.6014,FortMcMurray.WoodBuffalo@assembly.ab.ca
+62,Fort Saskatchewan-Vegreville,Ms.,Jackie,Armstrong-Homeniuk,Ms Armstrong-Homeniuk,UCP,780.638.3157,780.632.6840,FortSaskatchewan.Vegreville@assembly.ab.ca
+63,Grande Prairie,Mrs.,Tracy,Allard,Mrs. Allard,UCP,780.643.1018,780.538.1800,GrandePrairie@assembly.ab.ca
+64,Grande Prairie-Wapiti,Hon.,Travis,Toews,Mr. Toews,UCP,780.415.4855,825.412.2050,GrandePrairie.Wapiti@assembly.ab.ca
+65,Highwood,Mr.,R.J.,Sigurdson,Mr. Sigurdson,UCP,780.638.3156,403.995.5488,Highwood@assembly.ab.ca
+66,Innisfail-Sylvan Lake,Hon.,Devin,Dreeshen,Mr. Dreeshen,UCP,780.427.2137,403.865.7580,Innisfail.SylvanLake@assembly.ab.ca
+67,Lac Ste. Anne-Parkland,Mr.,Shane,Getson,Mr. Getson,UCP,780.638.3021,780.967.0760,LacSteAnne.Parkland@assembly.ab.ca
+68,Lacombe-Ponoka,Mr.,Ronald,Orr,Mr. Orr,UCP,780.638.3275,403.782.7725,Lacombe.Ponoka@assembly.ab.ca
+69,Leduc-Beaumont,Mr.,Brad,Rutherford,Mr. Rutherford,UCP,780.638.3171,780.929.3290,Leduc.Beaumont@assembly.ab.ca
+70,Lesser Slave Lake,Mr.,Pat,Rehn,Mr. Rehn,UCP,780.638.2818,825.219.1000,Lesser.SlaveLake@assembly.ab.ca
+71,Lethbridge-East,Mr.,Nathan,Neudorf,Mr. Neudorf,UCP,780.643.1034,403.320.1011,Lethbridge.East@assembly.ab.ca
+72,Lethbridge-West,Ms.,Shannon,Phillips,Ms Phillips,NDP,780.415.1800,403.329.4644,Lethbridge.West@assembly.ab.ca
+73,Livingstone-Macleod,Mr.,Roger,Reid,Mr. Reid,UCP,780.638.1241,825.212.2000,Livingstone.Macleod@assembly.ab.ca
+74,Maskwacis-Wetaskiwin,Hon.,Rick,Wilson,Mr. Wilson,UCP,780.422.4144,780.360.8003,Maskwacis.Wetaskiwin@assembly.ab.ca
+75,Morinville-St. Albert,Hon.,Dale,Nally,Mr. Nally,UCP,780.427.0265,780.572.6161,Morinville.StAlbert@assembly.ab.ca
+76,Olds-Didsbury-Three Hills,Hon.,Nathan,Cooper,Mr. Cooper,UCP,780.427.2464,403.556.3132,OldsDidsbury.ThreeHills@assembly.ab.ca
+77,Peace River,Mr.,Dan,Williams,Mr. Williams,UCP,780.638.3019,780.928.5100,Peace.River@assembly.ab.ca
+78,Red Deer-North,Hon.,Adriana,LaGrange,Member LaGrange,UCP,780.427.5010,403.342.2263,RedDeer.North@assembly.ab.ca
+79,Red Deer-South,Mr.,Jason,Stephan,Mr. Stephan,UCP,780.638.3176,403.340.3565,RedDeer.South@assembly.ab.ca
+80,Rimbey-Rocky Mountain House-Sundre,Hon.,Jason,Nixon,Mr. Jason Nixon,UCP,780.427.2391,403.638.5029,Rimbey.RockyMountainhouse.Sundre@assembly.ab.ca
+81,Sherwood Park,Mr.,Jordan,Walker,Mr. Walker,UCP,780.638.3017,780.417.4747,Sherwood.Park@assembly.ab.ca
+82,Spruce Grove-Stony Plain,Mr.,Searle,Turton,Mr. Turton,UCP,780.638.3144,780.962.6606,SpruceGrove.StonyPlain@assembly.ab.ca
+83,St. Albert,Ms.,Marie,Renaud,Ms Renaud,NDP,780.415.1800,780.459.9113,St.Albert@assembly.ab.ca
+84,Strathcona-Sherwood Park,Hon.,Nate,Glubish,Mr. Glubish,UCP,780.422.6880,780.416.2492,Strathcona.Sherwoodpark@assembly.ab.ca
+85,Taber-Warner,Hon.,Grant,Hunter,Mr. Hunter,UCP,780.427.0240,403.223.0001,Taber.Warner@assembly.ab.ca
+86,Vermilion-Lloydminster-Wainwright,Mr.,Garth,Rowswell,Mr. Rowswell,UCP,780.638.1398,780.842.6177,Vermilion.Lloydminster.Wainwright@assembly.ab.ca
+87,West Yellowhead,Mr.,Martin,Long,Mr. Long,UCP,780.638.3015,780.712.7790,West.Yellowhead@assembly.ab.ca

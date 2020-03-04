@@ -11,6 +11,7 @@ class DbSchema:
         Column('Title', Text),
         Column('FirstName', Text),
         Column('LastName', Text),
+        Column('HansardName', Text),
         Column('Caucus', Text),
         Column('LegislativePhoneNumber', Text),
         Column('RidingPhoneNumber', Text),
