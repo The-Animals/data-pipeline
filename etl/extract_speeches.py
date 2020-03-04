@@ -21,7 +21,7 @@ def parse_all_speeches():
 
     # Construct a dictionary mapping MLA names as they are found in the
     # hansard with a '-' delimited firstname-lastname string.
-    mla_lookup = {k: f'{f}-{l}' for (k, (f, l)) in zip(
+    mla_lookup = {k: f'{f}_{l}' for (k, (f, l)) in zip(
         mlas['HansardName'], zip(mlas['FirstName'], mlas['LastName']))}
 
     sp = SpeechParser(set(mla_lookup.keys()))

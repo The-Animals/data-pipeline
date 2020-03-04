@@ -1,16 +1,64 @@
+import requests
 from selenium.webdriver.common.by import By
 from pandas import DataFrame
+from io import StringIO, BytesIO
+from os import SEEK_END, SEEK_SET
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfdocument import PDFDocument
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.pdfpage import PDFPage
+from pdfminer.pdfparser import PDFParser
 
-from storage_clients import MySqlClient, DbSchema
+from storage_clients import MySqlClient, MinioClient, DbSchema
 from preprocess.webscraping.utils import get_date_code, get_date
 
 """
-Get pdf document urls from the hansard website and store them in the 
-database in the 'documents' table
+1.  Get pdf document urls from the hansard website and store them in the 
+    database in the 'documents' table. 
+
+2.  from url, download the pdf document
+
+3.  from the pdf, extract raw text from the pdf
+
+4.  store the raw text in the minio instance
 """
 
 
 HANSARD_SESSION_URL ='https://www.assembly.ab.ca/net/index.aspx?p=han&section=doc&fid=1'
+
+"""
+Take document URLs from the documents table, download the pdfs, 
+run them through a pdf -> text parser and store the raw text in the 
+minio instance. 
+"""
+
+def raw_text_from_pdf(url):
+    
+    print(f'getting document at {url}')
+    r = requests.get(url)
+    output_string = StringIO()
+    parser = PDFParser(BytesIO(r.content))
+    doc = PDFDocument(parser)
+    rsrcmgr = PDFResourceManager()
+    device = TextConverter(rsrcmgr, output_string, laparams=LAParams())
+    interpreter = PDFPageInterpreter(rsrcmgr, device)
+    for page in PDFPage.create_pages(doc):
+        interpreter.process_page(page)
+
+    return BytesIO(output_string.getvalue().encode('utf-8'))
+
+
+def parse_pdfs(documents): 
+
+    minio_client = MinioClient()
+
+    for date_code, url in zip(documents['DateCode'], documents['Url']): 
+        raw_text = raw_text_from_pdf(url)
+        length = raw_text.getbuffer().nbytes
+        minio_client.remove_object("rawtext", date_code)
+        minio_client.put_object("rawtext", date_code, raw_text, length)
+
 
 def get_urls():
     """
@@ -55,6 +103,9 @@ def overwrite_documents():
     with MySqlClient() as mysql_client:
         print('writing new documents to database')
         mysql_client.overwrite_table(table, docs)
+    
+    parse_pdfs(docs)
+
 
 
 def append_documents(): 
@@ -71,6 +122,8 @@ def append_documents():
     with MySqlClient() as mysql_client:
         print('writing new documents to database')
         mysql_client.append_data(table, new_docs)
+
+    parse_pdfs(new_docs)
 
 
 if __name__ == '__main__':

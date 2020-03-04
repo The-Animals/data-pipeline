@@ -7,7 +7,7 @@ from topic_analysis import TopicAnalyzer
 from storage_clients import MySqlClient, DbSchema
 
 top_n_sentences = 2000
-stopwords = {word.strip() for word in open('data/topic_stopwords.txt', 'r')}
+stopwords = {word.strip() for word in str(get_data('data', 'stopwords.txt').decode('utf-8')).split('\n')}
 
 """
 Create dataframe of top topics per MLA

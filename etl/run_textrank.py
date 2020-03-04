@@ -13,31 +13,6 @@ minio_client = MinioClient()
 
 bucketName = 'speeches'
 
-chars = {
-    '\x82' : ',',        # High code comma
-    '\x84' : ',,',       # High code double comma
-    '\x85' : '...',      # Tripple dot
-    '\x88' : '^',        # High carat
-    '\x91' : '\x27',     # Forward single quote
-    '\x92' : '\x27',     # Reverse single quote
-    '\x93' : '\x22',     # Forward double quote
-    '\x94' : '\x22',     # Reverse double quote
-    '\x95' : ' ',
-    '\x96' : '-',        # High hyphen
-    '\x97' : '--',       # Double hyphen
-    '\x99' : ' ',
-    '\xa0' : ' ',
-    '\xa6' : '|',        # Split vertical bar
-    '\xab' : '<<',       # Double less than
-    '\xbb' : '>>',       # Double greater than
-    '\xbc' : '1/4',      # one quarter
-    '\xbd' : '1/2',      # one half
-    '\xbe' : '3/4',      # three quarters
-    '\xbf' : '\x27',     # c-single quote
-    '\xa8' : '',         # modifier - under curve
-    '\xb1' : ''          # modifier - under line
-}
-
 def run_textrank():
     mlas = load_from_minio() # loads information from minio to list of MLA classes
     table = DbSchema.ranks
@@ -45,12 +20,12 @@ def run_textrank():
         try:
             mysql_client.drop_table(table)
         except:
-            print("Failed to drop summary table for MLA {0}".format(mla.name))
+            print("Failed to drop ranks table")
 
         try:
             mysql_client.create_table(table)
         except:
-            print("Failed to create summary table for MLA {0}".format(mla.name))
+            print("Failed to create ranks table")
 
     for mla in mlas:
         print('Running summarizer for {0}...'.format(mla.name))
@@ -94,7 +69,7 @@ def load_from_minio():
     with MySqlClient() as mysql_client:
         for bucket in buckets:
             bucket = bucket.object_name # replace class with name
-            name = bucket[:-1] # mla name
+            name = bucket.split('_')[-1][:-1] # mla name
             print("Loading MLA data for {0} from Minio...".format(name))
 
             try:
