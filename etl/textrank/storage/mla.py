@@ -1,7 +1,8 @@
 class MLA:
 
-    def __init__(self, name, id):
-        self._name = name
+    def __init__(self, firstname, lastname, id):
+        self._firstname = firstname
+        self._lastname = lastname
         self._id = id
         self._sessions = []
         self._sentences = []
@@ -9,8 +10,12 @@ class MLA:
         self._numberOfSentences = 0
 
     @property
-    def name(self):
-        return self._name
+    def firstname(self):
+        return self._firstname
+
+    @property   
+    def lastname(self):
+        return self._lastname
 
     @property
     def id(self):

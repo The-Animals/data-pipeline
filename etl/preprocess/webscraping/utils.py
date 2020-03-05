@@ -1,8 +1,4 @@
-from selenium.webdriver.common.by import By
-from pandas import DataFrame
 from datetime import datetime
-from .selenium_driver import driver
-
 
 time_of_day = {
     "Morning": (9, 0),
@@ -80,41 +76,3 @@ def get_images(images_url):
     driver.stop_instance()
 
     return images_info
-
-def get_urls(hansard_url):
-    """
-    Get all transciript URLs that are currently available at the main hansard page.
-
-    Returns a data frame that contains date info related to the document
-    """
-    driver.navigate(hansard_url)
-
-    html_doc_links = driver.get_elements((By.XPATH, "//input[@src='images/text_html.gif']"))
-    date_elements = driver.get_elements((By.XPATH, "//td[contains(text(), ', ')]"))
-
-    assert len(html_doc_links) == len(date_elements)
-
-    document_info = []
-
-    for i in range(len(html_doc_links)):
-        date_string, url = extract_document_information(date_elements[i], html_doc_links[i])
-        document_info.append({
-            'DateCode': get_date_code(date_string),
-            'DateString': date_string,
-            'Date': get_date(date_string),
-            'URL': url
-        })
-        print(f"'DateCode': {get_date_code(date_string)}, 'DateString': {date_string}, 'Date': {get_date(date_string)}, 'URL': {url}")
-
-    driver.stop_instance()
-
-    return DataFrame(document_info)
-
-
-def overwrite_urls(df, filepath):
-    """
-    Overwrite a file from a list
-    """
-    print(f'writing to file: {filepath}')
-    with open(filepath, 'w+') as file:
-        file.write(df.to_csv(index=False))

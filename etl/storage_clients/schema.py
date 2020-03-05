@@ -11,6 +11,7 @@ class DbSchema:
         Column('Title', Text),
         Column('FirstName', Text),
         Column('LastName', Text),
+        Column('HansardName', Text),
         Column('Caucus', Text),
         Column('LegislativePhoneNumber', Text),
         Column('RidingPhoneNumber', Text),
@@ -41,7 +42,7 @@ class DbSchema:
     )
 
     images = Table('images', _metadata,
-        Column('ID', Integer, primary_key=True, autoincrement=True),
+        Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('LastName', Text),
         Column('URL', Text)
     )

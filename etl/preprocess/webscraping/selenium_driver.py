@@ -22,25 +22,8 @@ class Driver(object):
         return cls.instance
 
     def __init__(self):
-        options = webdriver.ChromeOptions()
-        options.set_headless(True)
-        self.driver = webdriver.Chrome(options=options)
+        self.driver = webdriver.Chrome()
     
-    def current_window(self): 
-        return self.driver.current_window_handle
-
-    def current_window_url(self): 
-        return self.driver.current_url
-
-    def close_current_window(self): 
-        self.driver.close()
-
-    def switch_to_last_tab(self): 
-        self.driver.switch_to.window(self.driver.window_handles[-1])
-
-    def switch_to_main_tab(self):
-        self.driver.switch_to.window(self.driver.window_handles[0])
-
     def get_driver(self):
         return self.driver
 
