@@ -42,7 +42,7 @@ class DbSchema:
     )
 
     images = Table('images', _metadata,
-        Column('ID', Integer, primary_key=True, autoincrement=True),
+        Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('LastName', Text),
         Column('URL', Text)
     )

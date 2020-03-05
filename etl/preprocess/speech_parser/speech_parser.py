@@ -20,7 +20,6 @@ class SpeechParser:
     postprocess_replace = [
         (r'\n',         ''),
         (r'[\s]{2,}',   ' '),
-        (r'\. \. \.',  '<inaudible>')
     ]
 
     def __init__(self, mlas: set): 

@@ -1,7 +1,6 @@
 import re
 
-from storage_clients import MinioClient
-from storage_clients import MySqlClient
+from storage_clients import MySqlClient, MinioClient
 from preprocess.speech_parser import SpeechParser
 from nltk.tokenize import sent_tokenize
 
@@ -11,125 +10,73 @@ from storage_clients import DbSchema
 
 minio_client = MinioClient()
 
-bucketName = 'speeches'
 
-
-def run_textrank():
-    mlas = load_from_minio()  # loads information from minio to list of MLA classes
+def run_textrank(mysql_client):
     table = DbSchema.ranks
-    with MySqlClient() as mysql_client:
-        try:
-            mysql_client.drop_table(table)
-        except:
-            print("Failed to drop ranks table")
 
-        try:
-            mysql_client.create_table(table)
-        except:
-            print("Failed to create ranks table")
+    mysql_client.drop_table(table)
+    mysql_client.create_table(table)
 
-    for mla in mlas:
-        print('Running summarizer for {0} {1}...'.format(mla.firstname, mla.lastname))
+    i = 1
+    for mla in load_data(mysql_client):
+        print(f'processing MLA {i} / 87: {mla.firstname} {mla.lastname}')
+        # loads information from minio to list of MLA classes
         summarizer = Summarizer(mla)
-        save_to_sql(mla, table)
+        save_to_sql(mla, table, mysql_client)
+        i += 1
 
 
-def save_to_sql(mla, table):
-    print('Uploading summary results to SQL for {0} {1}...'.format(mla.firstname, mla.lastname))
-    summaryInfo = []
-    mlaId = mla.id
-    with MySqlClient() as mysql_client:
-        try:
-            mysql_client.execute('DROP VIEW summaries_{0}'.format(mla.id))
-        except:
-            print('Failed to drop view for MLA {0}'.format(mla.name))
+def load_data(mysql_client):
+    """
+    generator for querying mlas, documents and loading 
+    speech data from the minio instance. 
 
-        for session in mla.sessions:
-            sessionId = session.id
-            for sentence in session.sentences:
-                summaryInfo.append({
-                    'MLAId': mlaId,
-                    'DocumentId': sessionId,
-                    'Sentence': sentence.text.encode('utf-8'),
-                    'Rank': sentence.rank,
-                })
+    this allows prefetching of metadata, while also 
+    only querying the mlas underlying speech data at the 
+    runtime for the summarizer.
+    """
+    bucket = 'speeches'
+    mla_table = mysql_client.read_data("SELECT * FROM mlas")
+    documents = mysql_client.read_data("SELECT Id, DateCode FROM documents")
 
-        df = DataFrame(summaryInfo)
-        try:
-            mysql_client.append_data(table, df)
-            mysql_client.execute(
-                'CREATE VIEW summaries_{0} as SELECT * FROM ranks WHERE MLAId = {0}'.format(mla.id))
-        except:
-            print(
-                'Failed to upload summary results to SQL for {0}...'.format(mla.name))
+    for index, row in mla_table.iterrows():
+        mla = MLA(row.FirstName, row.LastName, row.Id)
 
+        # get sessions contained in files
+        files = minio_client.list_objects(
+            bucket, prefix=f'{mla.firstname}_{mla.lastname}', recursive=True)
 
-def load_from_minio():
-    mlas = []
-    # gets buckets (named after MLAs)
-    buckets = minio_client.list_objects(bucketName)
+        for file in files:
+            date_code = file.object_name.split('/')[-1]
+            document_id = int(
+                documents.loc[documents['DateCode'] == date_code]['Id'])
+            session = Session(date_code, mla, document_id)
 
-    print("Starting load from Minio client...")
-    with MySqlClient() as mysql_client:
-        for bucket in buckets:
-            bucket = bucket.object_name  # replace class with name
-            firstname = bucket.split('_')[0]
-            lastname = bucket.split('_')[-1][:-1]
-            print("Loading MLA data for {0} {1} from Minio...".format(
-                firstname, lastname))
+            speeches_from_session = minio_client.get_object(
+                bucket, file.object_name).read().decode('utf-8')
 
-            # try:
-            mlaId = mysql_client.read_data("SELECT Id FROM mlas WHERE FirstName = \"{0}\" and LastName = \"{1}\"".format(firstname, lastname))['Id'][0]  # get id from table
-            # except:
-                # print(
-                    # "Failed to fetch SQL data for MLA {0} {1}. Please ensure the MLA is in the table and try again.".format(firstname, lastname))
-                # continue
+            for sent in sent_tokenize(speeches_from_session):
+                sentence = Sentence(sent.strip(), session)
 
-            mla = MLA(firstname, lastname, mlaId)  # create a new MLA class
-            # get sessions contained in files
-            files = minio_client.list_objects(
-                bucketName, prefix=f'{firstname}_{lastname}/', recursive=True)
-
-            for file in files:
-                file = file.object_name  # get the file
-                sessionName = file.split('/')[1]
-                try:
-                    sessionId = mysql_client.read_data("SELECT Id from documents WHERE DateCode = \"{0}\"".format(
-                        sessionName))['Id'][0]  # get id from table
-                except:
-                    print("Failed to fetch SQL data for document {0} of MLA {1} {2}. Please ensure the MLA is in the table and try again.".format(
-                        sessionName, firstname, lastname))
-                    continue
-
-                # create a new Session class (split is because file name contains bucket name)
-                session = Session(sessionName, mla, sessionId)
-                # open HTTP stream to file containing sentences
-                sentences = minio_client.get_object(bucketName, file)
-                speech = b''  # will hold entire byte stream
-
-                for s in sentences.stream(65536):
-                    speech += s
-
-                try:
-                    speech = speech.decode('utf-8')  # decode from bytecode
-                except:
-                    print("Error on file {0}".format(file))
-                    continue
-
-                for s in sent_tokenize(speech):
-                    # create a new Sentence class
-                    sentence = Sentence(s.strip(), session)
-
-            mlas += [mla]  # add mla data to list
-
-    print("Finished load from Minio client...")
-    return mlas
+        yield mla
 
 
-def replace_chars(match):
-    char = match.group(0)
-    return chars[char]
+def save_to_sql(mla, table, mysql_client):
+    summary_info = []
+
+    for session in mla.sessions:
+        for sentence in session.sentences:
+            summary_info.append({
+                'MLAId': mla.id,
+                'DocumentId': session.id,
+                'Sentence': str(sentence.text),
+                'Rank': sentence.rank,
+            })
+
+    df = DataFrame(summary_info)
+    mysql_client.append_data(table, df)
 
 
 if __name__ == "__main__":
-    run_textrank()
+    with MySqlClient() as mysql_client:
+        run_textrank(mysql_client)
