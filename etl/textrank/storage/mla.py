@@ -13,7 +13,7 @@ class MLA:
     def firstname(self):
         return self._firstname
 
-    @property   
+    @property
     def lastname(self):
         return self._lastname
 

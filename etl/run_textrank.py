@@ -7,9 +7,13 @@ from nltk.tokenize import sent_tokenize
 from textrank import MLA, Session, Sentence, Summarizer
 from pandas import DataFrame
 from storage_clients import DbSchema
+from pkgutil import get_data
+
+
+import time
 
 minio_client = MinioClient()
-
+null_sentences = {sentence.strip() for sentence in str(get_data('data', 'sentences.txt').decode('utf-8')).split('\n')}
 
 def run_textrank(mysql_client):
     table = DbSchema.ranks
@@ -18,21 +22,24 @@ def run_textrank(mysql_client):
     mysql_client.create_table(table)
 
     i = 1
+    s = 0
+    startTime = time.clock()
     for mla in load_data(mysql_client):
         print(f'processing MLA {i} / 87: {mla.firstname} {mla.lastname}')
         # loads information from minio to list of MLA classes
         summarizer = Summarizer(mla)
         save_to_sql(mla, table, mysql_client)
+        s += mla.numberOfSentences
         i += 1
 
 
 def load_data(mysql_client):
     """
-    generator for querying mlas, documents and loading 
-    speech data from the minio instance. 
+    generator for querying mlas, documents and loading
+    speech data from the minio instance.
 
-    this allows prefetching of metadata, while also 
-    only querying the mlas underlying speech data at the 
+    this allows prefetching of metadata, while also
+    only querying the mlas underlying speech data at the
     runtime for the summarizer.
     """
     bucket = 'speeches'
@@ -56,8 +63,10 @@ def load_data(mysql_client):
                 bucket, file.object_name).read().decode('utf-8')
 
             for sent in sent_tokenize(speeches_from_session):
-                sentence = Sentence(sent.strip(), session)
-
+                # Variables
+                # ---------------------------------------------------------------------------------------------
+                if sent not in null_sentences:
+                    sentence = Sentence(sent.strip(), session)
         yield mla
 
 
