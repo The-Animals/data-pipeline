@@ -21,7 +21,7 @@ def generate_topics_per_mla():
         topic_data = []
         mlas = mysql_client.read_data('SELECT * FROM mlas')
 
-        for mla_id in mlas['Id']:
+        for mla_id, first_name, last_name in zip(mlas['Id'], mlas['FirstName'], mlas['LastName']):
             print(f'creating topics for MLA with id : {mla_id}')
             try:
                 data = mysql_client.read_data(
@@ -33,8 +33,9 @@ def generate_topics_per_mla():
             ta = TopicAnalyzer(corpus, stopwords)
             try:
                 mla_topics = ta.analyze()
+                print(f'Perplexity for {first_name} {last_name} : {ta.perplexity}')
             except Exception as e:
-                print(f'Could not run analysis for id : {mla_id}')
+                print(f'Could not run analysis for id : {first_name} {last_name}')
                 print(e)
 
             for topic_rank, topic_words in enumerate(mla_topics):
