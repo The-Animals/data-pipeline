@@ -12,8 +12,8 @@ stopwords = {word.strip() for word in str(get_data('data', 'stopwords.txt').deco
 def run_jst_analysis(mysqlclient):
     jst_analyzer = JSTAnalyzer(minio_client, mysqlclient, stopwords)
     jst_analyzer.load_training_data()
-    jst_analyzer.load_test_data()
     jst_analyzer.train_model()
+    jst_analyzer.load_test_data()
     jst_analyzer.test_model()
 
 if __name__ == '__main__':

@@ -1,10 +1,13 @@
 import pandas as pd
 import re
-from subprocess import run
+from os import remove
+from subprocess import PIPE, run
 from nltk.stem.snowball import EnglishStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+
+from storage_clients import MinioClient, MySqlClient
 
 """
 Generates JST LDA for a given model using: 
@@ -31,10 +34,14 @@ class JSTAnalyzer:
         self.analyze_model()
 
     def load_training_data(self):
-        self._load_data('training-speeches', './jst/input/training.dat')
+        remove('topic_analysis/jst/input/training.dat')
+        open('topic_analysis/jst/input/training.dat', 'x')
+        self._load_data('training-speeches', 'topic_analysis/jst/input/training.dat')
 
     def load_test_data(self): 
-        self._load_data('test-speeches', './jst/input/test.dat')    
+        remove('topic_analysis/jst/input/test.dat')
+        open('topic_analysis/jst/input/test.dat', 'x')
+        self._load_data('test-speeches', 'topic_analysis/jst/input/test.dat')    
 
     def _load_data(self, bucket, output_file):
         """
@@ -45,7 +52,7 @@ class JSTAnalyzer:
         for index, mla in mla_table.iterrows():
             print(f'loading data for {mla.FirstName} {mla.LastName}')
             # get sessions contained in files
-            files = minio_client.list_objects(
+            files = self._minio_client.list_objects(
                 bucket, prefix=f'{mla.FirstName}_{mla.LastName}', recursive=True)
 
             text = ''
@@ -53,16 +60,16 @@ class JSTAnalyzer:
                 file_text = self._minio_client.get_object(
                     bucket, file.object_name).read().decode('utf-8')
 
-                text += _preprocess(file_text)
+                text += self._preprocess(file_text)
 
-        with open(output_file, 'a') as f:
-            f.write(f'{mla.FirstName}_{mla.LastName} {text}\n')
+            with open(output_file, 'a') as f:
+                f.write(f'{mla.FirstName}_{mla.LastName} {text}\n')
 
     def train_model(self):
-        run(['./jst/Debug/jst', '-est', '-config', 'training.properties'], capture_output=True )
+        run(['topic_analysis/jst/Debug/jst', '-est', '-config', 'topic_analysis/jst/training.properties'])
 
     def test_model(self):
-        run(['./jst/Debug/jst', '-inf', '-config', 'test.properties'], capture_output=True)   
+        run(['topic_analysis/jst/Debug/jst', '-inf', '-config', 'topic_analysis/jst/test.properties'])  
 
     def _preprocess(self, text):
         """
@@ -83,7 +90,7 @@ class JSTAnalyzer:
         stemmer = EnglishStemmer()
         # Lemmatisation
         lem = WordNetLemmatizer()
-        text = [lem.lemmatize(word) for word in text if not lem.lemmatize(word) in stopwords]
+        text = [lem.lemmatize(word) for word in text if not lem.lemmatize(word) in self.stopwords]
         text = " ".join(text)
         text += " "
         return text

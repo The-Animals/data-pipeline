@@ -1,6 +1,8 @@
 # Project specific
 config.ini
 *.dat
+*.o
+*.d
 
 # Mac specific
 .DS_Store
