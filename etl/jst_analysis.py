@@ -9,13 +9,17 @@ minio_client = MinioClient()
 
 stopwords = {word.strip() for word in str(get_data('data', 'stopwords.txt').decode('utf-8')).split('\n')}
 
-def run_jst_analysis(mysqlclient):
-    jst_analyzer = JSTAnalyzer(minio_client, mysqlclient, stopwords)
+def build_jst_model(mysql_client):
+    jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
     jst_analyzer.load_training_data()
     jst_analyzer.train_model()
     jst_analyzer.load_test_data()
     jst_analyzer.test_model()
 
+def run_jst_model(mysql_client):
+    jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
+    jst_analyzer.analyze()
+
 if __name__ == '__main__':
     with MySqlClient() as mysql_client:
-        run_jst_analysis(mysql_client)
+        build_jst_model(mysql_client)
