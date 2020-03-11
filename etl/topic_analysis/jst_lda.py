@@ -67,7 +67,7 @@ class JSTAnalyzer:
             
             if len(text) > 0: 
                 with open(output_file, 'a') as f:
-                    f.write(f'{mla.FirstName}_{mla.LastName} {text}\n')
+                    f.write(f'{mla.Id} {text}\n')
 
     def train_model(self):
         run(['topic_analysis/jst/Debug/jst', '-est', '-config', 'topic_analysis/jst/training.properties'])
