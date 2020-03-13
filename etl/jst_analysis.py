@@ -27,17 +27,17 @@ def train_jst_model(mysql_client):
 def test_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
 
-    remove('topic_analysis/jst/input/test.dat')
-    open('topic_analysis/jst/input/test.dat', 'x')
-
-    jst_analyzer.load_data('test-speeches',
-                            'topic_analysis/jst/input/test.dat')
-
-    jst_analyzer.estimate('test')
-    jst_analyzer.analyze('test')
-    ms = jst_analyzer.measure_of_success('test')
-    print(f'the accuracy of the model is: {ms}')
-
+#    remove('topic_analysis/jst/input/test.dat')
+#    open('topic_analysis/jst/input/test.dat', 'x')
+#
+#    jst_analyzer.load_data('test-speeches',
+#                            'topic_analysis/jst/input/test.dat')
+#
+#    jst_analyzer.estimate('test')
+    total, sim, dif = jst_analyzer.measure_of_success('test')
+    print(f'the total accuracy of the model is: {total}')
+    print(f'the similarity accuracy of the model is: {sim}')
+    print(f'the accuracy of the model is: {dif}')
 
 def analyze_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)

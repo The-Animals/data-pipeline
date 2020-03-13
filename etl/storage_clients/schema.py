@@ -34,7 +34,7 @@ class DbSchema:
         Column('MLAId', Integer, ForeignKey("mlas.Id"))
     )
 
-    comparison = Table('mlacomparision', _metadata,
+    comparison = Table('mlacomparison', _metadata,
         Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('MLAId', Integer, ForeignKey('mlas.Id')),
         Column('MostSimilar', Integer, ForeignKey('mlas.Id')),
