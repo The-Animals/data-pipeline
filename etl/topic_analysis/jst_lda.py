@@ -32,11 +32,11 @@ class JSTAnalyzer:
         self._mysql_client = mysql_client
         self.stopwords = stopwords
 
-    def load_data(self, bucket, output_file):
+    def load_data(self, bucket, output_file, db):
         """
         grab data from the minio instance and load into the jst analyzer.
         """
-        mla_table = self._mysql_client.read_data("SELECT * FROM training.mlas")
+        mla_table = self._mysql_client.read_data(f"SELECT * FROM {db}.mlas")
 
         for index, mla in mla_table.iterrows():
             print(f'loading data for {mla.FirstName} {mla.LastName}')

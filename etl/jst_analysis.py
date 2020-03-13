@@ -46,7 +46,7 @@ def analyze_jst_model(mysql_client):
     open('topic_analysis/jst/input/analyze.dat', 'x')
 
     jst_analyzer.load_data('speeches',
-                            'topic_analysis/jst/input/analyze.dat')
+                            'topic_analysis/jst/input/analyze.dat', 'db')
     jst_analyzer.estimate('analyze')
     jst_analyzer.analyze('analyze')
     ms = jst_analyzer.measure_of_success('db')
