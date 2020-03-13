@@ -2,24 +2,67 @@ import re
 from nltk.stem.snowball import EnglishStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 from pkgutil import get_data
-from storage_clients import MinioClient, MySqlClient
+from os import remove
+from sys import argv
+from storage_clients import MinioClient, MySqlClient, DbSchema
 from topic_analysis import JSTAnalyzer
 
 minio_client = MinioClient()
 
-stopwords = {word.strip() for word in str(get_data('data', 'stopwords.txt').decode('utf-8')).split('\n')}
+stopwords = {word.strip() for word in str(
+    get_data('data', 'stopwords.txt').decode('utf-8')).split('\n')}
 
-def build_jst_model(mysql_client):
+
+def train_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
-    jst_analyzer.load_training_data()
+
+    remove('topic_analysis/jst/input/training.dat')
+    open('topic_analysis/jst/input/training.dat', 'x')
+
+    jst_analyzer.load_data('training-speeches',
+                            'topic_analysis/jst/input/training.dat')
     jst_analyzer.train_model()
-    jst_analyzer.load_test_data()
-    jst_analyzer.test_model()
 
-def run_jst_model(mysql_client):
+
+def test_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
-    jst_analyzer.analyze()
+
+    remove('topic_analysis/jst/input/test.dat')
+    open('topic_analysis/jst/input/test.dat', 'x')
+
+    jst_analyzer.load_data('test-speeches',
+                            'topic_analysis/jst/input/test.dat')
+
+    jst_analyzer.estimate('test')
+    jst_analyzer.analyze('test')
+    ms = jst_analyzer.measure_of_success('test')
+    print(f'the accuracy of the model is: {ms}')
+
+
+def analyze_jst_model(mysql_client):
+    jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
+
+    remove('topic_analysis/jst/input/test.dat')
+    open('topic_analysis/jst/input/test.dat', 'x')
+
+    jst_analyzer.load_data('speeches',
+                            'topic_analysis/jst/input/test.dat')
+    jst_analyzer.estimate('analyze')
+    jst_analyzer.analyze('analyze')
+    ms = jst_analyzer.measure_of_success('db')
+
 
 if __name__ == '__main__':
+    if len(argv) < 2: 
+        print('please specify: one of "train", "test" or "analyze"')
+        exit(1)
+
     with MySqlClient() as mysql_client:
-        build_jst_model(mysql_client)
+        if argv[1] == 'train':
+            train_jst_model(mysql_client)
+        elif argv[1] == 'test':
+            test_jst_model(mysql_client)
+        elif argv[1] == 'analyze': 
+            analyze_jst_model(mysql_client)
+        else: 
+            print(f'unknown argument: {argv[1]}')
