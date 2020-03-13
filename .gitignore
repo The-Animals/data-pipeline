@@ -3,6 +3,10 @@ config.ini
 *.dat
 *.o
 *.d
+*.mk
+*.properties
+etl/topic_analysis/jst/Debug/jst
+etl/topic_analysis/jst/model/*
 
 # Mac specific
 .DS_Store
