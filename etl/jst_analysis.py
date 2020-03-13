@@ -42,11 +42,11 @@ def test_jst_model(mysql_client):
 def analyze_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
 
-    remove('topic_analysis/jst/input/test.dat')
-    open('topic_analysis/jst/input/test.dat', 'x')
+    remove('topic_analysis/jst/input/analyze.dat')
+    open('topic_analysis/jst/input/analyze.dat', 'x')
 
     jst_analyzer.load_data('speeches',
-                            'topic_analysis/jst/input/test.dat')
+                            'topic_analysis/jst/input/analyze.dat')
     jst_analyzer.estimate('analyze')
     jst_analyzer.analyze('analyze')
     ms = jst_analyzer.measure_of_success('db')
