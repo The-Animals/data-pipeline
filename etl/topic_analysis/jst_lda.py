@@ -1,4 +1,5 @@
 import re
+import numpy as np
 import pandas as pd
 from os import remove
 from subprocess import PIPE, run
@@ -6,8 +7,6 @@ from nltk.stem.snowball import EnglishStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
-from numpy import array, roll, subtract
-from numpy.linalg import norm
 
 from storage_clients import MinioClient, MySqlClient, DbSchema
 
@@ -112,12 +111,12 @@ class JSTAnalyzer:
             _, topic_senti1, topic_senti2, _ = d_m.split('\n')
             topic_senti1 = [float(x) for x in topic_senti1.split()]
             topic_senti2 = [float(x) for x in topic_senti2.split()]
-            topic_vec = subtract(topic_senti1, topic_senti2)
-            topic_vec = topic_vec / norm(topic_vec)
+            topic_vec = np.subtract(topic_senti1, topic_senti2)
+            topic_vec = topic_vec / np.linalg.norm(topic_vec)
             mla_ids.append(mla_id)
             vectors.append(topic_vec)
 
-        return mla_ids, array(vectors)
+        return mla_ids, np.array(vectors)
 
     def compute_distances(self, mla_ids, vectors):
         distances = []
@@ -125,7 +124,7 @@ class JSTAnalyzer:
             min_dist = float('inf')
             max_dist = 0
             for j in range(len(mla_ids)):
-                dist = norm(vectors[i] - vectors[j], 2)
+                dist = np.linalg.norm(vectors[i] - vectors[j], 2)
                 if dist < min_dist and i != j:
                     min_dist = dist
                     min_index = j
