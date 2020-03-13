@@ -75,24 +75,23 @@ class JSTAnalyzer:
     def measure_of_success(self, db): 
         sim = self._mysql_client.read_data(f"""
             select count(*) as sim
-            from {db}.mlas as p, {db}.mlas as sim, {db}.similarities as s
+            from {db}.mlas as p, {db}.mlas as sim, {db}.mlacomparison as s
             where s.MLAId = p.Id
             and s.MostSimilar = sim.Id
             and p.Caucus = sim.Caucus;
-        """)
+        """).sim
         dif = self._mysql_client.read_data(f"""
             select count(*) as dif
-            from {db}.mlas as p, {db}.mlas as dis, {db}.similarities as s
+            from {db}.mlas as p, {db}.mlas as dis, {db}.mlacomparison as s
             where s.MLAId = p.Id
             and s.LeastSimilar = dis.Id
             and p.Caucus != dis.Caucus;
-        """)
+        """).dif
         total = self._mysql_client.read_data(f"""
             select count(*) as total
-            from {db}.similarities 
-        """)
-        return sim.sim + dif.dif / total.total*2
-
+            from {db}.mlacomparison
+        """).total
+        return (sim + dif)/(total*2), sim/total, dif/total
 
     def load_estimate(self, theta_file, pi_file):
         pi_regex = r'd_\d+ \d+ [\d. ]+'
