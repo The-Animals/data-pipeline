@@ -8,10 +8,9 @@ class Summarizer():
     damping = config.damping
     _delta = config.delta
 
-    def __init__(self, mla):
-        self._mla = mla
-        self._sentences = self._mla.sentences
-        self._numberOfSentences = self._mla.numberOfSentences
+    def __init__(self, sentences):
+        self._sentences = sentences
+        self._numberOfSentences = len(sentences)
         self._matrix = self.createMatrix(self._sentences, self._numberOfSentences)
         self._ranks = self.powerMethod()
         self.saveRanks(self._sentences, self._ranks)

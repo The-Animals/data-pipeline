@@ -27,7 +27,7 @@ def run_textrank(mysql_client):
     for mla in load_data(mysql_client):
         print(f'processing MLA {i} / 87: {mla.firstname} {mla.lastname}')
         # loads information from minio to list of MLA classes
-        summarizer = Summarizer(mla)
+        summarizer = Summarizer(mla.sentences)
         save_to_sql(mla, table, mysql_client)
         s += mla.numberOfSentences
         i += 1
@@ -47,8 +47,7 @@ def load_data(mysql_client):
     documents = mysql_client.read_data("SELECT Id, DateCode FROM documents")
 
     for index, row in mla_table.iterrows():
-        mla = MLA(row.FirstName, row.LastName, row.Id)
-
+        mla = MLA(row.FirstName, row.LastName, row.Caucus, row.Id)
         # get sessions contained in files
         files = minio_client.list_objects(
             bucket, prefix=f'{mla.firstname}_{mla.lastname}', recursive=True)
@@ -79,7 +78,8 @@ def save_to_sql(mla, table, mysql_client):
                 'MLAId': mla.id,
                 'DocumentId': session.id,
                 'Sentence': str(sentence.text),
-                'MLARank': sentence.rank
+                'MLARank': sentence.rank,
+                'Caucus': mla.caucus
             })
 
     df = DataFrame(summary_info)

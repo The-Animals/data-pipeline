@@ -15,8 +15,10 @@ class Sentence:
         self._rank = 0
 
         self._session = session
-        self._mla = session.mla
-        session.addSentence(self)
+        self._mla = None
+        if session:
+            self._mla = session.mla
+            session.addSentence(self)
 
     @property
     def text(self):
@@ -36,6 +38,10 @@ class Sentence:
 
     @property
     def rank(self):
+        return self._rank
+
+    @property
+    def secondRank(self):
         return self._rank
 
     @property

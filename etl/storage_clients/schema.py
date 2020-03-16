@@ -38,7 +38,8 @@ class DbSchema:
         Column('PartyRank', Integer),
         Column('Sentence', Text),
         Column('DocumentId', Integer, ForeignKey("documents.Id")),
-        Column('MLAId', Integer, ForeignKey("mlas.Id"))
+        Column('MLAId', Integer, ForeignKey("mlas.Id")),
+        Column('Caucus', Text)
     )
 
     topics = Table('topics', _metadata,
