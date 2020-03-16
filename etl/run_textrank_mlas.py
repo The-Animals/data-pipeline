@@ -79,7 +79,7 @@ def save_to_sql(mla, table, mysql_client):
                 'MLAId': mla.id,
                 'DocumentId': session.id,
                 'Sentence': str(sentence.text),
-                'Rank': sentence.rank,
+                'MLARank': sentence.rank
             })
 
     df = DataFrame(summary_info)

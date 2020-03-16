@@ -34,7 +34,8 @@ class DbSchema:
 
     ranks = Table('ranks', _metadata,
         Column('Id', Integer, primary_key=True, autoincrement=True),
-        Column('Rank', Integer),
+        Column('MLARank', Integer),
+        Column('PartyRank', Integer),
         Column('Sentence', Text),
         Column('DocumentId', Integer, ForeignKey("documents.Id")),
         Column('MLAId', Integer, ForeignKey("mlas.Id"))
