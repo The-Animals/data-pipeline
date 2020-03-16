@@ -18,6 +18,12 @@ class DbSchema:
         Column('Email', Text)
     )
 
+    parties = Table('parties', _metadata,
+        Column('Id', Integer, primary_key=True, autoincrement=True),
+        Column('Name', Text),
+        Column('Seats', Integer)
+    )
+
     documents = Table('documents', _metadata,
         Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('DateCode', Text),
