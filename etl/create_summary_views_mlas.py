@@ -8,7 +8,14 @@ def create_views():
                 mysql_client.execute(f'DROP VIEW summaries_{mla_id}')
             except:
                 pass
-            mysql_client.execute(f'CREATE VIEW summaries_{mla_id} AS SELECT * FROM ranks WHERE MLAId = {mla_id} ORDER BY MLARank LIMIT 2000')
+            mysql_client.execute(f"""
+                CREATE VIEW summaries_{mla_id} AS 
+                SELECT r.*, d.Date, d.Url 
+                FROM ranks r, documents d 
+                WHERE r.MLAId = {mla_id}
+                AND r.DocumentId = d.Id
+                ORDER BY MLARank
+            """)
 
 if __name__ == '__main__':
     create_views()
