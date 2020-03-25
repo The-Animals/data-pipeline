@@ -1,3 +1,3 @@
 from __future__ import absolute_import
 
-from .lda import TopicAnalyzer
+from .jst_lda import JSTAnalyzer

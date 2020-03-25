@@ -42,11 +42,11 @@ class DbSchema:
         Column('Caucus', Text)
     )
 
-    topics = Table('topics', _metadata,
+    comparison = Table('mlacomparison', _metadata,
         Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('MLAId', Integer, ForeignKey('mlas.Id')),
-        Column('TopicRank', Integer),
-        Column('Topic', Text)
+        Column('MostSimilar', Integer, ForeignKey('mlas.Id')),
+        Column('LeastSimilar', Integer, ForeignKey('mlas.Id'))
     )
 
     images = Table('images', _metadata,

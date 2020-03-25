@@ -73,8 +73,8 @@ class SpeechParser:
                     speeches[mla].append(speech)
                 else:
                     speeches[mla] = [speech]
-        
-        return speeches    
+
+        return speeches
     
     def postprocess(self, speech): 
         """
