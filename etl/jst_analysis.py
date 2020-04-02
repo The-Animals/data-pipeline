@@ -43,12 +43,12 @@ def test_jst_model(mysql_client):
 def analyze_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
 
-    remove('topic_analysis/jst/input/analyze.dat')
-    open('topic_analysis/jst/input/analyze.dat', 'x')
+    # remove('topic_analysis/jst/input/analyze.dat')
+    # open('topic_analysis/jst/input/analyze.dat', 'x')
 
-    jst_analyzer.load_data('speeches',
-                            'topic_analysis/jst/input/analyze.dat', 'db')
-    jst_analyzer.estimate('analyze')
+    # jst_analyzer.load_data('speeches',
+    #                         'topic_analysis/jst/input/analyze.dat', 'db')
+    # jst_analyzer.estimate('analyze')
     jst_analyzer.analyze('analyze')
     total, sim, dif = jst_analyzer.measure_of_success('db')
     print(f'the total accuracy of the model is: {total}')

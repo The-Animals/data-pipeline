@@ -46,7 +46,9 @@ class DbSchema:
         Column('Id', Integer, primary_key=True, autoincrement=True),
         Column('MLAId', Integer, ForeignKey('mlas.Id')),
         Column('MostSimilar', Integer, ForeignKey('mlas.Id')),
-        Column('LeastSimilar', Integer, ForeignKey('mlas.Id'))
+        Column('MostSimilarDistance', Float),
+        Column('LeastSimilar', Integer, ForeignKey('mlas.Id')),
+        Column('LeastSimilarDistance', Float)
     )
 
     images = Table('images', _metadata,
