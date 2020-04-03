@@ -144,7 +144,6 @@ class JSTAnalyzer:
                 'LeastSimilarDistance': max_dist
             })
 
-        print(distances)
         return pd.DataFrame(distances)
 
     def _preprocess(self, text):
