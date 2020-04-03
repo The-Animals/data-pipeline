@@ -1,7 +1,7 @@
 from pkgutil import get_data
-from pandas import read_csv, Dataframe
+from pandas import read_csv, DataFrame
 from io import StringIO
-from tests.assertions import assert_mla_table_format
+
 
 from storage_clients import MySqlClient, DbSchema
 
@@ -12,7 +12,7 @@ load MLA data from data/mlas.csv
 n_mlas = 87
 
 
-def assert_mla_table_format(df: Dataframe):
+def assert_mla_table_format(df: DataFrame):
     counts = df.count()
     assert counts.FirstName == n_mlas
     assert counts.LastName == n_mlas

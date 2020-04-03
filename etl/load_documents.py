@@ -9,7 +9,7 @@ from pdfminer.pdfdocument import PDFDocument
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFParser
-from pandas import Dataframe
+
 
 from storage_clients import MySqlClient, MinioClient, DbSchema
 from preprocess.webscraping.utils import get_date_code, get_date
@@ -35,7 +35,7 @@ minio instance.
 """
 
 
-def assert_document_table_format(df: Dataframe):
+def assert_document_table_format(df: DataFrame):
     counts = df.count()
     length = df.shape()[0]
 
