@@ -1,4 +1,3 @@
-import requests
 import re
 from html import unescape
 
@@ -20,6 +19,8 @@ class SpeechParser:
     postprocess_replace = [
         (r'\n',         ''),
         (r'[\s]{2,}',   ' '),
+        (r'^\s',        ''),
+        (r'\s$',        '')
     ]
 
     def __init__(self, mlas: set): 

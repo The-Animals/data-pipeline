@@ -121,9 +121,13 @@ class JSTAnalyzer:
     def compute_distances(self, mla_ids, vectors):
         distances = []
         for i in range(len(mla_ids)):
+            if mla_ids[i] == 76:  # Nathan Cooper
+                continue
             min_dist = float('inf')
             max_dist = 0
             for j in range(len(mla_ids)):
+                if mla_ids[j] == 76:  # Nathan Cooper
+                    continue
                 dist = np.linalg.norm(vectors[i] - vectors[j], 2)
                 if dist < min_dist and i != j:
                     min_dist = dist
@@ -135,7 +139,9 @@ class JSTAnalyzer:
             distances.append({
                 'MLAId': mla_ids[i],
                 'MostSimilar': mla_ids[min_index],
+                'MostSimilarDistance': min_dist,
                 'LeastSimilar': mla_ids[max_index],
+                'LeastSimilarDistance': max_dist
             })
 
         return pd.DataFrame(distances)

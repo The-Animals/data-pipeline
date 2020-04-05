@@ -14,6 +14,8 @@ if __name__ == '__main__':
 
     images = get_images(IMAGES_URL)
 
+    assert len(images) == 87  # number of MLAs
+
     for image in images:
         name = image["Name"]
         url = image["URL"]

@@ -4,7 +4,7 @@ import nltk
 
 class Sentence:
 
-    def __init__(self, text, session, id=None):
+    def __init__(self, text, session=None, id=None):
         self._text = text
         self._id = id
         self._stopwords = config.stopwords
