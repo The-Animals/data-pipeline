@@ -4,11 +4,11 @@ config.ini
 *.o
 *.d
 *.mk
-*.properties
 etl/topic_analysis/jst/Debug/jst
 etl/topic_analysis/jst/model/*
 etl/topic_analysis/jst/test/*
 etl/topic_analysis/jst/analyze/*
+.vscode
 
 # Mac specific
 .DS_Store

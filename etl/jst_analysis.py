@@ -20,7 +20,7 @@ def train_jst_model(mysql_client):
     open('topic_analysis/jst/input/training.dat', 'x')
 
     jst_analyzer.load_data('training-speeches',
-                            'topic_analysis/jst/input/training.dat')
+                            'topic_analysis/jst/input/training.dat', 'train')
     jst_analyzer.train_model()
 
 
@@ -31,7 +31,7 @@ def test_jst_model(mysql_client):
     open('topic_analysis/jst/input/test.dat', 'x')
 
     jst_analyzer.load_data('test-speeches',
-                            'topic_analysis/jst/input/test.dat')
+                            'topic_analysis/jst/input/test.dat', 'test')
 
     jst_analyzer.estimate('test')
     jst_analyzer.analyze('test')
@@ -40,15 +40,16 @@ def test_jst_model(mysql_client):
     print(f'the similarity accuracy of the model is: {sim}')
     print(f'the accuracy of the model is: {dif}')
 
+
 def analyze_jst_model(mysql_client):
     jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
 
-    # remove('topic_analysis/jst/input/analyze.dat')
-    # open('topic_analysis/jst/input/analyze.dat', 'x')
+    remove('topic_analysis/jst/input/analyze.dat')
+    open('topic_analysis/jst/input/analyze.dat', 'x')
 
-    # jst_analyzer.load_data('speeches',
-    #                         'topic_analysis/jst/input/analyze.dat', 'db')
-    # jst_analyzer.estimate('analyze')
+    jst_analyzer.load_data('speeches',
+                            'topic_analysis/jst/input/analyze.dat', 'db')
+    jst_analyzer.estimate('analyze')
     jst_analyzer.analyze('analyze')
     total, sim, dif = jst_analyzer.measure_of_success('db')
     print(f'the total accuracy of the model is: {total}')
@@ -60,13 +61,14 @@ if __name__ == '__main__':
     if len(argv) < 2: 
         print('please specify: one of "train", "test" or "analyze"')
         exit(1)
-
-    with MySqlClient() as mysql_client:
-        if argv[1] == 'train':
+    if argv[1] == 'train':
+        with MySqlClient('train') as mysql_client:
             train_jst_model(mysql_client)
-        elif argv[1] == 'test':
+    elif argv[1] == 'test':
+        with MySqlClient('test') as mysql_client: 
             test_jst_model(mysql_client)
-        elif argv[1] == 'analyze': 
+    elif argv[1] == 'analyze': 
+        with MySqlClient() as mysql_client: 
             analyze_jst_model(mysql_client)
-        else: 
-            print(f'unknown argument: {argv[1]}')
+    else: 
+        print(f'unknown argument: {argv[1]}')
