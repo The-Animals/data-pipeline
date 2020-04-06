@@ -56,6 +56,20 @@ def analyze_jst_model(mysql_client):
     print(f'the similarity accuracy of the model is: {sim}')
     print(f'the accuracy of the model is: {dif}')
 
+def mos_test(mysql_client):
+    jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
+    total, sim, dif = jst_analyzer.measure_of_success('test')
+    print(f'the total accuracy of the model is: {total}')
+    print(f'the similarity accuracy of the model is: {sim}')
+    print(f'the accuracy of the model is: {dif}')
+
+def mos(mysql_client):
+    jst_analyzer = JSTAnalyzer(minio_client, mysql_client, stopwords)
+    total, sim, dif = jst_analyzer.measure_of_success('db')
+    print(f'the total accuracy of the model is: {total}')
+    print(f'the similarity accuracy of the model is: {sim}')
+    print(f'the accuracy of the model is: {dif}')
+
 
 if __name__ == '__main__':
     if len(argv) < 2: 
@@ -70,5 +84,11 @@ if __name__ == '__main__':
     elif argv[1] == 'analyze': 
         with MySqlClient() as mysql_client: 
             analyze_jst_model(mysql_client)
+    elif argv[1] == 'mos_test': 
+        with MySqlClient() as mysql_client:
+            mos_test(mysql_client)
+    elif argv[1] == 'mos':
+        with MySqlClient() as mysql_client:
+            mos(mysql_client)
     else: 
         print(f'unknown argument: {argv[1]}')
