@@ -11,6 +11,8 @@ class Summarizer():
     def __init__(self, sentences):
         self._sentences = sentences
         self._numberOfSentences = len(sentences)
+        if self._numberOfSentences == 0:
+            return
         self._matrix = self.createMatrix(self._sentences, self._numberOfSentences)
         self._ranks = self.powerMethod()
         self.saveRanks(self._sentences, self._ranks)

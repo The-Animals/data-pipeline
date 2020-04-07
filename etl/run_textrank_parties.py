@@ -14,7 +14,7 @@ import time
 
 #minio_client = MinioClient()
 #null_sentences = {sentence.strip() for sentence in str(get_data('data', 'sentences.txt').decode('utf-8')).split('\n')}
-number_of_sentences = 2
+number_of_sentences = 20
 
 def run_textrank(mysql_client):
     table = DbSchema.ranks

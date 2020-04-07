@@ -45,7 +45,6 @@ def load_data(mysql_client):
     bucket = 'speeches'
     mla_table = mysql_client.read_data("SELECT * FROM mlas")
     documents = mysql_client.read_data("SELECT Id, DateCode FROM documents")
-
     for index, row in mla_table.iterrows():
         mla = MLA(row.FirstName, row.LastName, row.Caucus, row.Id)
         # get sessions contained in files
@@ -64,8 +63,9 @@ def load_data(mysql_client):
             for sent in sent_tokenize(speeches_from_session):
                 # Variables
                 # ---------------------------------------------------------------------------------------------
-                if sent not in null_sentences:
-                    sentence = Sentence(sent.strip(), session)
+                s = sent.strip()
+                if s not in null_sentences:
+                    sentence = Sentence(s, session)
         yield mla
 
 
