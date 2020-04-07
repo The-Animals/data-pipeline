@@ -1,3 +1,5 @@
+# REQ 4.1.3.1 (REQ1) Download raw HTML transcript from Hansard (changed to PDF)
+
 import requests
 from selenium.webdriver.common.by import By
 from pandas import DataFrame
@@ -15,8 +17,8 @@ from storage_clients import MySqlClient, MinioClient, DbSchema
 from preprocess.webscraping.utils import get_date_code, get_date
 
 """
-1.  Get pdf document urls from the hansard website and store them in the 
-    database in the 'documents' table. 
+1.  Get pdf document urls from the hansard website and store them in the
+    database in the 'documents' table.
 
 2.  from url, download the pdf document
 
@@ -29,9 +31,9 @@ from preprocess.webscraping.utils import get_date_code, get_date
 HANSARD_SESSION_URL = 'https://www.assembly.ab.ca/net/index.aspx?p=han&section=doc&fid=1'
 
 """
-Take document URLs from the documents table, download the pdfs, 
-run them through a pdf -> text parser and store the raw text in the 
-minio instance. 
+Take document URLs from the documents table, download the pdfs,
+run them through a pdf -> text parser and store the raw text in the
+minio instance.
 """
 
 
@@ -75,7 +77,7 @@ def parse_pdfs(documents):
 
 def get_urls():
     """
-    Get all transcript URLs that are currently available at the main hansard page. 
+    Get all transcript URLs that are currently available at the main hansard page.
 
     Returns a data frame that contains date info related to the document
     """

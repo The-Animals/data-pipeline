@@ -1,3 +1,7 @@
+# REQ 4.2.3.1 (REQ4) Cache TextRank information for future runs where we can compare against an existing sample set instead of regenerating the TextRank graph (this feature has been removed, instead textrank is just regenerated each time)
+# REQ 4.2.3.3 (REQ6) Generate sentence summarization graphs of all MLAs using TextRank algorithm
+# REQ 4.3.3.3 (REQ9) Get top N sentences from sentence summarization generated over a political party. These top N sentences should be generated based on the top N sentences of all MLAs in that political party.
+
 import re
 
 from storage_clients import MySqlClient, MinioClient

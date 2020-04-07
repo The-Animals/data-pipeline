@@ -1,3 +1,7 @@
+# REQ 4.2.3.1 (REQ4) Chache TextRank information for future runs where we can compare against an existing sample set instead of regenerating the TextRank graph (this feature has been removed, instead textrank is just regenerated each time)
+# REQ 4.2.3.2 (REQ5) Generate sentence summarization graphs of all MLAs using TextRank algorithm
+# REQ 4.3.3.1 (REQ7) Get top N sentences from sentence summarization generated per MLA
+
 import re
 
 from storage_clients import MySqlClient, MinioClient
