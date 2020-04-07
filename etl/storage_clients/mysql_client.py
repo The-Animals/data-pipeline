@@ -7,12 +7,12 @@ from pathlib import Path
 
 class MySqlClient(object):
 
-    def __init__(self):
+    def __init__(self, db=None):
         config = get_config()
         self._sql_host = config['mysql']['host']
         self._sql_user = config['mysql']['user']
         self._sql_password = config['mysql']['password']
-        self._sql_db = config['mysql']['db']
+        self._sql_db = config['mysql']['db'] if db is None else db
         self._sql_port = int(config['mysql']['port'])
 
         self._ssh_host = config['ssh']['host']
