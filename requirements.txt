@@ -1,0 +1,7 @@
+minio
+configparser
+pandas
+pymysql 
+sqlalchemy
+sshtunnel
+pytest

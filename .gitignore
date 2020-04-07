@@ -1,3 +1,18 @@
+# Project specific
+config.ini
+*.dat
+*.o
+*.d
+*.mk
+etl/topic_analysis/jst/Debug/jst
+etl/topic_analysis/jst/model/*
+etl/topic_analysis/jst/test/*
+etl/topic_analysis/jst/analyze/*
+.vscode
+
+# Mac specific
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +142,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+chromedriver.exe
+
