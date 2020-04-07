@@ -1,3 +1,5 @@
+# REQ 4.3.3.5 (REQ11) Most similar and/or most dissimilar MLA based on sentiment/content analysis of summarizing quotes
+
 import re
 from nltk.stem.snowball import EnglishStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -72,23 +74,23 @@ def mos(mysql_client):
 
 
 if __name__ == '__main__':
-    if len(argv) < 2: 
+    if len(argv) < 2:
         print('please specify: one of "train", "test" or "analyze"')
         exit(1)
     if argv[1] == 'train':
         with MySqlClient('train') as mysql_client:
             train_jst_model(mysql_client)
     elif argv[1] == 'test':
-        with MySqlClient('test') as mysql_client: 
+        with MySqlClient('test') as mysql_client:
             test_jst_model(mysql_client)
-    elif argv[1] == 'analyze': 
-        with MySqlClient() as mysql_client: 
+    elif argv[1] == 'analyze':
+        with MySqlClient() as mysql_client:
             analyze_jst_model(mysql_client)
-    elif argv[1] == 'mos_test': 
+    elif argv[1] == 'mos_test':
         with MySqlClient() as mysql_client:
             mos_test(mysql_client)
     elif argv[1] == 'mos':
         with MySqlClient() as mysql_client:
             mos(mysql_client)
-    else: 
+    else:
         print(f'unknown argument: {argv[1]}')

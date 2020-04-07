@@ -1,3 +1,6 @@
+# REQ 4.1.3.2 (REQ2) Extract individual speeches and tag them with meta-data
+# REQ 4.1.3.3 (REQ3) Store individual speeches in file/blob storage. Store meta-data in SQL table.
+
 from io import BytesIO
 
 from storage_clients import MinioClient
@@ -7,10 +10,10 @@ from preprocess.speech_parser import SpeechParser
 minio_client = MinioClient()
 
 """
-From raw text objects contained in the MinIO instance, 
-parse out the speeches and attribute them to the different 
-MLAs. Store speeches back in the MinIO instance attributed 
-to the MLA that said them. 
+From raw text objects contained in the MinIO instance,
+parse out the speeches and attribute them to the different
+MLAs. Store speeches back in the MinIO instance attributed
+to the MLA that said them.
 """
 
 
