@@ -3,7 +3,6 @@ config.ini
 *.dat
 *.o
 *.d
-*.mk
 etl/topic_analysis/jst/Debug/jst
 etl/topic_analysis/jst/model/*
 etl/topic_analysis/jst/test/*
