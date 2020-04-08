@@ -5,3 +5,7 @@ pymysql
 sqlalchemy
 sshtunnel
 pytest
+nltk
+sumy
+selenium
+pdfminer
