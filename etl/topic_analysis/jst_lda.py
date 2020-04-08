@@ -5,8 +5,6 @@ from os import remove
 from subprocess import PIPE, run
 from nltk.stem.snowball import EnglishStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
 
 from storage_clients import MinioClient, MySqlClient, DbSchema
 
@@ -31,11 +29,11 @@ class JSTAnalyzer:
         self._mysql_client = mysql_client
         self.stopwords = stopwords
 
-    def load_data(self, bucket, output_file, db):
+    def load_data(self, bucket, output_file):
         """
         grab data from the minio instance and load into the jst analyzer.
         """
-        mla_table = self._mysql_client.read_data(f"SELECT * FROM {db}.mlas")
+        mla_table = self._mysql_client.read_data(f"SELECT * FROM mlas")
 
         for index, mla in mla_table.iterrows():
             print(f'loading data for {mla.FirstName} {mla.LastName}')
