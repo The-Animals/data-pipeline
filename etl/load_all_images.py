@@ -8,6 +8,9 @@ IMAGES_URL ='http://www.assembly.ab.ca/net/index.aspx?p=mla_report&memPhoto=True
 
 minio_client = MinioClient()
 
+if not minio_client.bucket_exists('images'):
+    minio_client.make_bucket("images")
+
 if __name__ == '__main__':
     if len(argv) == 2:
         IMAGES_URL = argv[1]

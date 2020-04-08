@@ -9,6 +9,9 @@ from preprocess.speech_parser import SpeechParser
 
 minio_client = MinioClient()
 
+if not minio_client.bucket_exists('speeches'):
+    minio_client.make_bucket("speeches")
+
 """
 From raw text objects contained in the MinIO instance,
 parse out the speeches and attribute them to the different

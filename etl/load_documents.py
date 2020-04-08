@@ -39,7 +39,7 @@ minio instance.
 
 def assert_document_table_format(df: DataFrame):
     counts = df.count()
-    length = df.shape()[0]
+    length = df.shape[0]
 
     assert counts.DateCode == length
     assert counts.DateString == length
@@ -67,10 +67,15 @@ def parse_pdfs(documents):
 
     minio_client = MinioClient()
 
+    try:
+        minio_client.make_bucket("rawtext")
+    except ResponseError as err:
+        pass
+
     for date_code, url in zip(documents['DateCode'], documents['Url']):
         raw_text = raw_text_from_pdf(url)
-        assert len(raw_text) > 0
         length = raw_text.getbuffer().nbytes
+        assert length > 0
         minio_client.remove_object("rawtext", date_code)
         minio_client.put_object("rawtext", date_code, raw_text, length)
 

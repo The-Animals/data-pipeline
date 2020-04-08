@@ -1,4 +1,5 @@
 from datetime import datetime
+from selenium.webdriver.common.by import By
 
 time_of_day = {
     "Morning": (9, 0),
@@ -62,6 +63,7 @@ def get_images(images_url):
 
     Returns a data fame that contains date info related to the document
     """
+    from preprocess.webscraping.selenium_driver import driver
     driver.navigate(images_url)
 
     image_links = driver.get_elements((By.XPATH, "//div[@class='member']/img"))
