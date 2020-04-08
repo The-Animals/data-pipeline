@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Setup server for data-pipeline 
+# Setup server for data-pipeline
 # install MinIO and MySQL
 
 # Setup MINio
@@ -9,7 +9,9 @@ sudo chmod +x minio
 sudo mkdir /data
 sudo chown ubuntu /data && sudo chmod u+rxw /data
 
-# get MySQL 
-sudo apt-get update 
+# get MySQL
+sudo apt-get update
 sudo apt-get install mysql-server
 
+# get Nginx server
+sudo apt-get install nginx
